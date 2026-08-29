@@ -1,7 +1,7 @@
 [project]
 name = "rpaper-worker"
 version = "0.1.0"
-description = "Isolated Docling extraction worker for Rpaper"
+description = "Adaptive MinerU, GROBID, and Docling extraction worker for Rpaper"
 requires-python = ">=3.12,<3.13"
 dependencies = [
   "docling==2.67.0",
@@ -11,6 +11,9 @@ dependencies = [
   "psycopg[binary]==3.3.2",
   "requests==2.32.5",
 ]
+
+[tool.setuptools]
+py-modules = ["modal_app", "normalizer"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

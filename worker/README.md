@@ -1,6 +1,10 @@
-# Rpaper parser worker
+# Rpaper adaptive parser worker
 
-The worker runs Docling and LibreOffice in an isolated Modal T4 container. It downloads only owner-scoped source objects, writes the normalized manifest and assets back to private Supabase Storage, and updates job state through private PostgreSQL functions.
+The controller validates and converts uploads, then runs MinerU 3.4 on a Modal
+L4 GPU. GROBID repairs scholarly metadata and references in parallel. If MinerU
+fails, the job falls back to Docling 2.67 on a T4 GPU. The normalized manifest,
+original figure crops, parser provenance, quality checks, and assets are committed
+atomically through a private PostgreSQL function.
 
 ## Configure
 
@@ -24,7 +28,8 @@ openssl rand -hex 32
 - Get `SUPABASE_SECRET_KEY` from **Project Settings → API Keys**. Use a secret
   key, never a publishable key.
 - Get `SUPABASE_DB_URL` from **Connect → Transaction pooler** and keep
-  `sslmode=require` in the URL.
+  `sslmode=require` in the URL. If the database password contains reserved URL
+  characters such as `@`, percent-encode the password before saving the URL.
 - Paste the generated random value into `WORKER_CALLBACK_SECRET`.
 
 Create the encrypted Modal secret without placing values on the command line:
@@ -33,7 +38,7 @@ Create the encrypted Modal secret without placing values on the command line:
 modal secret create rpaper-worker-secrets --from-dotenv .env.modal.local
 ```
 
-Create a Modal Proxy Token, deploy with `modal deploy modal_app.py`, and copy the endpoint plus proxy token pair into the Vercel environment. Set the Modal workspace usage budget to `$25` before accepting uploads.
+Create a Modal Proxy Token, deploy with `modal deploy modal_app.py`, and copy the endpoint plus proxy token pair into the Vercel environment. Set a Modal workspace usage budget before accepting uploads. The adaptive worker uses an L4 for MinerU and a T4 only when Docling fallback is required.
 
 ## Deploy
 
