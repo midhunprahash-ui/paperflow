@@ -1,0 +1,18 @@
+"use client";
+
+import { Moon, Sun } from "lucide-react";
+
+export function ThemeToggle() {
+  function toggleTheme() {
+    const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem("rpaper-theme", next);
+  }
+
+  return (
+    <button className="icon-button theme-toggle" type="button" onClick={toggleTheme} aria-label="Toggle light and dark theme">
+      <Moon className="theme-icon-light" size={18} />
+      <Sun className="theme-icon-dark" size={18} />
+    </button>
+  );
+}
