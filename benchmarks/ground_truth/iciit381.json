@@ -1,0 +1,70 @@
+{
+  "document": "381_ICITIIT2026_Camera-Ready-Paper.pdf",
+  "pages": 6,
+  "title": "Enhancing Transformer-Based Hidden Suicidal Intention Detection with Sequential Modeling and Psycholinguistic Feature Fusion",
+  "authors": [
+    "Midhun Prahash S.R",
+    "Rhea Alphonsa Jose",
+    "Sam V. George"
+  ],
+  "sections": [
+    "Abstract",
+    "Keywords",
+    "Introduction",
+    "Related Works",
+    "Methodology",
+    "Model Architectures",
+    "Experiments and Results",
+    "Limitations & Deployment Safeguards",
+    "Conclusion",
+    "Acknowledgement",
+    "References"
+  ],
+  "figures": 4,
+  "equations": 7,
+  "references": 22,
+  "table": {
+    "label": "TABLE I",
+    "rows": 7,
+    "headers": [
+      "Model",
+      "Accuracy",
+      "F1",
+      "Precision",
+      "Recall",
+      "Training Time (S)",
+      "Model Size (MB)"
+    ]
+  },
+  "equation_anchors": [
+    "DistilBERT",
+    "H_{t-1}",
+    "H_{t+1}",
+    "F_{bilstm}",
+    "F_{liwc}",
+    "F_{combined}",
+    "1+e^{-z}"
+  ],
+  "reference_anchors": [
+    "Vaswani",
+    "Devlin",
+    "Sanh",
+    "Pennebaker"
+  ],
+  "reading_order": [
+    "Integrating Linguistic Features",
+    "Midhun Prahash",
+    "Abstract",
+    "Keywords",
+    "Introduction"
+  ],
+  "weights": {
+    "reading_order": 25,
+    "metadata": 15,
+    "headings": 10,
+    "equations": 20,
+    "table": 10,
+    "figures": 10,
+    "references": 10
+  }
+}
