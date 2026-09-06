@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { buildHeadingOutline, PaperReader, safeUrl } from "./paper-reader";
+import { buildHeadingOutline, PaperReader, repairSplitSmallCapsHeading, safeUrl } from "./paper-reader";
 import { demoPaper } from "@/lib/demo";
 
 describe("PaperReader", () => {
@@ -33,5 +33,13 @@ describe("PaperReader", () => {
       { sectionNumber: "3", label: "Sources", displayLevel: 1 },
       { sectionNumber: undefined, label: "Primary dataset", displayLevel: 2 },
     ]);
+  });
+
+  it("repairs split small-caps words without joining legitimate heading words", () => {
+    expect(repairSplitSmallCapsHeading("VIII. A CKNOWLEDGEMENT")).toBe("VIII. ACKNOWLEDGEMENT");
+    expect(repairSplitSmallCapsHeading("VI. L IMITATIONS & DEPLOYMENT SAFEGUARDS")).toBe(
+      "VI. LIMITATIONS & DEPLOYMENT SAFEGUARDS",
+    );
+    expect(repairSplitSmallCapsHeading("A NEW METHOD")).toBe("A NEW METHOD");
   });
 });

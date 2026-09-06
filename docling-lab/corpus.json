@@ -1,0 +1,8 @@
+[
+  {"id":"camera-ready","source":"user-provided","layout":"IEEE two-column, Roman sections, lettered subsections, equations, table, figures","local_path":"/Users/midhun/Documents/My/Research Papers/Conferences/ICIIT2026-IIIT Kottayam/Final Drafts/381_ICITIIT2026_Camera-Ready-Paper.pdf"},
+  {"id":"attention","source":"https://arxiv.org/abs/1706.03762","url":"https://arxiv.org/pdf/1706.03762","layout":"NeurIPS single-column, three-level numbered sections, equations, merged tables, diagrams"},
+  {"id":"resnet","source":"https://openaccess.thecvf.com/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html","url":"https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf","layout":"CVPR two-column, equations, wide tables, figures"},
+  {"id":"scikit-learn","source":"https://www.jmlr.org/papers/v12/pedregosa11a.html","url":"https://www.jmlr.org/papers/volume12/pedregosa11a/pedregosa11a.pdf","layout":"JMLR single-column, author blocks, table, code, author-year references"},
+  {"id":"bert","source":"https://aclanthology.org/N19-1423/","url":"https://aclanthology.org/N19-1423.pdf","layout":"ACL two-column, appendices, footnotes, tables, mixed heading conventions"},
+  {"id":"alexnet","source":"https://www.cs.toronto.edu/~kriz/imagenet_classification_with_deep_convolutional.pdf","url":"https://www.cs.toronto.edu/~kriz/imagenet_classification_with_deep_convolutional.pdf","layout":"NeurIPS single-column, numbered subsections, inline math, equations, figures"}
+]

@@ -1,0 +1,7 @@
+.venv/
+.wheels/
+inputs/
+outputs/
+logs/
+.pytest_cache/
+__pycache__/

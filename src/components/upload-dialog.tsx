@@ -7,7 +7,7 @@ import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 
 const MAX_FILE_BYTES = 25 * 1024 * 1024;
-const acceptedTypes = ["application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
+const acceptedTypes = ["application/pdf", ""];
 
 type UploadContract = { document_id: number; document_ref: string; storage_path: string };
 
@@ -23,9 +23,9 @@ export function UploadDialog() {
   function chooseFile(candidate?: File) {
     if (!candidate) return;
     setError(null);
-    const extensionOk = candidate.name.toLowerCase().endsWith(".pdf") || candidate.name.toLowerCase().endsWith(".docx");
+    const extensionOk = candidate.name.toLowerCase().endsWith(".pdf");
     if (!extensionOk || !acceptedTypes.includes(candidate.type)) {
-      setError("Choose a PDF or DOCX research paper.");
+      setError("Choose a PDF research paper. Export Word documents as PDF first.");
       return;
     }
     if (candidate.size > MAX_FILE_BYTES) {
@@ -48,7 +48,7 @@ export function UploadDialog() {
 
     const supabase = createClient();
     if (!supabase) return;
-    const mediaType = file.name.toLowerCase().endsWith(".pdf") ? "pdf" : "docx";
+    const mediaType = "pdf";
     const { data, error: createError } = await supabase.rpc("create_document_upload", {
       p_filename: file.name,
       p_media_type: mediaType,
@@ -63,7 +63,7 @@ export function UploadDialog() {
 
     const contract = data as UploadContract;
     const { error: uploadError } = await supabase.storage.from("research-documents").upload(contract.storage_path, file, {
-      contentType: file.type,
+      contentType: "application/pdf",
       cacheControl: "3600",
       upsert: false,
     });
@@ -112,7 +112,7 @@ export function UploadDialog() {
         <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget && !busy) setOpen(false); }}>
           <section className="upload-dialog" role="dialog" aria-modal="true" aria-labelledby="upload-title">
             <button className="modal-close" type="button" onClick={() => setOpen(false)} disabled={busy} aria-label="Close"><X size={19} /></button>
-            <div className="upload-heading"><span className="upload-icon"><UploadCloud size={22} /></span><h2 id="upload-title">Add a research paper</h2><p>We’ll preserve the full document and prepare a calmer reading version.</p></div>
+            <div className="upload-heading"><span className="upload-icon"><UploadCloud size={22} /></span><h2 id="upload-title">Add a research paper</h2><p>We’ll extract a reading copy and keep your original PDF for figures, tables, and equations.</p></div>
             <div
               className={`drop-zone${dragging ? " is-dragging" : ""}${file ? " has-file" : ""}`}
               onDragOver={(event) => { event.preventDefault(); setDragging(true); }}
@@ -122,9 +122,9 @@ export function UploadDialog() {
               {file ? (
                 <div className="selected-file"><FileText size={28} /><div><strong>{file.name}</strong><span>{formatBytes(file.size)} · Ready to upload</span></div><button type="button" onClick={() => setFile(null)} disabled={busy}>Change</button></div>
               ) : (
-                <><UploadCloud size={30} /><strong>Drop your paper here</strong><span>PDF or DOCX, up to 25 MB and 100 pages</span><button className="button button-secondary button-small" type="button" onClick={() => inputRef.current?.click()}>Choose file</button></>
+                <><UploadCloud size={30} /><strong>Drop your paper here</strong><span>PDF, up to 25 MB and 100 pages</span><button className="button button-secondary button-small" type="button" onClick={() => inputRef.current?.click()}>Choose file</button></>
               )}
-              <input ref={inputRef} hidden type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" onChange={(event: ChangeEvent<HTMLInputElement>) => chooseFile(event.target.files?.[0])} />
+              <input ref={inputRef} hidden type="file" accept=".pdf,application/pdf" onChange={(event: ChangeEvent<HTMLInputElement>) => chooseFile(event.target.files?.[0])} />
             </div>
             {error && <p className="upload-error" role="alert">{error}</p>}
             <div className="upload-footer"><span>Your original stays private.</span><button className="button button-primary" type="button" onClick={upload} disabled={!file || busy}>{busy ? <><LoaderCircle className="spin" size={18} />Uploading…</> : "Upload and parse"}</button></div>

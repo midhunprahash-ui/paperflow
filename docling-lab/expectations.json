@@ -1,0 +1,551 @@
+{
+  "camera-ready": {
+    "pages": 6,
+    "figures": 4,
+    "tables": 1,
+    "headings": [
+      [
+        1,
+        "INTRODUCTION"
+      ],
+      [
+        1,
+        "RELATED WORKS"
+      ],
+      [
+        1,
+        "METHODOLOGY"
+      ],
+      [
+        2,
+        "Dataset Curation"
+      ],
+      [
+        2,
+        "Psycholinguistic Feature Engineering"
+      ],
+      [
+        1,
+        "MODEL ARCHITECTURES"
+      ],
+      [
+        2,
+        "Mathematical Formalisms"
+      ],
+      [
+        1,
+        "EXPERIMENTS AND RESULTS"
+      ],
+      [
+        2,
+        "Evaluation Metrices"
+      ],
+      [
+        2,
+        "Results"
+      ],
+      [
+        2,
+        "Visual Analysis"
+      ],
+      [
+        1,
+        "LIMITATIONS"
+      ],
+      [
+        1,
+        "CONCLUSION"
+      ],
+      [
+        1,
+        "ACKNOWLEDGEMENT"
+      ],
+      [
+        1,
+        "REFERENCES"
+      ]
+    ]
+  },
+  "attention": {
+    "pages": 15,
+    "figures": 5,
+    "tables": 4,
+    "headings": [
+      [
+        1,
+        "Abstract"
+      ],
+      [
+        1,
+        "Introduction"
+      ],
+      [
+        1,
+        "Background"
+      ],
+      [
+        1,
+        "Model Architecture"
+      ],
+      [
+        2,
+        "Encoder and Decoder Stacks"
+      ],
+      [
+        2,
+        "Attention"
+      ],
+      [
+        3,
+        "Scaled Dot-Product Attention"
+      ],
+      [
+        3,
+        "Multi-Head Attention"
+      ],
+      [
+        3,
+        "Applications of Attention"
+      ],
+      [
+        2,
+        "Position-wise Feed-Forward Networks"
+      ],
+      [
+        2,
+        "Embeddings and Softmax"
+      ],
+      [
+        2,
+        "Positional Encoding"
+      ],
+      [
+        1,
+        "Why Self-Attention"
+      ],
+      [
+        1,
+        "Training"
+      ],
+      [
+        1,
+        "Results"
+      ],
+      [
+        1,
+        "Conclusion"
+      ],
+      [
+        1,
+        "References"
+      ]
+    ]
+  },
+  "resnet": {
+    "pages": 9,
+    "figures": 7,
+    "tables": 8,
+    "headings": [
+      [
+        1,
+        "Abstract"
+      ],
+      [
+        1,
+        "Introduction"
+      ],
+      [
+        1,
+        "Related Work"
+      ],
+      [
+        1,
+        "Deep Residual Learning"
+      ],
+      [
+        2,
+        "Residual Learning"
+      ],
+      [
+        2,
+        "Identity Mapping by Shortcuts"
+      ],
+      [
+        2,
+        "Network Architectures"
+      ],
+      [
+        2,
+        "Implementation"
+      ],
+      [
+        1,
+        "Experiments"
+      ],
+      [
+        2,
+        "ImageNet Classification"
+      ],
+      [
+        2,
+        "CIFAR-10 and Analysis"
+      ],
+      [
+        2,
+        "Object Detection"
+      ],
+      [
+        1,
+        "References"
+      ]
+    ]
+  },
+  "scikit-learn": {
+    "pages": 6,
+    "figures": 0,
+    "tables": 1,
+    "headings": [
+      [
+        1,
+        "Abstract"
+      ],
+      [
+        1,
+        "Introduction"
+      ],
+      [
+        1,
+        "Project Vision"
+      ],
+      [
+        1,
+        "Underlying Technologies"
+      ],
+      [
+        1,
+        "Code Design"
+      ],
+      [
+        1,
+        "High-level yet Efficient"
+      ],
+      [
+        1,
+        "Conclusion"
+      ],
+      [
+        1,
+        "References"
+      ]
+    ]
+  },
+  "bert": {
+    "pages": 16,
+    "headings": [
+      [
+        1,
+        "Abstract"
+      ],
+      [
+        1,
+        "Introduction"
+      ],
+      [
+        1,
+        "Related Work"
+      ],
+      [
+        2,
+        "Unsupervised Feature-based Approaches"
+      ],
+      [
+        2,
+        "Unsupervised Fine-tuning Approaches"
+      ],
+      [
+        2,
+        "Transfer Learning from Supervised Data"
+      ],
+      [
+        1,
+        "BERT"
+      ],
+      [
+        2,
+        "Pre-training BERT"
+      ],
+      [
+        2,
+        "Fine-tuning BERT"
+      ],
+      [
+        1,
+        "Experiments"
+      ],
+      [
+        1,
+        "Ablation Studies"
+      ],
+      [
+        1,
+        "Conclusion"
+      ],
+      [
+        1,
+        "References"
+      ],
+      [
+        1,
+        "Additional Details for BERT"
+      ],
+      [
+        2,
+        "Illustration of the Pre-training Tasks"
+      ],
+      [
+        2,
+        "Pre-training Procedure"
+      ],
+      [
+        2,
+        "Fine-tuning Procedure"
+      ],
+      [
+        2,
+        "Comparison of BERT"
+      ],
+      [
+        1,
+        "Detailed Experimental Setup"
+      ],
+      [
+        1,
+        "Additional Ablation Studies"
+      ]
+    ]
+  },
+  "alexnet": {
+    "pages": 9,
+    "figures": 4,
+    "tables": 2,
+    "headings": [
+      [
+        1,
+        "Abstract"
+      ],
+      [
+        1,
+        "Introduction"
+      ],
+      [
+        1,
+        "The Dataset"
+      ],
+      [
+        1,
+        "The Architecture"
+      ],
+      [
+        2,
+        "ReLU Nonlinearity"
+      ],
+      [
+        2,
+        "Training on Multiple GPUs"
+      ],
+      [
+        2,
+        "Local Response Normalization"
+      ],
+      [
+        2,
+        "Overlapping Pooling"
+      ],
+      [
+        2,
+        "Overall Architecture"
+      ],
+      [
+        1,
+        "Reducing Overfitting"
+      ],
+      [
+        2,
+        "Data Augmentation"
+      ],
+      [
+        2,
+        "Dropout"
+      ],
+      [
+        1,
+        "Details of learning"
+      ],
+      [
+        1,
+        "Results"
+      ],
+      [
+        2,
+        "Qualitative Evaluations"
+      ],
+      [
+        1,
+        "Discussion"
+      ],
+      [
+        1,
+        "References"
+      ]
+    ]
+  },
+  "structure-fixture": {
+    "pages": 1,
+    "figures": 0,
+    "tables": 1,
+    "headings": [
+      [
+        1,
+        "1. Introduction"
+      ],
+      [
+        2,
+        "1.1 Method"
+      ],
+      [
+        3,
+        "1.1.1 Parameters"
+      ],
+      [
+        2,
+        "1.2 Results"
+      ],
+      [
+        1,
+        "2. Conclusion"
+      ]
+    ]
+  },
+  "mobilenet-v2": {
+    "pages": 11,
+    "figures": 6,
+    "tables": 7,
+    "headings": [
+      [
+        1,
+        "Abstract"
+      ],
+      [
+        1,
+        "1. Introduction"
+      ],
+      [
+        1,
+        "2. Related Work"
+      ],
+      [
+        1,
+        "3. Preliminaries"
+      ],
+      [
+        2,
+        "3.1. Depthwise Separable Convolutions"
+      ],
+      [
+        2,
+        "3.2. Linear Bottlenecks"
+      ],
+      [
+        2,
+        "3.3. Inverted residuals"
+      ],
+      [
+        2,
+        "3.4. Information flow interpretation"
+      ],
+      [
+        1,
+        "4. Model Architecture"
+      ],
+      [
+        1,
+        "5. Implementation Notes"
+      ],
+      [
+        2,
+        "5.1. Memory efficient inference"
+      ],
+      [
+        1,
+        "6. Experiments"
+      ],
+      [
+        2,
+        "6.1. ImageNet Classification"
+      ],
+      [
+        2,
+        "6.2. Object Detection"
+      ],
+      [
+        2,
+        "6.3. Semantic Segmentation"
+      ],
+      [
+        2,
+        "6.4. Ablation study"
+      ],
+      [
+        1,
+        "7. Conclusions and future work"
+      ],
+      [
+        1,
+        "Acknowledgments"
+      ],
+      [
+        1,
+        "References"
+      ]
+    ]
+  },
+  "unet": {
+    "pages": 8,
+    "figures": 4,
+    "tables": 2,
+    "headings": [
+      [
+        1,
+        "Introduction"
+      ],
+      [
+        1,
+        "Network Architecture"
+      ],
+      [
+        1,
+        "Training"
+      ],
+      [
+        2,
+        "Data Augmentation"
+      ],
+      [
+        1,
+        "Experiments"
+      ],
+      [
+        1,
+        "Conclusion"
+      ],
+      [
+        1,
+        "Acknowlegements"
+      ],
+      [
+        1,
+        "References"
+      ]
+    ]
+  }
+}

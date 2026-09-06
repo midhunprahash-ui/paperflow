@@ -1,5 +1,10 @@
-import { createHmac } from "node:crypto";
-import { createClient } from "@/lib/supabase/server";
+import { randomUUID } from "node:crypto";
+import { after } from "next/server";
+import { createAdminClient, createClient } from "@/lib/supabase/server";
+import { processCloudflareDocument, runParameters } from "@/lib/cloudflare-processing";
+
+export const runtime = "nodejs";
+export const maxDuration = 300;
 
 export async function POST(request: Request, { params }: { params: Promise<{ documentId: string }> }) {
   const { documentId } = await params;
@@ -10,30 +15,19 @@ export async function POST(request: Request, { params }: { params: Promise<{ doc
   if (!supabase) return Response.json({ accepted: true, demo: true }, { status: 202 });
   const { data: userData } = await supabase.auth.getUser();
   if (!userData.user) return Response.json({ error: "Unauthorized" }, { status: 401 });
-  const body = (await request.json()) as { jobId?: number };
-  if (!Number.isSafeInteger(body.jobId)) return Response.json({ error: "Invalid job" }, { status: 400 });
-
-  const { data: document } = await supabase.from("documents").select("id,owner_id").eq("id", id).eq("owner_id", userData.user.id).single();
+  let body;
+  try { body = await request.json(); }
+  catch { return Response.json({ error: "Invalid request" }, { status: 400 }); }
+  if (!Number.isSafeInteger(body?.jobId) || body.jobId <= 0) return Response.json({ error: "Invalid job" }, { status: 400 });
+  const admin = createAdminClient();
+  if (!admin || !process.env.OPENROUTER_API_KEY) return Response.json({ error: "The parser is not configured." }, { status: 503 });
+  const { data: document } = await supabase.from("documents").select("id,source_type").eq("id", id).eq("owner_id", userData.user.id).is("deleted_at", null).single();
   if (!document) return Response.json({ error: "Not found" }, { status: 404 });
 
-  const endpoint = process.env.MODAL_DISPATCH_URL;
-  const secret = process.env.WORKER_CALLBACK_SECRET;
-  if (!endpoint || !secret) return Response.json({ error: "Parser is not configured" }, { status: 503 });
-  const timestamp = Math.floor(Date.now() / 1000).toString();
-  const payload = JSON.stringify({ documentId: id, jobId: body.jobId });
-  const signature = createHmac("sha256", secret).update(`${timestamp}.${payload}`).digest("hex");
-  const response = await fetch(endpoint, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      "x-rpaper-timestamp": timestamp,
-      "x-rpaper-signature": signature,
-      ...(process.env.MODAL_PROXY_AUTH_ID ? { "Modal-Key": process.env.MODAL_PROXY_AUTH_ID } : {}),
-      ...(process.env.MODAL_PROXY_AUTH_SECRET ? { "Modal-Secret": process.env.MODAL_PROXY_AUTH_SECRET } : {}),
-    },
-    body: payload,
-    signal: AbortSignal.timeout(15000),
-  });
-  if (!response.ok) return Response.json({ error: "Parser rejected the job" }, { status: 502 });
-  return Response.json({ accepted: true }, { status: 202 });
+  if (document.source_type !== "pdf") return Response.json({ error: "Upload a PDF to use this parser." }, { status: 400 });
+  const run = { documentId: id, jobId: body.jobId, ownerId: userData.user.id, runId: randomUUID() };
+  const { data: state, error } = await admin.rpc("claim_cloudflare_job", runParameters(run));
+  if (error) return Response.json({ error: "Processing could not start. Retry from the library." }, { status: 409 });
+  if (state === "claimed") after(() => processCloudflareDocument(admin, run));
+  return Response.json({ accepted: true, state }, { status: 202 });
 }
