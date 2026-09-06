@@ -1,0 +1,30 @@
+[
+  {
+    "id": "mobilenet-v2",
+    "url": "https://openaccess.thecvf.com/content_cvpr_2018/papers/Sandler_MobileNetV2_Inverted_Residuals_CVPR_2018_paper.pdf",
+    "pages": 11,
+    "sha256": "ed356077d84c20616465236cf7d0f62e792e95aa3b84c4261a39254ffe8190dc",
+    "role": "regression case after source-backed terminal-section fixes; initial results preserved",
+    "parser_file_sha256": {
+      "parse_pdf.py": "a2f9c1bf488d52226274b65a6950e222a0ef01f81c7df56848d6f19263a4de60",
+      "normalize.py": "cf2165f867d2dbb79d0a511050adffdc949d33dfbac63eeb94d08402ab4834c3",
+      "structure.py": "982d52b1225083f29256dae7793fd31076e5becfbcc2708c957ff5974e1f2c8c",
+      "review.py": "5f438e8c252aa4c44ebd49c71f471b09e7b795e63e9b48bb1e0c11300a219992"
+    },
+    "initial_role": "held-out structure check; not used to design repairs"
+  },
+  {
+    "id": "unet",
+    "url": "https://arxiv.org/pdf/1505.04597",
+    "pages": 8,
+    "sha256": "a3172b2124f38e260dc2c7ed968d87c31bc94dbc19a42a7ab3dcbd7534319c44",
+    "role": "regression case after source-backed terminal-section fixes; initial results preserved",
+    "parser_file_sha256": {
+      "parse_pdf.py": "a2f9c1bf488d52226274b65a6950e222a0ef01f81c7df56848d6f19263a4de60",
+      "normalize.py": "cf2165f867d2dbb79d0a511050adffdc949d33dfbac63eeb94d08402ab4834c3",
+      "structure.py": "982d52b1225083f29256dae7793fd31076e5becfbcc2708c957ff5974e1f2c8c",
+      "review.py": "5f438e8c252aa4c44ebd49c71f471b09e7b795e63e9b48bb1e0c11300a219992"
+    },
+    "initial_role": "held-out structure check; not used to design repairs"
+  }
+]

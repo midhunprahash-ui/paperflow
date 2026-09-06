@@ -1,0 +1,6113 @@
+{
+  "status": "pass",
+  "checked_cells": 555,
+  "failures": [],
+  "matches": [
+    {
+      "case": "alexnet",
+      "table": "#/tables/0",
+      "page": 7,
+      "row": 1,
+      "col": 1,
+      "output": "47.1%",
+      "source_words": [
+        "47.1%"
+      ]
+    },
+    {
+      "case": "alexnet",
+      "table": "#/tables/0",
+      "page": 7,
+      "row": 1,
+      "col": 2,
+      "output": "28.2%",
+      "source_words": [
+        "28.2%"
+      ]
+    },
+    {
+      "case": "alexnet",
+      "table": "#/tables/0",
+      "page": 7,
+      "row": 2,
+      "col": 1,
+      "output": "45.7%",
+      "source_words": [
+        "45.7%"
+      ]
+    },
+    {
+      "case": "alexnet",
+      "table": "#/tables/0",
+      "page": 7,
+      "row": 2,
+      "col": 2,
+      "output": "25.7%",
+      "source_words": [
+        "25.7%"
+      ]
+    },
+    {
+      "case": "alexnet",
+      "table": "#/tables/0",
+      "page": 7,
+      "row": 3,
+      "col": 1,
+      "output": "37.5%",
+      "source_words": [
+        "37.5%"
+      ]
+    },
+    {
+      "case": "alexnet",
+      "table": "#/tables/0",
+      "page": 7,
+      "row": 3,
+      "col": 2,
+      "output": "17.0%",
+      "source_words": [
+        "17.0%"
+      ]
+    },
+    {
+      "case": "alexnet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 1,
+      "col": 3,
+      "output": "26.2%",
+      "source_words": [
+        "26.2%"
+      ]
+    },
+    {
+      "case": "alexnet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 2,
+      "col": 1,
+      "output": "40.7%",
+      "source_words": [
+        "40.7%"
+      ]
+    },
+    {
+      "case": "alexnet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 2,
+      "col": 2,
+      "output": "18.2%",
+      "source_words": [
+        "18.2%"
+      ]
+    },
+    {
+      "case": "alexnet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 3,
+      "col": 1,
+      "output": "38.1%",
+      "source_words": [
+        "38.1%"
+      ]
+    },
+    {
+      "case": "alexnet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 3,
+      "col": 2,
+      "output": "16.4%",
+      "source_words": [
+        "16.4%"
+      ]
+    },
+    {
+      "case": "alexnet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 3,
+      "col": 3,
+      "output": "16.4%",
+      "source_words": [
+        "16.4%"
+      ]
+    },
+    {
+      "case": "alexnet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 4,
+      "col": 1,
+      "output": "39.0%",
+      "source_words": [
+        "39.0%"
+      ]
+    },
+    {
+      "case": "alexnet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 4,
+      "col": 2,
+      "output": "16.6%",
+      "source_words": [
+        "16.6%"
+      ]
+    },
+    {
+      "case": "alexnet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 5,
+      "col": 1,
+      "output": "36.7%",
+      "source_words": [
+        "36.7%"
+      ]
+    },
+    {
+      "case": "alexnet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 5,
+      "col": 2,
+      "output": "15.4%",
+      "source_words": [
+        "15.4%"
+      ]
+    },
+    {
+      "case": "alexnet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 5,
+      "col": 3,
+      "output": "15.3%",
+      "source_words": [
+        "15.3%"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/1",
+      "page": 8,
+      "row": 2,
+      "col": 1,
+      "output": "23.75",
+      "source_words": [
+        "23.75"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/1",
+      "page": 8,
+      "row": 3,
+      "col": 2,
+      "output": "39.2",
+      "source_words": [
+        "39.2"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/1",
+      "page": 8,
+      "row": 4,
+      "col": 1,
+      "output": "24.6",
+      "source_words": [
+        "24.6"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/1",
+      "page": 8,
+      "row": 4,
+      "col": 2,
+      "output": "39.92",
+      "source_words": [
+        "39.92"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/1",
+      "page": 8,
+      "row": 5,
+      "col": 1,
+      "output": "25.16",
+      "source_words": [
+        "25.16"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/1",
+      "page": 8,
+      "row": 5,
+      "col": 2,
+      "output": "40.46",
+      "source_words": [
+        "40.46"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/1",
+      "page": 8,
+      "row": 6,
+      "col": 1,
+      "output": "26.03",
+      "source_words": [
+        "26.03"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/1",
+      "page": 8,
+      "row": 6,
+      "col": 2,
+      "output": "40.56",
+      "source_words": [
+        "40.56"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/1",
+      "page": 8,
+      "row": 7,
+      "col": 2,
+      "output": "40.4",
+      "source_words": [
+        "40.4"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/1",
+      "page": 8,
+      "row": 8,
+      "col": 1,
+      "output": "26.30",
+      "source_words": [
+        "26.30"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/1",
+      "page": 8,
+      "row": 8,
+      "col": 2,
+      "output": "41.16",
+      "source_words": [
+        "41.16"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/1",
+      "page": 8,
+      "row": 9,
+      "col": 1,
+      "output": "26.36",
+      "source_words": [
+        "26.36"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/1",
+      "page": 8,
+      "row": 9,
+      "col": 2,
+      "output": "41.29",
+      "source_words": [
+        "41.29"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/1",
+      "page": 8,
+      "row": 10,
+      "col": 1,
+      "output": "27.3",
+      "source_words": [
+        "27.3"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/1",
+      "page": 8,
+      "row": 10,
+      "col": 2,
+      "output": "38.1",
+      "source_words": [
+        "38.1"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/1",
+      "page": 8,
+      "row": 11,
+      "col": 1,
+      "output": "28.4",
+      "source_words": [
+        "28.4"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/1",
+      "page": 8,
+      "row": 11,
+      "col": 2,
+      "output": "41.8",
+      "source_words": [
+        "41.8"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 1,
+      "col": 1,
+      "output": "6",
+      "source_words": [
+        "6"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 1,
+      "col": 2,
+      "output": "512",
+      "source_words": [
+        "512"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 1,
+      "col": 3,
+      "output": "2048",
+      "source_words": [
+        "2048"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 1,
+      "col": 4,
+      "output": "8",
+      "source_words": [
+        "8"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 1,
+      "col": 5,
+      "output": "64",
+      "source_words": [
+        "64"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 1,
+      "col": 6,
+      "output": "64",
+      "source_words": [
+        "64"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 1,
+      "col": 7,
+      "output": "0.1",
+      "source_words": [
+        "0.1"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 1,
+      "col": 8,
+      "output": "0.1",
+      "source_words": [
+        "0.1"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 1,
+      "col": 10,
+      "output": "4.92",
+      "source_words": [
+        "4.92"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 1,
+      "col": 11,
+      "output": "25.8",
+      "source_words": [
+        "25.8"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 1,
+      "col": 12,
+      "output": "65",
+      "source_words": [
+        "65"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 2,
+      "col": 4,
+      "output": "1",
+      "source_words": [
+        "1"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 2,
+      "col": 5,
+      "output": "512",
+      "source_words": [
+        "512"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 2,
+      "col": 6,
+      "output": "512",
+      "source_words": [
+        "512"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 2,
+      "col": 10,
+      "output": "5.29",
+      "source_words": [
+        "5.29"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 2,
+      "col": 11,
+      "output": "24.9",
+      "source_words": [
+        "24.9"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 3,
+      "col": 4,
+      "output": "4",
+      "source_words": [
+        "4"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 3,
+      "col": 5,
+      "output": "128",
+      "source_words": [
+        "128"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 3,
+      "col": 6,
+      "output": "128",
+      "source_words": [
+        "128"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 3,
+      "col": 10,
+      "output": "5.00",
+      "source_words": [
+        "5.00"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 3,
+      "col": 11,
+      "output": "25.5",
+      "source_words": [
+        "25.5"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 4,
+      "col": 4,
+      "output": "16",
+      "source_words": [
+        "16"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 4,
+      "col": 5,
+      "output": "32",
+      "source_words": [
+        "32"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 4,
+      "col": 6,
+      "output": "32",
+      "source_words": [
+        "32"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 4,
+      "col": 10,
+      "output": "4.91",
+      "source_words": [
+        "4.91"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 4,
+      "col": 11,
+      "output": "25.8",
+      "source_words": [
+        "25.8"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 5,
+      "col": 4,
+      "output": "32",
+      "source_words": [
+        "32"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 5,
+      "col": 5,
+      "output": "16",
+      "source_words": [
+        "16"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 5,
+      "col": 6,
+      "output": "16",
+      "source_words": [
+        "16"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 5,
+      "col": 10,
+      "output": "5.01",
+      "source_words": [
+        "5.01"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 5,
+      "col": 11,
+      "output": "25.4",
+      "source_words": [
+        "25.4"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 6,
+      "col": 5,
+      "output": "16",
+      "source_words": [
+        "16"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 6,
+      "col": 10,
+      "output": "5.16",
+      "source_words": [
+        "5.16"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 6,
+      "col": 11,
+      "output": "25.1",
+      "source_words": [
+        "25.1"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 6,
+      "col": 12,
+      "output": "58",
+      "source_words": [
+        "58"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 7,
+      "col": 5,
+      "output": "32",
+      "source_words": [
+        "32"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 7,
+      "col": 10,
+      "output": "5.01",
+      "source_words": [
+        "5.01"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 7,
+      "col": 11,
+      "output": "25.4",
+      "source_words": [
+        "25.4"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 7,
+      "col": 12,
+      "output": "60",
+      "source_words": [
+        "60"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 8,
+      "col": 1,
+      "output": "2",
+      "source_words": [
+        "2"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 8,
+      "col": 10,
+      "output": "6.11",
+      "source_words": [
+        "6.11"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 8,
+      "col": 11,
+      "output": "23.7",
+      "source_words": [
+        "23.7"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 8,
+      "col": 12,
+      "output": "36",
+      "source_words": [
+        "36"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 9,
+      "col": 1,
+      "output": "4",
+      "source_words": [
+        "4"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 9,
+      "col": 10,
+      "output": "5.19",
+      "source_words": [
+        "5.19"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 9,
+      "col": 11,
+      "output": "25.3",
+      "source_words": [
+        "25.3"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 9,
+      "col": 12,
+      "output": "50",
+      "source_words": [
+        "50"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 10,
+      "col": 1,
+      "output": "8",
+      "source_words": [
+        "8"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 10,
+      "col": 10,
+      "output": "4.88",
+      "source_words": [
+        "4.88"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 10,
+      "col": 11,
+      "output": "25.5",
+      "source_words": [
+        "25.5"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 10,
+      "col": 12,
+      "output": "80",
+      "source_words": [
+        "80"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 11,
+      "col": 2,
+      "output": "256",
+      "source_words": [
+        "256"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 11,
+      "col": 5,
+      "output": "32",
+      "source_words": [
+        "32"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 11,
+      "col": 6,
+      "output": "32",
+      "source_words": [
+        "32"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 11,
+      "col": 10,
+      "output": "5.75",
+      "source_words": [
+        "5.75"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 11,
+      "col": 11,
+      "output": "24.5",
+      "source_words": [
+        "24.5"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 11,
+      "col": 12,
+      "output": "28",
+      "source_words": [
+        "28"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 12,
+      "col": 2,
+      "output": "1024",
+      "source_words": [
+        "1024"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 12,
+      "col": 5,
+      "output": "128",
+      "source_words": [
+        "128"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 12,
+      "col": 6,
+      "output": "128",
+      "source_words": [
+        "128"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 12,
+      "col": 10,
+      "output": "4.66",
+      "source_words": [
+        "4.66"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 12,
+      "col": 11,
+      "output": "26.0",
+      "source_words": [
+        "26.0"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 12,
+      "col": 12,
+      "output": "168",
+      "source_words": [
+        "168"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 13,
+      "col": 3,
+      "output": "1024",
+      "source_words": [
+        "1024"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 13,
+      "col": 10,
+      "output": "5.12",
+      "source_words": [
+        "5.12"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 13,
+      "col": 11,
+      "output": "25.4",
+      "source_words": [
+        "25.4"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 13,
+      "col": 12,
+      "output": "53",
+      "source_words": [
+        "53"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 14,
+      "col": 3,
+      "output": "4096",
+      "source_words": [
+        "4096"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 14,
+      "col": 10,
+      "output": "4.75",
+      "source_words": [
+        "4.75"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 14,
+      "col": 11,
+      "output": "26.2",
+      "source_words": [
+        "26.2"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 14,
+      "col": 12,
+      "output": "90",
+      "source_words": [
+        "90"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 15,
+      "col": 7,
+      "output": "0.0",
+      "source_words": [
+        "0.0"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 15,
+      "col": 10,
+      "output": "5.77",
+      "source_words": [
+        "5.77"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 15,
+      "col": 11,
+      "output": "24.6",
+      "source_words": [
+        "24.6"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 16,
+      "col": 7,
+      "output": "0.2",
+      "source_words": [
+        "0.2"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 16,
+      "col": 10,
+      "output": "4.95",
+      "source_words": [
+        "4.95"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 16,
+      "col": 11,
+      "output": "25.5",
+      "source_words": [
+        "25.5"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 17,
+      "col": 8,
+      "output": "0.0",
+      "source_words": [
+        "0.0"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 17,
+      "col": 10,
+      "output": "4.67",
+      "source_words": [
+        "4.67"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 17,
+      "col": 11,
+      "output": "25.3",
+      "source_words": [
+        "25.3"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 18,
+      "col": 8,
+      "output": "0.2",
+      "source_words": [
+        "0.2"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 18,
+      "col": 10,
+      "output": "5.47",
+      "source_words": [
+        "5.47"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 18,
+      "col": 11,
+      "output": "25.7",
+      "source_words": [
+        "25.7"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 19,
+      "col": 10,
+      "output": "4.92",
+      "source_words": [
+        "4.92"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 19,
+      "col": 11,
+      "output": "25.7",
+      "source_words": [
+        "25.7"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 20,
+      "col": 1,
+      "output": "6",
+      "source_words": [
+        "6"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 20,
+      "col": 2,
+      "output": "1024",
+      "source_words": [
+        "1024"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 20,
+      "col": 3,
+      "output": "4096",
+      "source_words": [
+        "4096"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 20,
+      "col": 4,
+      "output": "16",
+      "source_words": [
+        "16"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 20,
+      "col": 7,
+      "output": "0.3",
+      "source_words": [
+        "0.3"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 20,
+      "col": 10,
+      "output": "4.33",
+      "source_words": [
+        "4.33"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 20,
+      "col": 11,
+      "output": "26.4",
+      "source_words": [
+        "26.4"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/2",
+      "page": 9,
+      "row": 20,
+      "col": 12,
+      "output": "213",
+      "source_words": [
+        "213"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/3",
+      "page": 10,
+      "row": 1,
+      "col": 2,
+      "output": "88.3",
+      "source_words": [
+        "88.3"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/3",
+      "page": 10,
+      "row": 2,
+      "col": 2,
+      "output": "90.4",
+      "source_words": [
+        "90.4"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/3",
+      "page": 10,
+      "row": 3,
+      "col": 2,
+      "output": "90.4",
+      "source_words": [
+        "90.4"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/3",
+      "page": 10,
+      "row": 4,
+      "col": 2,
+      "output": "91.7",
+      "source_words": [
+        "91.7"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/3",
+      "page": 10,
+      "row": 5,
+      "col": 2,
+      "output": "91.3",
+      "source_words": [
+        "91.3"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/3",
+      "page": 10,
+      "row": 6,
+      "col": 2,
+      "output": "91.3",
+      "source_words": [
+        "91.3"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/3",
+      "page": 10,
+      "row": 7,
+      "col": 2,
+      "output": "91.3",
+      "source_words": [
+        "91.3"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/3",
+      "page": 10,
+      "row": 8,
+      "col": 2,
+      "output": "92.1",
+      "source_words": [
+        "92.1"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/3",
+      "page": 10,
+      "row": 9,
+      "col": 2,
+      "output": "92.1",
+      "source_words": [
+        "92.1"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/3",
+      "page": 10,
+      "row": 10,
+      "col": 2,
+      "output": "92.7",
+      "source_words": [
+        "92.7"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/3",
+      "page": 10,
+      "row": 11,
+      "col": 2,
+      "output": "93.0",
+      "source_words": [
+        "93.0"
+      ]
+    },
+    {
+      "case": "attention",
+      "table": "#/tables/3",
+      "page": 10,
+      "row": 12,
+      "col": 2,
+      "output": "93.3",
+      "source_words": [
+        "93.3"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 1,
+      "col": 2,
+      "output": "66.1",
+      "source_words": [
+        "66.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 1,
+      "col": 3,
+      "output": "82.3",
+      "source_words": [
+        "82.3"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 1,
+      "col": 4,
+      "output": "93.2",
+      "source_words": [
+        "93.2"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 1,
+      "col": 5,
+      "output": "35.0",
+      "source_words": [
+        "35.0"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 1,
+      "col": 6,
+      "output": "81.0",
+      "source_words": [
+        "81.0"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 1,
+      "col": 7,
+      "output": "86.0",
+      "source_words": [
+        "86.0"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 1,
+      "col": 8,
+      "output": "61.7",
+      "source_words": [
+        "61.7"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 1,
+      "col": 9,
+      "output": "74.0",
+      "source_words": [
+        "74.0"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 2,
+      "col": 2,
+      "output": "64.8",
+      "source_words": [
+        "64.8"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 2,
+      "col": 3,
+      "output": "79.8",
+      "source_words": [
+        "79.8"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 2,
+      "col": 4,
+      "output": "90.4",
+      "source_words": [
+        "90.4"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 2,
+      "col": 5,
+      "output": "36.0",
+      "source_words": [
+        "36.0"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 2,
+      "col": 6,
+      "output": "73.3",
+      "source_words": [
+        "73.3"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 2,
+      "col": 7,
+      "output": "84.9",
+      "source_words": [
+        "84.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 2,
+      "col": 8,
+      "output": "56.8",
+      "source_words": [
+        "56.8"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 2,
+      "col": 9,
+      "output": "71.0",
+      "source_words": [
+        "71.0"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 3,
+      "col": 2,
+      "output": "70.3",
+      "source_words": [
+        "70.3"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 3,
+      "col": 3,
+      "output": "87.4",
+      "source_words": [
+        "87.4"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 3,
+      "col": 4,
+      "output": "91.3",
+      "source_words": [
+        "91.3"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 3,
+      "col": 5,
+      "output": "45.4",
+      "source_words": [
+        "45.4"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 3,
+      "col": 6,
+      "output": "80.0",
+      "source_words": [
+        "80.0"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 3,
+      "col": 7,
+      "output": "82.3",
+      "source_words": [
+        "82.3"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 3,
+      "col": 8,
+      "output": "56.0",
+      "source_words": [
+        "56.0"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 3,
+      "col": 9,
+      "output": "75.1",
+      "source_words": [
+        "75.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 4,
+      "col": 2,
+      "output": "71.2",
+      "source_words": [
+        "71.2"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 4,
+      "col": 3,
+      "output": "90.5",
+      "source_words": [
+        "90.5"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 4,
+      "col": 4,
+      "output": "93.5",
+      "source_words": [
+        "93.5"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 4,
+      "col": 5,
+      "output": "52.1",
+      "source_words": [
+        "52.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 4,
+      "col": 6,
+      "output": "85.8",
+      "source_words": [
+        "85.8"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 4,
+      "col": 7,
+      "output": "88.9",
+      "source_words": [
+        "88.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 4,
+      "col": 8,
+      "output": "66.4",
+      "source_words": [
+        "66.4"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 4,
+      "col": 9,
+      "output": "79.6",
+      "source_words": [
+        "79.6"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 5,
+      "col": 2,
+      "output": "72.1",
+      "source_words": [
+        "72.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 5,
+      "col": 3,
+      "output": "92.7",
+      "source_words": [
+        "92.7"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 5,
+      "col": 4,
+      "output": "94.9",
+      "source_words": [
+        "94.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 5,
+      "col": 5,
+      "output": "60.5",
+      "source_words": [
+        "60.5"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 5,
+      "col": 6,
+      "output": "86.5",
+      "source_words": [
+        "86.5"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 5,
+      "col": 7,
+      "output": "89.3",
+      "source_words": [
+        "89.3"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 5,
+      "col": 8,
+      "output": "70.1",
+      "source_words": [
+        "70.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 5,
+      "col": 9,
+      "output": "82.1",
+      "source_words": [
+        "82.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 3,
+      "col": 3,
+      "output": "82.3",
+      "source_words": [
+        "82.3"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 3,
+      "col": 4,
+      "output": "91.2",
+      "source_words": [
+        "91.2"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 4,
+      "col": 3,
+      "output": "86.0",
+      "source_words": [
+        "86.0"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 4,
+      "col": 4,
+      "output": "91.7",
+      "source_words": [
+        "91.7"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 5,
+      "col": 3,
+      "output": "84.5",
+      "source_words": [
+        "84.5"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 5,
+      "col": 4,
+      "output": "90.5",
+      "source_words": [
+        "90.5"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 7,
+      "col": 2,
+      "output": "85.6",
+      "source_words": [
+        "85.6"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 7,
+      "col": 4,
+      "output": "85.8",
+      "source_words": [
+        "85.8"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 8,
+      "col": 1,
+      "output": "81.2",
+      "source_words": [
+        "81.2"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 8,
+      "col": 2,
+      "output": "87.9",
+      "source_words": [
+        "87.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 8,
+      "col": 3,
+      "output": "82.3",
+      "source_words": [
+        "82.3"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 8,
+      "col": 4,
+      "output": "88.5",
+      "source_words": [
+        "88.5"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 10,
+      "col": 1,
+      "output": "80.8",
+      "source_words": [
+        "80.8"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 10,
+      "col": 2,
+      "output": "88.5",
+      "source_words": [
+        "88.5"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 11,
+      "col": 1,
+      "output": "84.1",
+      "source_words": [
+        "84.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 11,
+      "col": 2,
+      "output": "90.9",
+      "source_words": [
+        "90.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 12,
+      "col": 1,
+      "output": "85.8",
+      "source_words": [
+        "85.8"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 12,
+      "col": 2,
+      "output": "91.8",
+      "source_words": [
+        "91.8"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 13,
+      "col": 1,
+      "output": "84.2",
+      "source_words": [
+        "84.2"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 13,
+      "col": 2,
+      "output": "91.1",
+      "source_words": [
+        "91.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 13,
+      "col": 3,
+      "output": "85.1",
+      "source_words": [
+        "85.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 13,
+      "col": 4,
+      "output": "91.8",
+      "source_words": [
+        "91.8"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 14,
+      "col": 1,
+      "output": "86.2",
+      "source_words": [
+        "86.2"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 14,
+      "col": 2,
+      "output": "92.2",
+      "source_words": [
+        "92.2"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 14,
+      "col": 3,
+      "output": "87.4",
+      "source_words": [
+        "87.4"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 14,
+      "col": 4,
+      "output": "93.2",
+      "source_words": [
+        "93.2"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/2",
+      "page": 7,
+      "row": 3,
+      "col": 2,
+      "output": "86.3",
+      "source_words": [
+        "86.3"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/2",
+      "page": 7,
+      "row": 3,
+      "col": 3,
+      "output": "89.0",
+      "source_words": [
+        "89.0"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/2",
+      "page": 7,
+      "row": 3,
+      "col": 4,
+      "output": "86.9",
+      "source_words": [
+        "86.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/2",
+      "page": 7,
+      "row": 3,
+      "col": 5,
+      "output": "89.5",
+      "source_words": [
+        "89.5"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/2",
+      "page": 7,
+      "row": 4,
+      "col": 4,
+      "output": "74.8",
+      "source_words": [
+        "74.8"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/2",
+      "page": 7,
+      "row": 4,
+      "col": 5,
+      "output": "78.0",
+      "source_words": [
+        "78.0"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/2",
+      "page": 7,
+      "row": 5,
+      "col": 4,
+      "output": "74.2",
+      "source_words": [
+        "74.2"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/2",
+      "page": 7,
+      "row": 5,
+      "col": 5,
+      "output": "77.1",
+      "source_words": [
+        "77.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/2",
+      "page": 7,
+      "row": 7,
+      "col": 4,
+      "output": "71.4",
+      "source_words": [
+        "71.4"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/2",
+      "page": 7,
+      "row": 7,
+      "col": 5,
+      "output": "74.9",
+      "source_words": [
+        "74.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/2",
+      "page": 7,
+      "row": 8,
+      "col": 4,
+      "output": "71.4",
+      "source_words": [
+        "71.4"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/2",
+      "page": 7,
+      "row": 8,
+      "col": 5,
+      "output": "74.4",
+      "source_words": [
+        "74.4"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/2",
+      "page": 7,
+      "row": 9,
+      "col": 2,
+      "output": "78.7",
+      "source_words": [
+        "78.7"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/2",
+      "page": 7,
+      "row": 9,
+      "col": 3,
+      "output": "81.9",
+      "source_words": [
+        "81.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/2",
+      "page": 7,
+      "row": 9,
+      "col": 4,
+      "output": "80.0",
+      "source_words": [
+        "80.0"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/2",
+      "page": 7,
+      "row": 9,
+      "col": 5,
+      "output": "83.1",
+      "source_words": [
+        "83.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/3",
+      "page": 7,
+      "row": 1,
+      "col": 1,
+      "output": "51.9",
+      "source_words": [
+        "51.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/3",
+      "page": 7,
+      "row": 1,
+      "col": 2,
+      "output": "52.7",
+      "source_words": [
+        "52.7"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/3",
+      "page": 7,
+      "row": 2,
+      "col": 1,
+      "output": "59.1",
+      "source_words": [
+        "59.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/3",
+      "page": 7,
+      "row": 2,
+      "col": 2,
+      "output": "59.2",
+      "source_words": [
+        "59.2"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/3",
+      "page": 7,
+      "row": 3,
+      "col": 2,
+      "output": "78.0",
+      "source_words": [
+        "78.0"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/3",
+      "page": 7,
+      "row": 4,
+      "col": 1,
+      "output": "81.6",
+      "source_words": [
+        "81.6"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/3",
+      "page": 7,
+      "row": 5,
+      "col": 1,
+      "output": "86.6",
+      "source_words": [
+        "86.6"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/3",
+      "page": 7,
+      "row": 5,
+      "col": 2,
+      "output": "86.3",
+      "source_words": [
+        "86.3"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/3",
+      "page": 7,
+      "row": 6,
+      "col": 2,
+      "output": "85.0",
+      "source_words": [
+        "85.0"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/3",
+      "page": 7,
+      "row": 7,
+      "col": 2,
+      "output": "88.0",
+      "source_words": [
+        "88.0"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 2,
+      "col": 1,
+      "output": "84.4",
+      "source_words": [
+        "84.4"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 2,
+      "col": 2,
+      "output": "88.4",
+      "source_words": [
+        "88.4"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 2,
+      "col": 3,
+      "output": "86.7",
+      "source_words": [
+        "86.7"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 2,
+      "col": 4,
+      "output": "92.7",
+      "source_words": [
+        "92.7"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 2,
+      "col": 5,
+      "output": "88.5",
+      "source_words": [
+        "88.5"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 3,
+      "col": 1,
+      "output": "83.9",
+      "source_words": [
+        "83.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 3,
+      "col": 2,
+      "output": "84.9",
+      "source_words": [
+        "84.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 3,
+      "col": 3,
+      "output": "86.5",
+      "source_words": [
+        "86.5"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 3,
+      "col": 4,
+      "output": "92.6",
+      "source_words": [
+        "92.6"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 3,
+      "col": 5,
+      "output": "87.9",
+      "source_words": [
+        "87.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 4,
+      "col": 1,
+      "output": "82.1",
+      "source_words": [
+        "82.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 4,
+      "col": 2,
+      "output": "84.3",
+      "source_words": [
+        "84.3"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 4,
+      "col": 3,
+      "output": "77.5",
+      "source_words": [
+        "77.5"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 4,
+      "col": 4,
+      "output": "92.1",
+      "source_words": [
+        "92.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 4,
+      "col": 5,
+      "output": "77.8",
+      "source_words": [
+        "77.8"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 5,
+      "col": 1,
+      "output": "82.1",
+      "source_words": [
+        "82.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 5,
+      "col": 2,
+      "output": "84.1",
+      "source_words": [
+        "84.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 5,
+      "col": 3,
+      "output": "75.7",
+      "source_words": [
+        "75.7"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 5,
+      "col": 4,
+      "output": "91.6",
+      "source_words": [
+        "91.6"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/4",
+      "page": 8,
+      "row": 5,
+      "col": 5,
+      "output": "84.9",
+      "source_words": [
+        "84.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 2,
+      "col": 0,
+      "output": "3",
+      "source_words": [
+        "3"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 2,
+      "col": 1,
+      "output": "768",
+      "source_words": [
+        "768"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 2,
+      "col": 2,
+      "output": "12",
+      "source_words": [
+        "12"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 2,
+      "col": 3,
+      "output": "5.84",
+      "source_words": [
+        "5.84"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 2,
+      "col": 4,
+      "output": "77.9",
+      "source_words": [
+        "77.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 2,
+      "col": 5,
+      "output": "79.8",
+      "source_words": [
+        "79.8"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 2,
+      "col": 6,
+      "output": "88.4",
+      "source_words": [
+        "88.4"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 3,
+      "col": 0,
+      "output": "6",
+      "source_words": [
+        "6"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 3,
+      "col": 1,
+      "output": "768",
+      "source_words": [
+        "768"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 3,
+      "col": 2,
+      "output": "3",
+      "source_words": [
+        "3"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 3,
+      "col": 3,
+      "output": "5.24",
+      "source_words": [
+        "5.24"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 3,
+      "col": 4,
+      "output": "80.6",
+      "source_words": [
+        "80.6"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 3,
+      "col": 5,
+      "output": "82.2",
+      "source_words": [
+        "82.2"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 3,
+      "col": 6,
+      "output": "90.7",
+      "source_words": [
+        "90.7"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 4,
+      "col": 0,
+      "output": "6",
+      "source_words": [
+        "6"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 4,
+      "col": 1,
+      "output": "768",
+      "source_words": [
+        "768"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 4,
+      "col": 2,
+      "output": "12",
+      "source_words": [
+        "12"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 4,
+      "col": 3,
+      "output": "4.68",
+      "source_words": [
+        "4.68"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 4,
+      "col": 4,
+      "output": "81.9",
+      "source_words": [
+        "81.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 4,
+      "col": 5,
+      "output": "84.8",
+      "source_words": [
+        "84.8"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 4,
+      "col": 6,
+      "output": "91.3",
+      "source_words": [
+        "91.3"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 5,
+      "col": 0,
+      "output": "12",
+      "source_words": [
+        "12"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 5,
+      "col": 1,
+      "output": "768",
+      "source_words": [
+        "768"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 5,
+      "col": 2,
+      "output": "12",
+      "source_words": [
+        "12"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 5,
+      "col": 3,
+      "output": "3.99",
+      "source_words": [
+        "3.99"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 5,
+      "col": 4,
+      "output": "84.4",
+      "source_words": [
+        "84.4"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 5,
+      "col": 5,
+      "output": "86.7",
+      "source_words": [
+        "86.7"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 5,
+      "col": 6,
+      "output": "92.9",
+      "source_words": [
+        "92.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 6,
+      "col": 0,
+      "output": "12",
+      "source_words": [
+        "12"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 6,
+      "col": 1,
+      "output": "1024",
+      "source_words": [
+        "1024"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 6,
+      "col": 2,
+      "output": "16",
+      "source_words": [
+        "16"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 6,
+      "col": 3,
+      "output": "3.54",
+      "source_words": [
+        "3.54"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 6,
+      "col": 4,
+      "output": "85.7",
+      "source_words": [
+        "85.7"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 6,
+      "col": 5,
+      "output": "86.9",
+      "source_words": [
+        "86.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 6,
+      "col": 6,
+      "output": "93.3",
+      "source_words": [
+        "93.3"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 7,
+      "col": 0,
+      "output": "24",
+      "source_words": [
+        "24"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 7,
+      "col": 1,
+      "output": "1024",
+      "source_words": [
+        "1024"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 7,
+      "col": 2,
+      "output": "16",
+      "source_words": [
+        "16"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 7,
+      "col": 3,
+      "output": "3.23",
+      "source_words": [
+        "3.23"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 7,
+      "col": 4,
+      "output": "86.6",
+      "source_words": [
+        "86.6"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 7,
+      "col": 5,
+      "output": "87.8",
+      "source_words": [
+        "87.8"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/5",
+      "page": 9,
+      "row": 7,
+      "col": 6,
+      "output": "93.7",
+      "source_words": [
+        "93.7"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/6",
+      "page": 9,
+      "row": 1,
+      "col": 1,
+      "output": "95.7",
+      "source_words": [
+        "95.7"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/6",
+      "page": 9,
+      "row": 1,
+      "col": 2,
+      "output": "92.2",
+      "source_words": [
+        "92.2"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/6",
+      "page": 9,
+      "row": 2,
+      "col": 2,
+      "output": "92.6",
+      "source_words": [
+        "92.6"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/6",
+      "page": 9,
+      "row": 3,
+      "col": 2,
+      "output": "93.1",
+      "source_words": [
+        "93.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/6",
+      "page": 9,
+      "row": 5,
+      "col": 1,
+      "output": "96.6",
+      "source_words": [
+        "96.6"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/6",
+      "page": 9,
+      "row": 5,
+      "col": 2,
+      "output": "92.8",
+      "source_words": [
+        "92.8"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/6",
+      "page": 9,
+      "row": 6,
+      "col": 1,
+      "output": "96.4",
+      "source_words": [
+        "96.4"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/6",
+      "page": 9,
+      "row": 6,
+      "col": 2,
+      "output": "92.4",
+      "source_words": [
+        "92.4"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/6",
+      "page": 9,
+      "row": 8,
+      "col": 1,
+      "output": "91.0",
+      "source_words": [
+        "91.0"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/6",
+      "page": 9,
+      "row": 9,
+      "col": 1,
+      "output": "95.6",
+      "source_words": [
+        "95.6"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/6",
+      "page": 9,
+      "row": 10,
+      "col": 1,
+      "output": "94.9",
+      "source_words": [
+        "94.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/6",
+      "page": 9,
+      "row": 11,
+      "col": 1,
+      "output": "95.9",
+      "source_words": [
+        "95.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/6",
+      "page": 9,
+      "row": 12,
+      "col": 1,
+      "output": "96.1",
+      "source_words": [
+        "96.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/6",
+      "page": 9,
+      "row": 13,
+      "col": 1,
+      "output": "95.5",
+      "source_words": [
+        "95.5"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 3,
+      "col": 0,
+      "output": "80%",
+      "source_words": [
+        "80%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 3,
+      "col": 1,
+      "output": "10%",
+      "source_words": [
+        "10%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 3,
+      "col": 2,
+      "output": "10%",
+      "source_words": [
+        "10%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 3,
+      "col": 3,
+      "output": "84.2",
+      "source_words": [
+        "84.2"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 3,
+      "col": 4,
+      "output": "95.4",
+      "source_words": [
+        "95.4"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 3,
+      "col": 5,
+      "output": "94.9",
+      "source_words": [
+        "94.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 4,
+      "col": 0,
+      "output": "100%",
+      "source_words": [
+        "100%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 4,
+      "col": 1,
+      "output": "0%",
+      "source_words": [
+        "0%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 4,
+      "col": 2,
+      "output": "0%",
+      "source_words": [
+        "0%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 4,
+      "col": 3,
+      "output": "84.3",
+      "source_words": [
+        "84.3"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 4,
+      "col": 4,
+      "output": "94.9",
+      "source_words": [
+        "94.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 4,
+      "col": 5,
+      "output": "94.0",
+      "source_words": [
+        "94.0"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 5,
+      "col": 0,
+      "output": "80%",
+      "source_words": [
+        "80%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 5,
+      "col": 1,
+      "output": "0%",
+      "source_words": [
+        "0%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 5,
+      "col": 2,
+      "output": "20%",
+      "source_words": [
+        "20%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 5,
+      "col": 3,
+      "output": "84.1",
+      "source_words": [
+        "84.1"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 5,
+      "col": 4,
+      "output": "95.2",
+      "source_words": [
+        "95.2"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 5,
+      "col": 5,
+      "output": "94.6",
+      "source_words": [
+        "94.6"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 6,
+      "col": 0,
+      "output": "80%",
+      "source_words": [
+        "80%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 6,
+      "col": 1,
+      "output": "20%",
+      "source_words": [
+        "20%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 6,
+      "col": 2,
+      "output": "0%",
+      "source_words": [
+        "0%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 6,
+      "col": 3,
+      "output": "84.4",
+      "source_words": [
+        "84.4"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 6,
+      "col": 4,
+      "output": "95.2",
+      "source_words": [
+        "95.2"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 6,
+      "col": 5,
+      "output": "94.7",
+      "source_words": [
+        "94.7"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 7,
+      "col": 0,
+      "output": "0%",
+      "source_words": [
+        "0%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 7,
+      "col": 1,
+      "output": "20%",
+      "source_words": [
+        "20%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 7,
+      "col": 2,
+      "output": "80%",
+      "source_words": [
+        "80%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 7,
+      "col": 3,
+      "output": "83.7",
+      "source_words": [
+        "83.7"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 7,
+      "col": 4,
+      "output": "94.8",
+      "source_words": [
+        "94.8"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 7,
+      "col": 5,
+      "output": "94.6",
+      "source_words": [
+        "94.6"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 8,
+      "col": 0,
+      "output": "0%",
+      "source_words": [
+        "0%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 8,
+      "col": 1,
+      "output": "0%",
+      "source_words": [
+        "0%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 8,
+      "col": 2,
+      "output": "100%",
+      "source_words": [
+        "100%"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 8,
+      "col": 3,
+      "output": "83.6",
+      "source_words": [
+        "83.6"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 8,
+      "col": 4,
+      "output": "94.9",
+      "source_words": [
+        "94.9"
+      ]
+    },
+    {
+      "case": "bert",
+      "table": "#/tables/7",
+      "page": 16,
+      "row": 8,
+      "col": 5,
+      "output": "94.6",
+      "source_words": [
+        "94.6"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 1,
+      "col": 1,
+      "output": "0.9216",
+      "source_words": [
+        "0.9216"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 1,
+      "col": 2,
+      "output": "0.9216",
+      "source_words": [
+        "0.9216"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 1,
+      "col": 3,
+      "output": "0.9277",
+      "source_words": [
+        "0.9277"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 1,
+      "col": 4,
+      "output": "0.9256",
+      "source_words": [
+        "0.9256"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 1,
+      "col": 5,
+      "output": "20014.59",
+      "source_words": [
+        "20014.59"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 1,
+      "col": 6,
+      "output": "438",
+      "source_words": [
+        "438"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 2,
+      "col": 1,
+      "output": "0.9296",
+      "source_words": [
+        "0.9296"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 2,
+      "col": 2,
+      "output": "0.9297",
+      "source_words": [
+        "0.9297"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 2,
+      "col": 3,
+      "output": "0.9219",
+      "source_words": [
+        "0.9219"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 2,
+      "col": 4,
+      "output": "0.9277",
+      "source_words": [
+        "0.9277"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 2,
+      "col": 5,
+      "output": "7711.91",
+      "source_words": [
+        "7711.91"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 2,
+      "col": 6,
+      "output": "267.9",
+      "source_words": [
+        "267.9"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 3,
+      "col": 1,
+      "output": "0.9415",
+      "source_words": [
+        "0.9415"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 3,
+      "col": 2,
+      "output": "0.9414",
+      "source_words": [
+        "0.9414"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 3,
+      "col": 3,
+      "output": "0.9476",
+      "source_words": [
+        "0.9476"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 3,
+      "col": 4,
+      "output": "0.9453",
+      "source_words": [
+        "0.9453"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 3,
+      "col": 5,
+      "output": "3948.21",
+      "source_words": [
+        "3948.21"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 3,
+      "col": 6,
+      "output": "270.8",
+      "source_words": [
+        "270.8"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 4,
+      "col": 1,
+      "output": "0.9403",
+      "source_words": [
+        "0.9403"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 4,
+      "col": 2,
+      "output": "0.9404",
+      "source_words": [
+        "0.9404"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 4,
+      "col": 3,
+      "output": "0.9462",
+      "source_words": [
+        "0.9462"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 4,
+      "col": 4,
+      "output": "0.9446",
+      "source_words": [
+        "0.9446"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 4,
+      "col": 5,
+      "output": "3948.21",
+      "source_words": [
+        "3948.21"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 4,
+      "col": 6,
+      "output": "270.8",
+      "source_words": [
+        "270.8"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 5,
+      "col": 1,
+      "output": "0.9509",
+      "source_words": [
+        "0.9509"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 5,
+      "col": 2,
+      "output": "0.9509",
+      "source_words": [
+        "0.9509"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 5,
+      "col": 3,
+      "output": "0.9595",
+      "source_words": [
+        "0.9595"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 5,
+      "col": 4,
+      "output": "0.9523",
+      "source_words": [
+        "0.9523"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 5,
+      "col": 5,
+      "output": "5659.3",
+      "source_words": [
+        "5659.3"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 5,
+      "col": 6,
+      "output": "267.9",
+      "source_words": [
+        "267.9"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 6,
+      "col": 1,
+      "output": "0.9615",
+      "source_words": [
+        "0.9615"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 6,
+      "col": 2,
+      "output": "0.9615",
+      "source_words": [
+        "0.9615"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 6,
+      "col": 3,
+      "output": "0.9689",
+      "source_words": [
+        "0.9689"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 6,
+      "col": 4,
+      "output": "0.9641",
+      "source_words": [
+        "0.9641"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 6,
+      "col": 5,
+      "output": "5659.3",
+      "source_words": [
+        "5659.3"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 6,
+      "col": 6,
+      "output": "265.5",
+      "source_words": [
+        "265.5"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 7,
+      "col": 1,
+      "output": "0.9821",
+      "source_words": [
+        "0.9821"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 7,
+      "col": 2,
+      "output": "0.9812",
+      "source_words": [
+        "0.9812"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 7,
+      "col": 3,
+      "output": "0.9813",
+      "source_words": [
+        "0.9813"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 7,
+      "col": 4,
+      "output": "0.9812",
+      "source_words": [
+        "0.9812"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 7,
+      "col": 5,
+      "output": "6297.4",
+      "source_words": [
+        "6297.4"
+      ]
+    },
+    {
+      "case": "camera-ready",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 7,
+      "col": 6,
+      "output": "270.8",
+      "source_words": [
+        "270.8"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 1,
+      "col": 3,
+      "output": "32",
+      "source_words": [
+        "32"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 1,
+      "col": 4,
+      "output": "1",
+      "source_words": [
+        "1"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 1,
+      "col": 5,
+      "output": "2",
+      "source_words": [
+        "2"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 2,
+      "col": 2,
+      "output": "1",
+      "source_words": [
+        "1"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 2,
+      "col": 3,
+      "output": "16",
+      "source_words": [
+        "16"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 2,
+      "col": 4,
+      "output": "1",
+      "source_words": [
+        "1"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 2,
+      "col": 5,
+      "output": "1",
+      "source_words": [
+        "1"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 3,
+      "col": 2,
+      "output": "6",
+      "source_words": [
+        "6"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 3,
+      "col": 3,
+      "output": "24",
+      "source_words": [
+        "24"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 3,
+      "col": 4,
+      "output": "2",
+      "source_words": [
+        "2"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 3,
+      "col": 5,
+      "output": "2",
+      "source_words": [
+        "2"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 4,
+      "col": 2,
+      "output": "6",
+      "source_words": [
+        "6"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 4,
+      "col": 3,
+      "output": "32",
+      "source_words": [
+        "32"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 4,
+      "col": 4,
+      "output": "3",
+      "source_words": [
+        "3"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 4,
+      "col": 5,
+      "output": "2",
+      "source_words": [
+        "2"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 5,
+      "col": 2,
+      "output": "6",
+      "source_words": [
+        "6"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 5,
+      "col": 3,
+      "output": "64",
+      "source_words": [
+        "64"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 5,
+      "col": 4,
+      "output": "4",
+      "source_words": [
+        "4"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 5,
+      "col": 5,
+      "output": "2",
+      "source_words": [
+        "2"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 6,
+      "col": 2,
+      "output": "6",
+      "source_words": [
+        "6"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 6,
+      "col": 3,
+      "output": "96",
+      "source_words": [
+        "96"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 6,
+      "col": 4,
+      "output": "3",
+      "source_words": [
+        "3"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 6,
+      "col": 5,
+      "output": "1",
+      "source_words": [
+        "1"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 7,
+      "col": 2,
+      "output": "6",
+      "source_words": [
+        "6"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 7,
+      "col": 3,
+      "output": "160",
+      "source_words": [
+        "160"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 7,
+      "col": 4,
+      "output": "3",
+      "source_words": [
+        "3"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 7,
+      "col": 5,
+      "output": "2",
+      "source_words": [
+        "2"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 8,
+      "col": 2,
+      "output": "6",
+      "source_words": [
+        "6"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 8,
+      "col": 3,
+      "output": "320",
+      "source_words": [
+        "320"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 8,
+      "col": 4,
+      "output": "1",
+      "source_words": [
+        "1"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 8,
+      "col": 5,
+      "output": "1",
+      "source_words": [
+        "1"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 9,
+      "col": 3,
+      "output": "1280",
+      "source_words": [
+        "1280"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 9,
+      "col": 4,
+      "output": "1",
+      "source_words": [
+        "1"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 9,
+      "col": 5,
+      "output": "1",
+      "source_words": [
+        "1"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 10,
+      "col": 4,
+      "output": "1",
+      "source_words": [
+        "1"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/3",
+      "page": 7,
+      "row": 1,
+      "col": 1,
+      "output": "70.6",
+      "source_words": [
+        "70.6"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/3",
+      "page": 7,
+      "row": 2,
+      "col": 1,
+      "output": "71.5",
+      "source_words": [
+        "71.5"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/3",
+      "page": 7,
+      "row": 3,
+      "col": 1,
+      "output": "73.7",
+      "source_words": [
+        "73.7"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/3",
+      "page": 7,
+      "row": 4,
+      "col": 1,
+      "output": "74.0",
+      "source_words": [
+        "74.0"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/3",
+      "page": 7,
+      "row": 5,
+      "col": 1,
+      "output": "72.0",
+      "source_words": [
+        "72.0"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/3",
+      "page": 7,
+      "row": 6,
+      "col": 1,
+      "output": "74.7",
+      "source_words": [
+        "74.7"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/5",
+      "page": 7,
+      "row": 1,
+      "col": 1,
+      "output": "23.2",
+      "source_words": [
+        "23.2"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/5",
+      "page": 7,
+      "row": 2,
+      "col": 1,
+      "output": "26.8",
+      "source_words": [
+        "26.8"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/5",
+      "page": 7,
+      "row": 3,
+      "col": 1,
+      "output": "21.6",
+      "source_words": [
+        "21.6"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/5",
+      "page": 7,
+      "row": 4,
+      "col": 1,
+      "output": "22.2",
+      "source_words": [
+        "22.2"
+      ]
+    },
+    {
+      "case": "mobilenet-v2",
+      "table": "#/tables/5",
+      "page": 7,
+      "row": 5,
+      "col": 1,
+      "output": "22.1",
+      "source_words": [
+        "22.1"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 1,
+      "col": 1,
+      "output": "27.94",
+      "source_words": [
+        "27.94"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 1,
+      "col": 2,
+      "output": "27.88",
+      "source_words": [
+        "27.88"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 2,
+      "col": 1,
+      "output": "28.54",
+      "source_words": [
+        "28.54"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/1",
+      "page": 5,
+      "row": 2,
+      "col": 2,
+      "output": "25.03",
+      "source_words": [
+        "25.03"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 1,
+      "col": 1,
+      "output": "28.07",
+      "source_words": [
+        "28.07"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 1,
+      "col": 2,
+      "output": "9.33",
+      "source_words": [
+        "9.33"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 2,
+      "col": 2,
+      "output": "9.15",
+      "source_words": [
+        "9.15"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 3,
+      "col": 1,
+      "output": "24.27",
+      "source_words": [
+        "24.27"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 3,
+      "col": 2,
+      "output": "7.38",
+      "source_words": [
+        "7.38"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 4,
+      "col": 1,
+      "output": "28.54",
+      "source_words": [
+        "28.54"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 4,
+      "col": 2,
+      "output": "10.02",
+      "source_words": [
+        "10.02"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 5,
+      "col": 1,
+      "output": "25.03",
+      "source_words": [
+        "25.03"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 5,
+      "col": 2,
+      "output": "7.76",
+      "source_words": [
+        "7.76"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 6,
+      "col": 1,
+      "output": "24.52",
+      "source_words": [
+        "24.52"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 6,
+      "col": 2,
+      "output": "7.46",
+      "source_words": [
+        "7.46"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 7,
+      "col": 1,
+      "output": "24.19",
+      "source_words": [
+        "24.19"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 7,
+      "col": 2,
+      "output": "7.40",
+      "source_words": [
+        "7.40"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 8,
+      "col": 1,
+      "output": "22.85",
+      "source_words": [
+        "22.85"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 8,
+      "col": 2,
+      "output": "6.71",
+      "source_words": [
+        "6.71"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 9,
+      "col": 1,
+      "output": "21.75",
+      "source_words": [
+        "21.75"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 9,
+      "col": 2,
+      "output": "6.05",
+      "source_words": [
+        "6.05"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 10,
+      "col": 1,
+      "output": "21.43",
+      "source_words": [
+        "21.43"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/2",
+      "page": 6,
+      "row": 10,
+      "col": 2,
+      "output": "5.71",
+      "source_words": [
+        "5.71"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/3",
+      "page": 6,
+      "row": 2,
+      "col": 2,
+      "output": "7.89",
+      "source_words": [
+        "7.89"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/3",
+      "page": 6,
+      "row": 3,
+      "col": 1,
+      "output": "24.4",
+      "source_words": [
+        "24.4"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/3",
+      "page": 6,
+      "row": 3,
+      "col": 2,
+      "output": "7.1",
+      "source_words": [
+        "7.1"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/3",
+      "page": 6,
+      "row": 4,
+      "col": 1,
+      "output": "21.59",
+      "source_words": [
+        "21.59"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/3",
+      "page": 6,
+      "row": 4,
+      "col": 2,
+      "output": "5.71",
+      "source_words": [
+        "5.71"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/3",
+      "page": 6,
+      "row": 5,
+      "col": 1,
+      "output": "21.99",
+      "source_words": [
+        "21.99"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/3",
+      "page": 6,
+      "row": 5,
+      "col": 2,
+      "output": "5.81",
+      "source_words": [
+        "5.81"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/3",
+      "page": 6,
+      "row": 6,
+      "col": 1,
+      "output": "21.84",
+      "source_words": [
+        "21.84"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/3",
+      "page": 6,
+      "row": 6,
+      "col": 2,
+      "output": "5.71",
+      "source_words": [
+        "5.71"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/3",
+      "page": 6,
+      "row": 7,
+      "col": 1,
+      "output": "21.53",
+      "source_words": [
+        "21.53"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/3",
+      "page": 6,
+      "row": 7,
+      "col": 2,
+      "output": "5.60",
+      "source_words": [
+        "5.60"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/3",
+      "page": 6,
+      "row": 8,
+      "col": 1,
+      "output": "20.74",
+      "source_words": [
+        "20.74"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/3",
+      "page": 6,
+      "row": 8,
+      "col": 2,
+      "output": "5.25",
+      "source_words": [
+        "5.25"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/3",
+      "page": 6,
+      "row": 9,
+      "col": 1,
+      "output": "19.87",
+      "source_words": [
+        "19.87"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/3",
+      "page": 6,
+      "row": 9,
+      "col": 2,
+      "output": "4.60",
+      "source_words": [
+        "4.60"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/3",
+      "page": 6,
+      "row": 10,
+      "col": 1,
+      "output": "19.38",
+      "source_words": [
+        "19.38"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/3",
+      "page": 6,
+      "row": 10,
+      "col": 2,
+      "output": "4.49",
+      "source_words": [
+        "4.49"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/4",
+      "page": 6,
+      "row": 1,
+      "col": 1,
+      "output": "7.32",
+      "source_words": [
+        "7.32"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/4",
+      "page": 6,
+      "row": 2,
+      "col": 1,
+      "output": "6.66",
+      "source_words": [
+        "6.66"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/4",
+      "page": 6,
+      "row": 3,
+      "col": 1,
+      "output": "6.8",
+      "source_words": [
+        "6.8"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/4",
+      "page": 6,
+      "row": 4,
+      "col": 1,
+      "output": "4.94",
+      "source_words": [
+        "4.94"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/4",
+      "page": 6,
+      "row": 5,
+      "col": 1,
+      "output": "4.82",
+      "source_words": [
+        "4.82"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/4",
+      "page": 6,
+      "row": 6,
+      "col": 1,
+      "output": "3.57",
+      "source_words": [
+        "3.57"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/5",
+      "page": 7,
+      "row": 2,
+      "col": 1,
+      "output": "16",
+      "source_words": [
+        "16"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/5",
+      "page": 7,
+      "row": 2,
+      "col": 2,
+      "output": "32",
+      "source_words": [
+        "32"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/5",
+      "page": 7,
+      "row": 2,
+      "col": 3,
+      "output": "64",
+      "source_words": [
+        "64"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 1,
+      "col": 3,
+      "output": "9.38",
+      "source_words": [
+        "9.38"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 2,
+      "col": 3,
+      "output": "8.81",
+      "source_words": [
+        "8.81"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 3,
+      "col": 3,
+      "output": "8.22",
+      "source_words": [
+        "8.22"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 5,
+      "col": 1,
+      "output": "19",
+      "source_words": [
+        "19"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 5,
+      "col": 3,
+      "output": "8.39",
+      "source_words": [
+        "8.39"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 6,
+      "col": 1,
+      "output": "19",
+      "source_words": [
+        "19"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 7,
+      "col": 1,
+      "output": "32",
+      "source_words": [
+        "32"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 7,
+      "col": 3,
+      "output": "8.80",
+      "source_words": [
+        "8.80"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 8,
+      "col": 1,
+      "output": "20",
+      "source_words": [
+        "20"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 8,
+      "col": 3,
+      "output": "8.75",
+      "source_words": [
+        "8.75"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 9,
+      "col": 1,
+      "output": "32",
+      "source_words": [
+        "32"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 9,
+      "col": 3,
+      "output": "7.51",
+      "source_words": [
+        "7.51"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 10,
+      "col": 1,
+      "output": "44",
+      "source_words": [
+        "44"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 10,
+      "col": 3,
+      "output": "7.17",
+      "source_words": [
+        "7.17"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 11,
+      "col": 1,
+      "output": "56",
+      "source_words": [
+        "56"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 11,
+      "col": 3,
+      "output": "6.97",
+      "source_words": [
+        "6.97"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 12,
+      "col": 1,
+      "output": "110",
+      "source_words": [
+        "110"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 13,
+      "col": 1,
+      "output": "1202",
+      "source_words": [
+        "1202"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/6",
+      "page": 7,
+      "row": 13,
+      "col": 3,
+      "output": "7.93",
+      "source_words": [
+        "7.93"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/7",
+      "page": 8,
+      "row": 2,
+      "col": 1,
+      "output": "73.2",
+      "source_words": [
+        "73.2"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/7",
+      "page": 8,
+      "row": 2,
+      "col": 2,
+      "output": "70.4",
+      "source_words": [
+        "70.4"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/7",
+      "page": 8,
+      "row": 3,
+      "col": 1,
+      "output": "76.4",
+      "source_words": [
+        "76.4"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/7",
+      "page": 8,
+      "row": 3,
+      "col": 2,
+      "output": "73.8",
+      "source_words": [
+        "73.8"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/8",
+      "page": 8,
+      "row": 1,
+      "col": 1,
+      "output": "41.5",
+      "source_words": [
+        "41.5"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/8",
+      "page": 8,
+      "row": 1,
+      "col": 2,
+      "output": "21.2",
+      "source_words": [
+        "21.2"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/8",
+      "page": 8,
+      "row": 2,
+      "col": 1,
+      "output": "48.4",
+      "source_words": [
+        "48.4"
+      ]
+    },
+    {
+      "case": "resnet",
+      "table": "#/tables/8",
+      "page": 8,
+      "row": 2,
+      "col": 2,
+      "output": "27.2",
+      "source_words": [
+        "27.2"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 1,
+      "col": 1,
+      "output": "5.2",
+      "source_words": [
+        "5.2"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 1,
+      "col": 2,
+      "output": "9.47",
+      "source_words": [
+        "9.47"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 1,
+      "col": 3,
+      "output": "17.5",
+      "source_words": [
+        "17.5"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 1,
+      "col": 4,
+      "output": "11.52",
+      "source_words": [
+        "11.52"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 1,
+      "col": 5,
+      "output": "40.48",
+      "source_words": [
+        "40.48"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 1,
+      "col": 6,
+      "output": "5.63",
+      "source_words": [
+        "5.63"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 2,
+      "col": 1,
+      "output": "1.17",
+      "source_words": [
+        "1.17"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 2,
+      "col": 2,
+      "output": "105.3",
+      "source_words": [
+        "105.3"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 2,
+      "col": 4,
+      "output": "37.35",
+      "source_words": [
+        "37.35"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 3,
+      "col": 1,
+      "output": "0.52",
+      "source_words": [
+        "0.52"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 3,
+      "col": 2,
+      "output": "73.7",
+      "source_words": [
+        "73.7"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 3,
+      "col": 4,
+      "output": "1.44",
+      "source_words": [
+        "1.44"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 4,
+      "col": 1,
+      "output": "0.57",
+      "source_words": [
+        "0.57"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 4,
+      "col": 2,
+      "output": "1.41",
+      "source_words": [
+        "1.41"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 4,
+      "col": 4,
+      "output": "0.56",
+      "source_words": [
+        "0.56"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 4,
+      "col": 5,
+      "output": "0.58",
+      "source_words": [
+        "0.58"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 4,
+      "col": 6,
+      "output": "1.36",
+      "source_words": [
+        "1.36"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 5,
+      "col": 1,
+      "output": "0.18",
+      "source_words": [
+        "0.18"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 5,
+      "col": 4,
+      "output": "8.93",
+      "source_words": [
+        "8.93"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 5,
+      "col": 5,
+      "output": "0.47",
+      "source_words": [
+        "0.47"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 5,
+      "col": 6,
+      "output": "0.33",
+      "source_words": [
+        "0.33"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 6,
+      "col": 1,
+      "output": "1.34",
+      "source_words": [
+        "1.34"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 6,
+      "col": 2,
+      "output": "0.79",
+      "source_words": [
+        "0.79"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 6,
+      "col": 5,
+      "output": "35.75",
+      "source_words": [
+        "35.75"
+      ]
+    },
+    {
+      "case": "scikit-learn",
+      "table": "#/tables/0",
+      "page": 4,
+      "row": 6,
+      "col": 6,
+      "output": "0.68",
+      "source_words": [
+        "0.68"
+      ]
+    },
+    {
+      "case": "structure-fixture",
+      "table": "#/tables/0",
+      "page": 1,
+      "row": 2,
+      "col": 1,
+      "output": "0.91",
+      "source_words": [
+        "0.91"
+      ]
+    },
+    {
+      "case": "structure-fixture",
+      "table": "#/tables/0",
+      "page": 1,
+      "row": 2,
+      "col": 2,
+      "output": "0.87",
+      "source_words": [
+        "0.87"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 2,
+      "col": 2,
+      "output": "0.000355",
+      "source_words": [
+        "0.000355"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 2,
+      "col": 3,
+      "output": "0.0305",
+      "source_words": [
+        "0.0305"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 2,
+      "col": 4,
+      "output": "0.0584",
+      "source_words": [
+        "0.0584"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 3,
+      "col": 2,
+      "output": "0.000420",
+      "source_words": [
+        "0.000420"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 3,
+      "col": 3,
+      "output": "0.0504",
+      "source_words": [
+        "0.0504"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 3,
+      "col": 4,
+      "output": "0.0613",
+      "source_words": [
+        "0.0613"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 4,
+      "col": 2,
+      "output": "0.000430",
+      "source_words": [
+        "0.000430"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 4,
+      "col": 3,
+      "output": "0.0545",
+      "source_words": [
+        "0.0545"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 4,
+      "col": 4,
+      "output": "0.0582",
+      "source_words": [
+        "0.0582"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 6,
+      "col": 2,
+      "output": "0.000653",
+      "source_words": [
+        "0.000653"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 6,
+      "col": 3,
+      "output": "0.0189",
+      "source_words": [
+        "0.0189"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/0",
+      "page": 6,
+      "row": 5,
+      "col": 4,
+      "output": "0.1027",
+      "source_words": [
+        "0.1027"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 1,
+      "col": 1,
+      "output": "0.2669",
+      "source_words": [
+        "0.2669"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 1,
+      "col": 2,
+      "output": "0.2935",
+      "source_words": [
+        "0.2935"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 2,
+      "col": 1,
+      "output": "0.7953",
+      "source_words": [
+        "0.7953"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 2,
+      "col": 2,
+      "output": "0.4607",
+      "source_words": [
+        "0.4607"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 3,
+      "col": 1,
+      "output": "0.5323",
+      "source_words": [
+        "0.5323"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 4,
+      "col": 1,
+      "output": "0.83",
+      "source_words": [
+        "0.83"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 4,
+      "col": 2,
+      "output": "0.46",
+      "source_words": [
+        "0.46"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 5,
+      "col": 1,
+      "output": "0.9203",
+      "source_words": [
+        "0.9203"
+      ]
+    },
+    {
+      "case": "unet",
+      "table": "#/tables/1",
+      "page": 7,
+      "row": 5,
+      "col": 2,
+      "output": "0.7756",
+      "source_words": [
+        "0.7756"
+      ]
+    }
+  ],
+  "limits": "Native numeric cells with usable independent word geometry only. No claim about omitted cells, all row/column semantics, textual cells, merged matrices, or scanned-cell OCR."
+}

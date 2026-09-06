@@ -12,7 +12,9 @@ worker/.env.modal.local
 .vercel/
 __pycache__/
 *.py[cod]
+*.egg-info/
 *.tsbuildinfo
 .venv/
 .modal/
 .DS_Store
+tmp/

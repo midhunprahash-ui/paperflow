@@ -1,0 +1,141 @@
+# source_sha256: 4a217d6c4251ac2dd31262ca7cde72fe9598feb06ed351c2bf039354fcf29a70
+# Source-reviewed inventory, in logical reading order. Columns: id | kind | owner path | first page | source anchor
+# Paths follow printed numbering. @ roles are front matter, not invented paper headings.
+title | title | @metadata | 1 | Enhancing Transformer-Based Hidden Suicidal Intention Detection
+author-1 | text | @metadata | 1 | Midhun Prahash
+email-1 | text | @metadata | 1 | midhuntech2023@gmail.com
+orcid-1 | text | @metadata | 1 | ORCID : 0009-0006-7057-2786
+author-2 | text | @metadata | 1 | Rhea Alphonsa Jose
+author-3 | text | @metadata | 1 | Sam. V. George
+email-3 | text | @metadata | 1 | samvarghese936@gmail.com
+orcid-3 | text | @metadata | 1 | ORCID : 0000-0003-1803-464X
+abstract | text | @abstract | 1 | Abstract
+keywords | text | @keywords | 1 | Keywords
+heading-i | section_header | I | 1 | I. INTRODUCTION
+intro-1 | text | I | 1 | Because there are multiple counts being tracked
+intro-bullet-1 | list_item | I | 1 | Improving architecture by using layers
+intro-bullet-2 | list_item | I | 1 | Once the models were fitted
+intro-bullet-3 | list_item | I | 1 | We examine techniques like layer-freezing
+intro-2 | text | I | 1 | The paper discusses the training and testing
+intro-3 | text | I | 2 | The primary source that stimulated this study
+intro-4 | text | I | 2 | The following section discusses various works
+heading-ii | section_header | II | 2 | II. RELATED WORKS
+related-1 | text | II | 2 | Suicidal intention detection research has gone
+related-2 | text | II | 2 | Models did not often track contextual shifts
+related-3 | text | II | 2 | Researchers began applying psycholinguistic features
+related-4 | text | II | 2 | The introduction of transformer-based architectures
+related-5 | text | II | 2 | Hybrid deep learning approaches began to evolve
+related-6 | text | II | 2 | As machine learning adopts more features
+heading-iii | section_header | III | 2 | III. METHODOLOGY
+method-1 | text | III | 2 | The methodology used in the research
+heading-iii-a | section_header | III/A | 2 | A. Dataset Curation
+dataset-1 | text | III/A | 2 | The reliability of models in this field
+dataset-lead | text | III/A | 3 | The final curated dataset includes five groups
+dataset-item-1 | list_item | III/A | 3 | Standard suicidal statements
+dataset-item-2 | list_item | III/A | 3 | Standard non-suicidal statements
+dataset-item-3 | list_item | III/A | 3 | Hard negatives with suicidal lexicons
+dataset-item-4 | list_item | III/A | 3 | Resolved negative statements that end
+dataset-item-5 | list_item | III/A | 3 | Benign short/noisy text
+figure-1 | figure | III/A | 3 | @caption:Fig. 1.
+caption-1 | caption | III/A | 3 | Fig. 1.
+heading-iii-b | section_header | III/B | 3 | B. Psycholinguistic Feature Engineering
+features-intro | text | III/B | 3 | While transformer models are best designed
+heading-iii-b-1 | section_header | III/B/1 | 3 | 1) Core Linguistic
+core-a | list_item | III/B/1 | 3 | I Words
+core-b | list_item | III/B/1 | 3 | Cognitive Processes
+heading-iii-b-2 | section_header | III/B/2 | 3 | 2) Emotional Tone
+emotion-a | list_item | III/B/2 | 3 | Positive feelings
+emotion-b | list_item | III/B/2 | 3 | Negative Emotions
+emotion-c | list_item | III/B/2 | 3 | This category measures feelings of fear
+heading-iii-b-3 | section_header | III/B/3 | 3 | 3) Domain Specific
+risk-a | list_item | III/B/3 | 3 | The deadliest risk group is death
+risk-b | list_item | III/B/3 | 3 | The aforementioned feature identifies any mention
+risk-c | list_item | III/B/3 | 3 | This category monitors words relating
+risk-d | list_item | III/B/3 | 3 | This feature assesses life stressors
+heading-iii-b-4 | section_header | III/B/4 | 3 | 4) Linguistic Modifiers
+modifiers-a | list_item | III/B/4 | 3 | Negations
+modifiers-b | list_item | III/B/4 | 3 | Conjunctions
+# No explicit printed end marker follows category 4; retain source-flow ownership, not an inferred return to III/B.
+features-closing | text | III/B/4 | 3 | Each text input was processed
+heading-iv | section_header | IV | 4 | IV. MODEL ARCHITECTURES
+models-lead | text | IV | 4 | We implemented and compared the following
+model-1 | list_item | IV | 4 | Approach 1
+model-2 | list_item | IV | 4 | Approach 2
+model-3 | list_item | IV | 4 | Approach 3
+model-4 | list_item | IV | 4 | Approach 4
+model-5 | list_item | IV | 4 | Approach 5
+model-6 | list_item | IV | 4 | Approach 6
+model-7 | list_item | IV | 4 | Approach 7
+figure-2 | figure | IV | 4 | @caption:Fig. 2.
+caption-2 | caption | IV | 4 | Fig. 2.
+heading-iv-a | section_header | IV/A | 4 | A. Mathematical Formalisms
+math-intro | text | IV/A | 4 | This section explains the data processing
+math-input | text | IV/A | 4 | The input token sequence
+math-representation | text | IV/A | 4 | Text Representation
+equation-1 | formula | IV/A | 4 | @equation:1
+math-where-1 | text | IV/A | 4 | Where, the input sequence
+math-hidden | text | IV/A | 4 | The final output hidden state vectors
+math-sequential | text | IV/A | 4 | Sequential Pattern Analysis
+equation-2 | formula | IV/A | 4 | @equation:2
+equation-3 | formula | IV/A | 4 | @equation:3
+math-concatenation | text | IV/A | 4 | The output at time step
+equation-4 | formula | IV/A | 4 | @equation:4
+math-dimension | text | IV/A | 4 | The LSTM layer hidden size
+math-fusion | text | IV/A | 4 | Feature Fusion
+equation-5 | formula | IV/A | 4 | @equation:5
+math-classification | text | IV/A | 4 | Final Classification
+equation-6 | formula | IV/A | 4 | @equation:6
+math-where-2 | text | IV/A | 4 | Where, the final linear layer
+math-sigmoid | text | IV/A | 5 | The Sigmoid function takes
+equation-7 | formula | IV/A | 5 | @equation:7
+math-loss | text | IV/A | 5 | The model's weights are learned
+heading-v | section_header | V | 5 | V. EXPERIMENTS AND RESULTS
+experiments-intro | text | V | 5 | Each of the seven models
+figure-3 | figure | V | 5 | @caption:Fig. 3.
+caption-3 | caption | V | 5 | Fig. 3.
+heading-v-a | section_header | V/A | 5 | A. Evaluation Metrices
+evaluation-lead | text | V/A | 5 | Our assessment of the models
+evaluation-1 | list_item | V/A | 5 | Performance Metrics
+evaluation-2 | list_item | V/A | 5 | Computational Metrics
+heading-v-b | section_header | V/B | 5 | B. Results
+results-1 | text | V/B | 5 | The total performance together
+results-2 | text | V/B | 5 | The baseline BERT-Only model
+results-3 | text | V/B | 5 | The model obtained an F1-Score
+table-caption-1 | caption | V/B | 5 | TABLE I.
+table-1 | table | V/B | 5 | @caption:TABLE I.
+heading-v-c | section_header | V/C | 5 | C. Visual Analysis
+visual-input | text | V/C | 5 | Text : It's like I'm walking
+figure-4 | figure | V/C | 5 | @caption:Fig. 4.
+caption-4 | caption | V/C | 5 | Fig. 4.
+visual-1 | text | V/C | 5 | The model demonstrates its confidence
+visual-2 | text | V/C | 5 | The gap demonstrates improved detection
+visual-3 | text | V/C | 5 | The F1 score in Table 1
+heading-vi | section_header | VI | 5 | VI. LIMITATIONS
+limitations | text | VI | 5 | The findings are based on an internal
+heading-vii | section_header | VII | 6 | VII. CONCLUSION
+conclusion | text | VII | 6 | The study investigated seven transformer-based
+heading-viii | section_header | VIII | 6 | VIII. ACKNOWLEDGEMENT
+acknowledgement | text | VIII | 6 | We thank Data Science
+heading-references | section_header | REFERENCES | 6 | REFERENCES
+reference-1 | list_item | REFERENCES | 6 | @marker:[1]
+reference-2 | list_item | REFERENCES | 6 | @marker:[2]
+reference-3 | list_item | REFERENCES | 6 | @marker:[3]
+reference-4 | list_item | REFERENCES | 6 | @marker:[4]
+reference-5 | list_item | REFERENCES | 6 | @marker:[5]
+reference-6 | list_item | REFERENCES | 6 | @marker:[6]
+reference-7 | list_item | REFERENCES | 6 | @marker:[7]
+reference-8 | list_item | REFERENCES | 6 | @marker:[8]
+reference-9 | list_item | REFERENCES | 6 | @marker:[9]
+reference-10 | list_item | REFERENCES | 6 | @marker:[10]
+reference-11 | list_item | REFERENCES | 6 | @marker:[11]
+reference-12 | list_item | REFERENCES | 6 | @marker:[12]
+reference-13 | list_item | REFERENCES | 6 | @marker:[13]
+reference-14 | list_item | REFERENCES | 6 | @marker:[14]
+reference-15 | list_item | REFERENCES | 6 | @marker:[15]
+reference-16 | list_item | REFERENCES | 6 | @marker:[16]
+reference-17 | list_item | REFERENCES | 6 | @marker:[17]
+reference-18 | list_item | REFERENCES | 6 | @marker:[18]
+reference-19 | list_item | REFERENCES | 6 | @marker:[19]
+reference-20 | list_item | REFERENCES | 6 | @marker:[20]
+reference-21 | list_item | REFERENCES | 6 | @marker:[21]
+reference-22 | list_item | REFERENCES | 6 | @marker:[22]

@@ -60,8 +60,30 @@ function toOutlineHeading(
     ...heading,
     displayLevel: Math.max(1, Math.min(4, level)) as OutlineHeading["displayLevel"],
     sectionNumber: parsed?.number,
-    label: parsed?.label ?? heading.text,
+    label: repairSplitSmallCapsHeading(parsed?.label ?? heading.text),
   };
+}
+
+const COMMON_SCIENTIFIC_HEADINGS = new Set([
+  "ABSTRACT",
+  "ACKNOWLEDGEMENT",
+  "ACKNOWLEDGEMENTS",
+  "CONCLUSION",
+  "CONCLUSIONS",
+  "DISCUSSION",
+  "INTRODUCTION",
+  "LIMITATION",
+  "LIMITATIONS",
+  "METHODOLOGY",
+  "REFERENCE",
+  "REFERENCES",
+]);
+
+export function repairSplitSmallCapsHeading(text: string) {
+  return text.replace(/\b([A-Z])\s+([A-Z]{2,})\b/g, (match, initial: string, remainder: string) => {
+    const joined = `${initial}${remainder}`;
+    return COMMON_SCIENTIFIC_HEADINGS.has(joined) ? joined : match;
+  });
 }
 
 function parseHeadingNumber(text: string) {

@@ -1,0 +1,19 @@
+{
+  "source_sha256": "4a217d6c4251ac2dd31262ca7cde72fe9598feb06ed351c2bf039354fcf29a70",
+  "scope": "All 13 prose blocks in Mathematical Formalisms, pages 4-5, visually compared with the source. Display equations remain seven original-image fallbacks. Expectations are not read by the parser.",
+  "blocks": [
+    {"selector": "This section explains", "page": 4, "italic": ["(DistilBERT (Frozen) + BiLSTM", "+ LIWC)"], "sub": [], "crops": []},
+    {"selector": "The input token sequence", "page": 4, "sub": ["1", "2", "n", "liwc"], "crops": []},
+    {"selector": "Text Representation", "page": 4, "bold_italic": ["Text Representation (DistilBERT):"], "sub": [], "crops": []},
+    {"selector": "Where, the input sequence", "page": 4, "bold_italic": ["T"], "italic": ["Where,"], "sub": [], "crops": []},
+    {"selector": "The final output hidden state vectors", "page": 4, "sub": ["1", "2", "n", "bert"], "crops": [{"reason": "math_font_glyph_fidelity", "text": "hi ∈ R dbert", "native_sup": ["dbert"], "drawings": 0}]},
+    {"selector": "Sequential Pattern Analysis", "page": 4, "bold_italic": ["Sequential Pattern Analysis (BiLSTM):"], "sub": [], "crops": []},
+    {"selector": "The output at time step", "page": 4, "sub": ["n"], "crops": [{"reason": "drawn_marks_near_text", "text": "h′t = [ht ; ht ].", "drawings": 2}]},
+    {"selector": "The LSTM layer hidden size", "page": 4, "sub": ["bilstm"], "crops": []},
+    {"selector": "Feature Fusion:", "page": 4, "bold_italic": ["Feature Fusion:"], "sub": ["bilstm", "liwc", "combined"], "crops": []},
+    {"selector": "Final Classification:", "page": 4, "bold_italic": ["Final Classification:"], "bold": ["logit (z)."], "sub": [], "crops": []},
+    {"selector": "Where, the final linear layer", "page": 4, "bold_italic": ["W", "b"], "italic": ["Where,"], "sub": [], "crops": []},
+    {"selector": "The Sigmoid function", "page": 5, "italic": ["Sigmoid function"], "bold": ["P."], "sub": [], "crops": []},
+    {"selector": "The model's weights", "page": 5, "italic": ["Binary Cross-Entropy with Logits Loss"], "sub": [], "crops": []}
+  ]
+}

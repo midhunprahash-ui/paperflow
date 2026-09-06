@@ -1,0 +1,32 @@
+{
+  "fixture": "381_ICITIIT2026_Camera-Ready-Paper.pdf",
+  "decision": {
+    "primary": "mineru-3.4.0-hybrid-high",
+    "specialist": "grobid-0.9.1-crf",
+    "fallback": "docling-2.67.0"
+  },
+  "human_scores": {
+    "mineru": 88,
+    "marker": 81,
+    "docling": 66
+  },
+  "observed_elapsed_seconds": {
+    "mineru_cold_l4": 243.722,
+    "marker_cold_t4": 105.381,
+    "grobid_cpu_startup_and_parse": 75.67
+  },
+  "validated_counts": {
+    "pages": 6,
+    "figures": 4,
+    "equations": 7,
+    "native_table_rows": 7,
+    "native_table_columns": 7,
+    "references": 22
+  },
+  "constraints": [
+    "MinerU hybrid/high requires L4 in this Modal deployment; T4 vLLM initialization failed.",
+    "Disable MinerU image analysis and preserve original figure crops.",
+    "Use GROBID only for metadata and bibliography repair.",
+    "Keep Docling as the low-cost fallback."
+  ]
+}

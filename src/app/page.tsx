@@ -10,12 +10,12 @@ export default function HomePage() {
         <div className="hero-copy">
           <span className="eyebrow">A better home for research</span>
           <h1>Papers were made to be <em>understood.</em></h1>
-          <p>Upload a PDF or DOCX and Rpaper turns it into a calm, responsive reading experience—without losing the equations, tables, figures, or footnotes.</p>
+          <p>Upload a PDF and Rpaper prepares a calm, responsive reading copy. Your original stays available for equations, tables, figures, and footnotes.</p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/auth/sign-up">Build your library <ArrowRight size={18} /></Link>
             <Link className="button button-secondary" href="/sample"><BookOpen size={18} /> See a sample</Link>
           </div>
-          <p className="hero-note">Private by default · Original file preserved · Open-source parsing</p>
+          <p className="hero-note">Private library · Original file preserved · Comfortable reading</p>
         </div>
         <div className="hero-visual" aria-label="Research paper transformed into a readable page">
           <div className="source-paper">
@@ -34,8 +34,8 @@ export default function HomePage() {
         </div>
       </section>
       <section className="feature-strip container" aria-label="Features">
-        <article><ScanText /><h2>Complete extraction</h2><p>Text, structure, references, and reading order.</p></article>
-        <article><Table2 /><h2>Technical content</h2><p>Equations, tables, figures, and source fallbacks.</p></article>
+        <article><ScanText /><h2>A reading copy</h2><p>Extracted text organized by page, with references.</p></article>
+        <article><Table2 /><h2>Original preserved</h2><p>Open the source PDF for equations, tables, and figures.</p></article>
         <article><MoonStar /><h2>Made for reading</h2><p>Elegant typography across light and dark modes.</p></article>
       </section>
     </main>
