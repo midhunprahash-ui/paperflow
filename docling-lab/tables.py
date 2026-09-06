@@ -1,5 +1,6 @@
 """Recover explicitly ruled native tables and audit structured cell occupancy."""
 from __future__ import annotations
+from native_pdf import native_dict
 from collections import defaultdict
 import html
 import json
@@ -67,7 +68,7 @@ def ruled_grid(page, bbox):
     groups=defaultdict(list)
     for idx in range(rows*cols):groups[root(idx)].append(divmod(idx,cols))
     cells=[]
-    chars=[ch for b in page.get_text('rawdict')['blocks'] for line in b.get('lines',[]) for span in line['spans'] for ch in span['chars']]
+    chars=[ch for b in native_dict(page, raw=True)['blocks'] for line in b.get('lines',[]) for span in line['spans'] for ch in span['chars']]
     for group in groups.values():
         r0=min(r for r,c in group);r1=max(r for r,c in group)+1;c0=min(c for r,c in group);c1=max(c for r,c in group)+1
         if len(group)!=(r1-r0)*(c1-c0):return None

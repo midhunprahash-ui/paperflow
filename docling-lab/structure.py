@@ -1,5 +1,6 @@
 """Source-grounded structural repairs and an explicit section/content inventory."""
 from __future__ import annotations
+from native_pdf import native_dict
 
 import re
 
@@ -23,7 +24,7 @@ def repair_structure(doc, pdf):
             p = item.prov[0]
             page = pdf[p.page_no-1]
             b = p.bbox.to_top_left_origin(page.rect.height)
-            spans = [s for block in page.get_text('dict')['blocks'] for line in block.get('lines',[]) for s in line['spans']
+            spans = [s for block in native_dict(page)['blocks'] for line in block.get('lines',[]) for s in line['spans']
                      if match[1].lower() in s['text'].lower()
                      and (s['flags'] & 16 or re.search(r'(?i)bold|(?:^|[-_])(?:medi|demi)(?:$|[-_])',s['font']))
                      and b.l-3 <= s['bbox'][0] <= b.r and abs(s['bbox'][1]-b.t) < 5]

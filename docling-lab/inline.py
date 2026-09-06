@@ -5,6 +5,7 @@ eligible. The immutable extraction and plain-text section graph stay intact.
 Native font/baseline evidence is saved alongside the rendered representation.
 """
 from __future__ import annotations
+from native_pdf import native_dict
 
 from collections import Counter
 import hashlib
@@ -235,7 +236,7 @@ def enrich_inline(doc, pdf, out: Path, md: str):
         prov = item.prov[0]; page_no = prov.page_no
         page = pdf[page_no-1]
         if page_no not in pages:
-            pages[page_no] = page.get_text('rawdict')
+            pages[page_no] = native_dict(page, raw=True)
             drawings[page_no] = [drawing_bounds(d) for d in page.get_drawings()]
         b = prov.bbox.to_top_left_origin(page.rect.height)
         lines = native_lines(pages[page_no], pymupdf.Rect(b.l-1, b.t-2, b.r+1, b.b+2), glyphs)

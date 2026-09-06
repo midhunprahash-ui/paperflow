@@ -1,11 +1,12 @@
 import "server-only";
+import { cache } from "react";
 
 import { createServerClient } from "@supabase/ssr";
 import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { cookies } from "next/headers";
 import { isSupabaseConfigured, supabasePublishableKey, supabaseUrl } from "./config";
 
-export async function createClient() {
+export const createClient = cache(async function createClient() {
   if (!isSupabaseConfigured) return null;
   const cookieStore = await cookies();
 
@@ -21,7 +22,7 @@ export async function createClient() {
       },
     },
   });
-}
+});
 
 export function createAdminClient() {
   const secret = process.env.SUPABASE_SECRET_KEY;

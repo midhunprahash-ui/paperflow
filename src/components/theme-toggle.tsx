@@ -6,7 +6,7 @@ export function ThemeToggle() {
   function toggleTheme() {
     const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
-    localStorage.setItem("rpaper-theme", next);
+    try { localStorage.setItem("paperflow-theme", next); } catch { /* Theme still works when storage is disabled. */ }
   }
 
   return (

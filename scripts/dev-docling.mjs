@@ -1,0 +1,18 @@
+import { readFileSync } from 'node:fs';
+import { spawn } from 'node:child_process';
+import path from 'node:path';
+import { parseEnv } from 'node:util';
+const env = { ...process.env, RPAPER_LOCAL_DOCLING: '1' };
+const isolated = process.argv.includes('--isolated');
+const command = process.argv.includes('--build') ? 'build' : process.argv.includes('--production') ? 'start' : 'dev';
+Object.assign(env, parseEnv(readFileSync(isolated ? '.env.docling.local' : '.env.local', 'utf8')));
+env.DOCLING_ENABLED = '1';
+env.DOCLING_PYTHON ||= path.join(process.cwd(), 'docling-lab/.venv/bin/python');
+env.DOCLING_SCRIPT ||= path.join(process.cwd(), 'docling-lab/app_parse.py');
+console.log(`Docling app using ${isolated ? 'isolated local' : 'configured'} Supabase: ${new URL(env.NEXT_PUBLIC_SUPABASE_URL).hostname}`);
+env.NODE_ENV = command === 'dev' ? 'development' : 'production';
+const args = ['node_modules/next/dist/bin/next', command];
+if (command !== 'build') args.push('-p', '3001');
+const child = spawn(process.execPath, args, { env, stdio:'inherit' });
+for (const signal of ['SIGINT','SIGTERM']) process.on(signal, () => child.kill(signal));
+child.on('exit', code => process.exit(code ?? 1));

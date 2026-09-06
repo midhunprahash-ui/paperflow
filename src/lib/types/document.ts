@@ -16,12 +16,24 @@ type BaseNode = {
   bounds?: Bounds;
   confidence?: number;
   sourceAsset?: string;
+  sourceId?: string;
+  role?: string;
+  sectionId?: string | null;
+  sectionPath?: string[];
+  inline?: InlinePart[];
+  sourceFragments?: { asset: string; page: number; widthEm?: number }[];
+  provenance?: unknown[];
 };
+
+export type InlinePart = { type: "text"; text: string; bold?: boolean; italic?: boolean; script?: "sub" | "sup" | null }
+  | { type: "image"; asset: string; alt: string; widthEm?: number | null; descentEm?: number };
+export type PaperAsset = { path: string; sha256: string; mediaType: string; url?: string };
 
 export type HeadingNode = BaseNode & {
   type: "heading";
-  level: 1 | 2 | 3 | 4;
+  level: number;
   text: string;
+  explicitHierarchy?: boolean;
 };
 
 export type ParagraphNode = BaseNode & {
@@ -39,6 +51,8 @@ export type FormulaNode = BaseNode & {
   type: "formula";
   latex: string;
   label?: string;
+  candidateLatex?: string;
+  verified?: boolean;
 };
 
 export type TableNode = BaseNode & {
@@ -46,6 +60,9 @@ export type TableNode = BaseNode & {
   caption?: string;
   headers: string[];
   rows: string[][];
+  rowCount?: number;
+  colCount?: number;
+  cells?: { row: number; col: number; rowSpan: number; colSpan: number; header: boolean; text: string; sourceAsset?: string }[];
 };
 
 export type FigureNode = BaseNode & {
@@ -75,13 +92,18 @@ export type DocumentNode =
   | TableNode
   | FigureNode
   | CodeNode
-  | FootnoteNode;
+  | FootnoteNode
+  | (BaseNode & { type: "list_item"; text: string; marker: string; listId: string })
+  | (BaseNode & { type: "caption"; text: string; captionOf: string });
 
 export type PaperDocument = {
-  schemaVersion: 1;
+  schemaVersion: 1 | 2;
   metadata: PaperMetadata;
   sections: DocumentNode[];
   references: string[];
+  assets?: Record<string, PaperAsset>;
+  hierarchy?: { id: string; title: string; level: number; parent: string | null; children: string[]; blocks: string[] }[];
+  parser?: { name: string; version: string; reviewRequired: boolean; limits: string };
   source: {
     type: "pdf" | "docx";
     filename: string;

@@ -1,5 +1,5 @@
 {
-  "name": "rpaper-website",
+  "name": "paperflow-website",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -14,7 +14,12 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "dev:docling": "node scripts/dev-docling.mjs",
+    "build:docling": "node scripts/dev-docling.mjs --build",
+    "start:docling": "node scripts/dev-docling.mjs --production",
+    "setup:docling": "node scripts/setup-docling-local.mjs",
+    "test:sidebar": "node scripts/verify-sidebar.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.12.5",
@@ -37,6 +42,7 @@
     "eslint": "9.39.1",
     "eslint-config-next": "16.3.3",
     "jsdom": "27.2.0",
+    "react-grab": "0.2.0",
     "typescript": "5.9.3",
     "vitest": "4.1.11"
   }

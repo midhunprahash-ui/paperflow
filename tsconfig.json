@@ -33,10 +33,13 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    ".next/dev/types/**/*.ts",
+    ".next-docling/types/**/*.ts",
+    ".next-docling/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
-    "worker"
+    "worker",
+    ".next-docling"
   ]
 }

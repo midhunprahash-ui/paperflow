@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Brand } from "./brand";
-import { ThemeToggle } from "./theme-toggle";
 
 export function SiteHeader({ signedIn = false }: { signedIn?: boolean }) {
   return (
@@ -8,7 +7,7 @@ export function SiteHeader({ signedIn = false }: { signedIn?: boolean }) {
       <div className="site-header-inner">
         <Brand />
         <nav className="header-actions" aria-label="Primary navigation">
-          <ThemeToggle />
+
           {signedIn ? (
             <Link className="button button-secondary button-small" href="/library">My library</Link>
           ) : (

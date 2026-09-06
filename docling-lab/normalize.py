@@ -1,5 +1,6 @@
 """Conservative, logged repairs using source geometry and explicit heading markers."""
 from __future__ import annotations
+from native_pdf import native_dict
 import re
 
 SMALL_CAPS={"INTRODUCTION","RELATED","WORKS","LIMITATIONS","DEPLOYMENT","ACKNOWLEDGEMENT","ACKNOWLEDGMENTS","ACKNOWLEDGEMENTS","REFERENCES","CONCLUSION","METHODOLOGY","RESULTS","EXPERIMENTS"}
@@ -41,7 +42,7 @@ def normalize_document(doc, pdf):
         # lettered heading; scans lacking font evidence stay flagged, not guessed.
         p=item.prov[0]; page=pdf[p.page_no-1]
         box=p.bbox.to_top_left_origin(page.rect.height)
-        spans=[s for b in page.get_text("dict")["blocks"] if "lines" in b for line in b["lines"] for s in line["spans"]
+        spans=[s for b in native_dict(page)["blocks"] if "lines" in b for line in b["lines"] for s in line["spans"]
                if pymupdf.Rect(s['bbox']).intersects(pymupdf.Rect(box.l,box.t,box.r,box.b))]
         styled=bool(spans) and any("italic" in s['font'].lower() or 'oblique' in s['font'].lower() for s in spans)
         siblings=[r.resolve(doc) for r in item.parent.resolve(doc).children if r.cref!=item.self_ref]
@@ -79,7 +80,7 @@ def normalize_document(doc, pdf):
         item=ref.resolve(doc)
         if item.label==DocItemLabel.SECTION_HEADER and item.prov and item.prov[0].page_no==1:
             b=item.prov[0].bbox.to_top_left_origin(pdf[0].rect.height)
-            title_spans=[s for block in pdf[0].get_text('dict')['blocks'] for line in block.get('lines',[]) for s in line['spans']
+            title_spans=[s for block in native_dict(pdf[0])['blocks'] for line in block.get('lines',[]) for s in line['spans']
                          if pymupdf.Rect(s['bbox']).intersects(pymupdf.Rect(b.l,b.t,b.r,b.b))]
             prominent=any(s['size']>=14 for s in title_spans)
             near_top=b.t < pdf[0].rect.height*(.30 if prominent else .16)

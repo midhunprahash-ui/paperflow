@@ -13,10 +13,11 @@ export function DocumentActions({ document }: { document: LibraryDocument }) {
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
+    if (!open) return;
     function close(event: MouseEvent) { if (!wrapperRef.current?.contains(event.target as Node)) setOpen(false); }
     window.addEventListener("mousedown", close);
     return () => window.removeEventListener("mousedown", close);
-  }, []);
+  }, [open]);
 
   async function publish() {
     if (!document.active_version_id) return;

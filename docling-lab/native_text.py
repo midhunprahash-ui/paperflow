@@ -1,4 +1,5 @@
 """Restore visible native punctuation only when every letter/digit agrees."""
+from native_pdf import native_dict
 from collections import defaultdict
 import re
 import unicodedata
@@ -14,7 +15,7 @@ def restore_native_punctuation(doc,pdf):
         pieces=[];seen=set();valid=True
         for prov in item.prov:
             page=pdf[prov.page_no-1]
-            if prov.page_no not in pages:pages[prov.page_no]=page.get_text('rawdict')
+            if prov.page_no not in pages:pages[prov.page_no]=native_dict(page, raw=True)
             b=prov.bbox.to_top_left_origin(page.rect.height)
             rows=[]
             for block in pages[prov.page_no]['blocks']:

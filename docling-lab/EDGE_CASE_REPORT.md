@@ -1,5 +1,9 @@
 # Local parser repairs and edge-case validation
 
+Update: the experimental local app now uses this pipeline with explicit source
+image fallbacks. See [the integration report](APP_INTEGRATION.md) for the newer
+checks and remaining limits. The results below record the earlier laboratory gate.
+
 All **46 defined automated tests pass**, with no failures or skips. This is a
 local laboratory result, not certification that arbitrary papers preserve every
 character or mathematical expression. The application integration gate remains
