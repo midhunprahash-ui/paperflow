@@ -47,7 +47,6 @@ button { color: inherit; }
 .site-header { position: relative; z-index: 10; border-bottom: 1px solid color-mix(in srgb, var(--line) 75%, transparent); }
 .site-header-inner { width: min(1180px, calc(100% - 40px)); min-height: 72px; margin-inline: auto; display: flex; align-items: center; justify-content: space-between; }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.035em; font-size: 20px; }
-.brand-mark { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; color: var(--accent-ink); background: var(--accent); }
 .header-actions { display: flex; align-items: center; gap: 12px; }
 .icon-button { width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); display: grid; place-items: center; cursor: pointer; transition: border-color .2s, transform .2s; }
 .icon-button:hover { border-color: var(--accent); transform: translateY(-1px); }
@@ -232,3 +231,14 @@ button { color: inherit; }
   .reader-header { padding-inline: 10px; }.reader-tool { width: 38px; padding: 0; justify-content: center; }.reader-tool { font-size: 0; }.reader-layout { width: min(100% - 34px, 820px); }.paper-article { padding-top: 50px; }.paper-title-block h1 { font-size: 43px; }.paper-byline { font-size: 15px; }.abstract-block { margin-inline: -4px; padding: 23px 22px; }.paper-heading { gap: .28em; }.paper-content h2 { font-size: 29px; }.paper-paragraph, .paper-list { font-size: 17px; line-height: 1.78; }.paper-formula { margin-inline: -8px; padding-inline: 22px; }.paper-table { margin-inline: 0; }.paper-table table { min-width: 520px; }.paper-figure { margin-inline: -9px; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+
+/* Typed Docling presentation: source pixels stay legible in either reader theme. */
+.paper-inline-source { display: inline; max-width: 100%; height: auto; background: white; }
+.paper-source-image { display: block; max-width: 100%; height: auto; margin: .6rem 0; background: white; }
+.paper-source-paragraph { margin: 1.3rem 0; }
+.paper-source-list-item { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: .65rem; margin: .65rem 0; overflow-wrap: anywhere; }
+.paper-list-marker { min-width: 1.5em; }
+.paper-source-caption { font-size: .9em; margin: .65rem 0 1.7rem; }
+.source-unavailable { font-size: .85em; color: var(--muted); }
+.toc-level-5 { padding-left: 2.7rem; }
+.toc-level-6 { padding-left: 3.2rem; }

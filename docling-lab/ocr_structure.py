@@ -22,6 +22,35 @@ def repair_ocr_structure(doc,pdf,lines):
         for p in item.prov:
             p=p.model_copy(deep=True);p.charspan=(p.charspan[0]+offset,p.charspan[1]+offset);target.prov.append(p)
         detach(item);fixes.append(dict(kind=kind,id=target.self_ref,absorbed=item.self_ref))
+    # Occasionally layout assembly repeats an OCR heading. Remove the repeat
+    # only when independently retained OCR lines at that location spell it once.
+    for item,_ in doc.iterate_items():
+        if item.label!=DocItemLabel.SECTION_HEADER or len(item.prov)!=1 or item.prov[0].page_no not in scanned:continue
+        repeated=re.fullmatch(r'(.{8,}?)\s+\1',item.text)
+        if not repeated:continue
+        b=box(item);unique={}
+        for line in lines:
+            x0,y0,x1,y1=line['bbox']
+            if line['page']==item.prov[0].page_no and line['confidence']>=.9 and b.l-1<=(x0+x1)/2<=b.r+1 and b.t-1<=(y0+y1)/2<=b.b+1:
+                unique[(round(x0),round(y0),compact(line['text']))]=line
+        # Full-page and region OCR can report the same printed line with a
+        # missing prefix. Collapse only spatially overlapping substring evidence.
+        candidates=sorted(unique.values(),key=lambda c:len(compact(c['text'])),reverse=True)
+        retained=[]
+        for candidate in candidates:
+            x0,y0,x1,y1=candidate['bbox'];area=max(0,x1-x0)*max(0,y1-y0)
+            duplicate=False
+            for existing in retained:
+                a0,b0,a1,b1=existing['bbox']
+                overlap=max(0,min(x1,a1)-max(x0,a0))*max(0,min(y1,b1)-max(y0,b0))
+                smaller_area=min(area,max(0,a1-a0)*max(0,b1-b0))
+                if smaller_area>0 and overlap/smaller_area>=.9 and compact(candidate['text']) in compact(existing['text']):
+                    duplicate=True;break
+            if not duplicate:retained.append(candidate)
+        evidence=''.join(c['text'] for c in sorted(retained,key=lambda c:(c['bbox'][1],c['bbox'][0])))
+        if compact(evidence)==compact(repeated[1]):
+            before=item.text;item.text=item.orig=repeated[1];item.prov[0].charspan=(0,len(item.text))
+            fixes.append(dict(kind='duplicate_ocr_heading_assembly',id=item.self_ref,before=before,after=item.text))
     # OCR sometimes emits a zero-width axis-label duplicate inside a figure.
     for item,_ in list(doc.iterate_items()):
         if item.label!=DocItemLabel.TEXT or len(item.prov)!=1 or item.prov[0].page_no not in scanned:continue

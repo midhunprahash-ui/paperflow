@@ -48,6 +48,14 @@ export function UploadDialog() {
 
     const supabase = createClient();
     if (!supabase) return;
+    try {
+      const form = new FormData(); form.set("file", file);
+      const validation = await fetch("/api/documents/validate", { method: "POST", body: form });
+      if (!validation.ok) {
+        const result = await validation.json();
+        setError(result.error || "Choose an unlocked PDF with at most 16 pages."); setBusy(false); return;
+      }
+    } catch { setError("Could not check the PDF. Please retry."); setBusy(false); return; }
     const mediaType = "pdf";
     const { data, error: createError } = await supabase.rpc("create_document_upload", {
       p_filename: file.name,
@@ -106,13 +114,13 @@ export function UploadDialog() {
   return (
     <>
       <button className="add-paper-button" type="button" onClick={() => setOpen(true)} aria-label="Add a research paper">
-        <Plus size={25} strokeWidth={1.8} />
+        <Plus size={18} strokeWidth={1.8} /><span>Add paper</span>
       </button>
       {open && (
         <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget && !busy) setOpen(false); }}>
           <section className="upload-dialog" role="dialog" aria-modal="true" aria-labelledby="upload-title">
             <button className="modal-close" type="button" onClick={() => setOpen(false)} disabled={busy} aria-label="Close"><X size={19} /></button>
-            <div className="upload-heading"><span className="upload-icon"><UploadCloud size={22} /></span><h2 id="upload-title">Add a research paper</h2><p>We’ll extract a reading copy and keep your original PDF for figures, tables, and equations.</p></div>
+            <div className="upload-heading"><span className="upload-icon"><UploadCloud size={22} /></span><h2 id="upload-title">Add a research paper</h2><p>We’ll preserve the paper’s hierarchy and include source images wherever math or scanned formatting needs them.</p></div>
             <div
               className={`drop-zone${dragging ? " is-dragging" : ""}${file ? " has-file" : ""}`}
               onDragOver={(event) => { event.preventDefault(); setDragging(true); }}
@@ -122,7 +130,7 @@ export function UploadDialog() {
               {file ? (
                 <div className="selected-file"><FileText size={28} /><div><strong>{file.name}</strong><span>{formatBytes(file.size)} · Ready to upload</span></div><button type="button" onClick={() => setFile(null)} disabled={busy}>Change</button></div>
               ) : (
-                <><UploadCloud size={30} /><strong>Drop your paper here</strong><span>PDF, up to 25 MB and 100 pages</span><button className="button button-secondary button-small" type="button" onClick={() => inputRef.current?.click()}>Choose file</button></>
+                <><UploadCloud size={30} /><strong>Drop your paper here</strong><span>PDF, up to 25 MB and 16 pages</span><button className="button button-secondary button-small" type="button" onClick={() => inputRef.current?.click()}>Choose file</button></>
               )}
               <input ref={inputRef} hidden type="file" accept=".pdf,application/pdf" onChange={(event: ChangeEvent<HTMLInputElement>) => chooseFile(event.target.files?.[0])} />
             </div>

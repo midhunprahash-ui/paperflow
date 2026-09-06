@@ -1,5 +1,6 @@
 "use client";
 
+import { Brand } from "./brand";
 import { BookOpen, Check, Circle, FileText, LoaderCircle, RotateCcw } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -8,8 +9,9 @@ import type { ProcessingJob, ProcessingStage } from "@/lib/types/document";
 
 const stages: { key: ProcessingStage; title: string; detail: string }[] = [
   { key: "validating", title: "Inspecting your document", detail: "Checking the uploaded PDF" },
-  { key: "ocr", title: "Reading every page", detail: "Extracting the document text" },
+  { key: "layout", title: "Reading the paper structure", detail: "Recovering sections, reading order, tables and scanned text. Local parsing can take a few minutes." },
   { key: "assembling", title: "Building your reader", detail: "Creating the responsive ebook structure" },
+  { key: "assets", title: "Preserving technical content", detail: "Saving figures, equations and source images" },
   { key: "quality_check", title: "Checking completeness", detail: "Checking the extracted pages and saving your reading copy" },
 ];
 
@@ -20,7 +22,7 @@ export function ProcessingView({ initialJob, documentRef, filename, demo = false
 
   useEffect(() => {
     if (demo) {
-      const sequence: ProcessingStage[] = ["validating", "ocr", "assembling", "quality_check", "ready"];
+      const sequence: ProcessingStage[] = ["validating", "layout", "assembling", "assets", "quality_check", "ready"];
       let index = Math.max(0, sequence.indexOf(initialJob.stage));
       const timer = window.setInterval(() => {
         index += 1;
@@ -70,5 +72,5 @@ export function ProcessingView({ initialJob, documentRef, filename, demo = false
   const ready = job.status === "ready" || job.stage === "ready";
   const failed = job.status === "failed" || job.stage === "failed";
 
-  return <div className="processing-shell"><div className="processing-ambient ambient-one" /><div className="processing-ambient ambient-two" /><header className="processing-header"><Link href="/library" className="back-library">← Library</Link><span>Rpaper</span><span className="privacy-note">Private workspace</span></header><section className={`processing-card${ready ? " is-ready" : ""}`}><div className="document-orbit"><span className="orbit orbit-one" /><span className="orbit orbit-two" /><span className="document-glyph">{ready ? <Check size={35} /> : <FileText size={35} />}</span></div><span className="processing-kicker">{ready ? "Reading copy ready" : failed ? "Processing paused" : "Preparing your paper"}</span><h1>{ready ? "Your paper is ready to read." : failed ? "We couldn’t finish this paper." : stages[Math.max(0, activeIndex)]?.title ?? "Waiting for the parser"}</h1><p>{ready ? "Your reading copy is saved. Use Original in the reader to view figures, tables, and equations." : failed ? job.error_message || "You can safely retry without uploading the source again." : stages[Math.max(0, activeIndex)]?.detail}</p><div className="processing-file"><FileText size={16} /><span>{filename}</span><strong>{job.progress}%</strong></div><div className="progress-track" aria-label={`${job.progress}% processed`}><span style={{ width: `${job.progress}%` }} /></div>{ready ? <Link className="button button-primary read-reveal" href={`/documents/${documentRef}/read`}><BookOpen size={18} />Read paper</Link> : failed ? <button className="button button-secondary" type="button" onClick={retry} disabled={retrying}><RotateCcw size={17} />{retrying ? "Retrying…" : "Try again"}</button> : <div className="stage-list">{stages.map((stage, index) => { const complete = activeIndex > index; const active = activeIndex === index; return <div key={stage.key} className={`stage-row${complete ? " complete" : ""}${active ? " active" : ""}`}>{complete ? <Check size={15} /> : active ? <LoaderCircle className="spin" size={15} /> : <Circle size={11} />}<span>{stage.title}</span></div>; })}</div>}</section></div>;
+  return <div className="processing-shell"><div className="processing-ambient ambient-one" /><div className="processing-ambient ambient-two" /><header className="processing-header"><Link href="/library" className="back-library">← Library</Link><Brand /><span className="privacy-note">Private workspace</span></header><section className={`processing-card${ready ? " is-ready" : ""}`}><div className="document-orbit"><span className="orbit orbit-one" /><span className="orbit orbit-two" /><span className="document-glyph">{ready ? <Check size={35} /> : <FileText size={35} />}</span></div><span className="processing-kicker">{ready ? "Reading copy ready" : failed ? "Processing paused" : "Preparing your paper"}</span><h1>{ready ? "Your paper is ready to read." : failed ? "We couldn’t finish this paper." : stages[Math.max(0, activeIndex)]?.title ?? "Waiting for the parser"}</h1><p>{ready ? "Your reading copy is saved. Use Original in the reader to view figures, tables, and equations." : failed ? job.error_message || "You can safely retry without uploading the source again." : stages[Math.max(0, activeIndex)]?.detail}</p><div className="processing-file"><FileText size={16} /><span>{filename}</span><strong>{job.progress}%</strong></div><div className="progress-track" aria-label={`${job.progress}% processed`}><span style={{ width: `${job.progress}%` }} /></div>{ready ? <Link className="button button-primary read-reveal" href={`/documents/${documentRef}/read`}><BookOpen size={18} />Read paper</Link> : failed ? <button className="button button-secondary" type="button" onClick={retry} disabled={retrying}><RotateCcw size={17} />{retrying ? "Retrying…" : "Try again"}</button> : <div className="stage-list">{stages.map((stage, index) => { const complete = activeIndex > index; const active = activeIndex === index; return <div key={stage.key} className={`stage-row${complete ? " complete" : ""}${active ? " active" : ""}`}>{complete ? <Check size={15} /> : active ? <LoaderCircle className="spin" size={15} /> : <Circle size={11} />}<span>{stage.title}</span></div>; })}</div>}</section></div>;
 }

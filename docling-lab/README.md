@@ -2,7 +2,10 @@
 
 Standalone local evaluation, separate from Rpaper, Supabase, OpenRouter and Azure.
 Only Docling performs document recognition. There is no rewriting/summarization LLM.
-The app and production must not be switched until the fidelity failures are resolved.
+The pipeline is now available in the experimental local app with explicit source
+image fallbacks; see [integration verification](APP_INTEGRATION.md). Production
+release still requires local reader evaluation and resolution of the relevant
+fidelity and hosting limits.
 
 Start with [the latest edge-case results](EDGE_CASE_REPORT.md), [the results index](index.html), [inline math and formatting](INLINE_REPORT.md),
 and [the complete structure audit update](STRUCTURE_REPORT.md).

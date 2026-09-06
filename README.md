@@ -1,79 +1,103 @@
-# Rpaper
+# paperflow
 
-Rpaper turns PDF research papers into page-organized reading copies and keeps the original PDF available for figures, tables, equations, and exact formatting.
+paperflow parses research PDFs with local Docling and presents the paper's ordered
+content and section hierarchy in the reader. Uploads accept **1–16 pages, up to
+25 MB**. The original PDF remains available.
 
-## Architecture
+## Run the integrated local app
 
-- **Web:** Next.js 16, React 19, TypeScript, KaTeX.
-- **Data:** Supabase Auth, Postgres, RLS, Realtime, and private Storage.
-- **Parser:** OpenRouter file-parser with the explicit `cloudflare-ai` engine.
+The app at **http://localhost:3001** uses the hosted Supabase project configured
+in ignored `.env.local`. Sign in with your existing paperflow account. **Docker is
+not required**: Supabase provides hosted Auth, database and private Storage;
+Docling runs on this Mac.
 
-The browser uploads to an owner-scoped Supabase Storage path and enqueues a job.
-The authenticated dispatch route claims that exact job and schedules processing
-with Next.js `after()`. It downloads the PDF server-side, calls OpenRouter, and
-normalizes the raw file annotations into the reader manifest. The free model
-router only acknowledges the request; its generated answer is not used as the
-extracted document. There is no paid OCR or alternate parser fallback.
-
-Both the raw parser text (`extraction.json`) and the reader (`manifest.json`)
-are stored under the owner's document and processing-run path. Completion
-atomically creates the version and updates the document/job through a
-service-role-only RPC. Duplicate dispatches do not run the same active job;
-stale runs can resume after five minutes with a new run ID. A stale worker cannot
-complete or fail the replacement run. Process restarts require the processing
-page to be opened for recovery; this is not a durable background queue.
-
-Cloudflare text extraction can flatten tables, damage mathematical notation,
-and omit figures. The reader retains the Original link for faithful viewing.
-New uploads accept PDF only; export DOCX files to PDF first.
-
-## Docling evaluation
-
-The standalone [Docling lab](docling-lab/README.md) evaluates local parsing with
-a 16-page limit, structured hierarchy, tables, figures and source-backed math.
-See its [test report](docling-lab/EDGE_CASE_REPORT.md) for verified results and
-remaining fidelity limits. It is separate from the app's current Cloudflare
-integration. Downloaded PDFs, model environments and generated review assets
-remain local and are excluded from Git.
-
-## Local setup
-
-```bash
+```sh
 npm install
-cp .env.example .env.local
-# Fill in Supabase configuration and OPENROUTER_API_KEY locally.
-npm run dev
+# Python environment and model setup: docling-lab/README.md
+npm run dev:docling
 ```
 
-If `.env.local` already exists, edit it instead of overwriting it. The server
-needs `SUPABASE_SECRET_KEY` and `OPENROUTER_API_KEY`. No Modal credentials,
-Python environment, GPU, or direct database password are needed at runtime.
-Without Supabase configuration the app runs in demo mode.
+For smooth local evaluation without development compilation, stop the dev server
+first, then run:
 
-Apply the migrations to your selected Supabase project before processing real
-uploads. The Cloudflare migration is
-`supabase/migrations/20260906091102_cloudflare_processing_api.sql`.
-It adds server-only claim, completion, and failure RPCs; browser roles cannot
-call them. Existing migration history is retained.
+```sh
+npm run build:docling
+npm run start:docling
+```
 
-## Hosting
+Both modes serve **http://localhost:3001** and use the same hosted Supabase and local
+Docling configuration. Rebuild after code changes when using `start:docling`.
 
-The dispatch handler requires a Node.js deployment supporting Next.js `after()`
-and a 300-second function duration. OpenRouter requests have a 180-second timeout.
-Configure the same server-only keys on your host. Free endpoint availability and
-rate limits still apply; failures are shown on the processing screen and can be
-retried without re-uploading the PDF.
+React Grab is enabled when running `npm run dev` or `npm run dev:docling`.
+Hover an element, press **⌘C** (Mac) or **Ctrl+C**, then paste its component/source
+context into your coding agent. It is disabled in optimized production builds.
 
-## Verification
+[Frontend performance and verification](docs/FRONTEND_REVIEW.md) records the
+redesign, measured response times and desktop/mobile checks.
 
-```bash
-npm run typecheck
+`dev:docling` reads `.env.local`, enables Docling and sets the Python interpreter
+and entrypoint paths at runtime. Next.js does not bundle the Python environment.
+The Docling processing migration is installed on the hosted paperflow project.
+The Supabase MCP connection is authenticated and verified against that project.
+Keep the dev server running while papers are processed. Hosted credentials stay
+in ignored local environment configuration; the server secret never enters the
+browser or the Python process.
+
+For a separate, optional Docker-backed test database, run `npm run setup:docling`
+and `npm run dev:docling -- --isolated`. That mode reads `.env.docling.local` and
+uses the dedicated `rpaper-docling-local` stack. The upload regression script
+below deliberately targets only this isolated test environment.
+
+## Upload → parser → reader
+
+1. An authenticated preflight validates the PDF and page count before creating an
+   upload record. The processing worker repeats validation before model loading.
+2. The browser uploads to its Auth UUID's private Storage prefix and enqueues a
+   job. The dispatch route claims the exact owner/document/job/run combination.
+3. Next.js starts the local Python parser after responding. An OS file lock
+   serializes model inference on this machine; heartbeats protect queued/running
+   attempts. The process has a 15-minute timeout. Server restarts require opening
+   the processing page to recover stale jobs; this is not a durable hosting queue.
+4. Docling performs layout recognition, selective OCR and table extraction. The
+   lab's normalization and source-backed math repairs run unchanged. No OpenRouter
+   request, summarization or rewriting model is used in this flow.
+5. `app_export.py` creates a version-2 manifest with ordered typed blocks, the
+   section tree, source ownership/provenance, explicit list markers, merged table
+   cells, typed inline styles and asset references. Raw parser HTML is not injected
+   into React.
+6. Source images and evidence are saved under the owner's unique run prefix.
+   A service-only transaction creates the version and asset rows and marks the
+   document ready. Stale attempts cannot finish a replacement run. The reader
+   signs private images in batches and preserves caption positions and references.
+
+The original source, raw Docling JSON, corrected JSON, structure, quality report,
+inline/paragraph/table evidence and Markdown are retained. Markdown is stored in
+`paper-markdown.json` so the existing bucket's JSON content-type policy remains
+valid. Version-1 papers continue to render. Old Cloudflare helpers and migrations
+remain as history; new dispatches use Docling.
+
+## Fidelity and testing
+
+[The lab report](docling-lab/EDGE_CASE_REPORT.md) describes what parsing has and has
+not established. Uncertain formulas, some table cells and scanned paragraphs use
+source images. Those preserve appearance but are not verified semantic LaTeX or
+fully reflowable OCR. Integration preserves these explicit fallbacks rather than
+turning uncertain text into a claim of accurate transcription.
+
+```sh
 npm run lint
 npm test
 npm run build
+npm run typecheck
+docling-lab/.venv/bin/python -m pytest docling-lab -q
+# Creates a test user and uploads the lab paper only to the isolated local stack:
+node scripts/verify-docling-upload.mjs
 ```
 
-Upload limits: 25 MB, 100 parsed pages, five retained documents per user.
-Keep keys in ignored local configuration, never in frontend code or Git.
-The Supabase Auth UUID remains the canonical document owner. Rendering uses
-escaped typed nodes; raw parser HTML is never injected into the reader.
+The full upload test requires the local stack and `dev:docling` to be running and
+the lab corpus to exist. Its session file and screenshots stay under ignored
+`tmp/docling-local`. It deliberately refuses a hosted Supabase URL.
+
+See [the integration verification report](docling-lab/APP_INTEGRATION.md) for the
+current checks. Deployment to Azure or any production host remains a separate
+step after local reader evaluation.

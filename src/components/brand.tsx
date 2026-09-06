@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { BookOpenText } from "lucide-react";
+import type { MouseEventHandler } from "react";
 
-export function Brand({ compact = false }: { compact?: boolean }) {
+export function Brand({ compact = false, href = "/", onClick }: { compact?: boolean; href?: string; onClick?: MouseEventHandler<HTMLAnchorElement> }) {
   return (
-    <Link className="brand" href="/" aria-label="Rpaper home">
-      <span className="brand-mark" aria-hidden="true"><BookOpenText size={19} strokeWidth={1.8} /></span>
-      {!compact && <span>Rpaper</span>}
+    <Link className="brand" href={href} onClick={onClick} aria-label={href === "/library" ? "paperflow library" : "paperflow home"}>
+      <span className="brand-slash" aria-hidden="true">/</span>
+      {!compact && <span className="brand-name">paperflow</span>}
     </Link>
   );
 }

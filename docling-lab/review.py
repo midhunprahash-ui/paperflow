@@ -160,7 +160,7 @@ def prepare_review(source: Path, out: Path):
             warnings.append({"kind":"caption_contains_preceding_plot_labels","id":item.self_ref,"text":item.text})
     missing = original_counts - output_counts
     quality = {"approval":"needs_review", "headings":headings, "warnings":warnings, "fixes":fixes,
-               "normalization_files_sha256":{name:hashlib.sha256((Path(__file__).parent/name).read_bytes()).hexdigest() for name in ('normalize.py','structure.py','review.py','inline.py','glyphs.py','tables.py','source_fragments.py','ocr_structure.py','native_text.py')},
+               "normalization_files_sha256":{name:hashlib.sha256((Path(__file__).parent/name).read_bytes()).hexdigest() for name in ('normalize.py','structure.py','review.py','inline.py','glyphs.py','tables.py','source_fragments.py','ocr_structure.py','native_text.py','native_pdf.py')},
                "source_paragraph_fallbacks":len(source_fragments['blocks']),
                "inline_presentation":{"blocks":len(inline_content['blocks']),"source_crops":sum(len(b['source_crops']) for b in inline_content['blocks']),"skipped":dict(Counter(b['reason'] for b in inline_content['skipped']))},
                "effective_counts":{**dict(Counter(x.label.value for x,_ in doc.iterate_items())),"picture":len(doc.pictures)+len(figure_tables),"table":len(doc.tables)-len(figure_tables)},

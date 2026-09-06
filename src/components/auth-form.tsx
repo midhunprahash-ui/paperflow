@@ -105,7 +105,7 @@ export function AuthForm({ mode }: { mode: Mode }) {
         </button>
       </form>
       <p className="auth-switch">
-        {isSignIn ? "New to Rpaper?" : "Already have an account?"}{" "}
+        {isSignIn ? "New to paperflow?" : "Already have an account?"}{" "}
         <Link href={isSignIn ? "/auth/sign-up" : "/auth/sign-in"}>{isSignIn ? "Create an account" : "Sign in"}</Link>
       </p>
     </div>

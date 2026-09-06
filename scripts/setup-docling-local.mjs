@@ -1,0 +1,20 @@
+// Isolated Supabase stack for the local Docling app; never links to a hosted project.
+import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
+const exec = promisify(execFile);
+const root = 'tmp/docling-local';
+await mkdir(`${root}/supabase/migrations`, { recursive: true });
+let config = (await readFile('supabase/config.toml','utf8')).replace('project_id = "rpaper-website"','project_id = "rpaper-docling-local"');
+for (let i=0;i<=9;i++) config=config.replaceAll(String(54320+i),String(58320+i));
+await writeFile(`${root}/supabase/config.toml`,config);
+for (const name of await readdir('supabase/migrations')) if(name.endsWith('.sql')) await writeFile(`${root}/supabase/migrations/${name}`,await readFile(`supabase/migrations/${name}`));
+const cli=['--yes','supabase@2.116.0'];
+console.log('Starting isolated local Supabase. Docker must be running.');
+await exec('npx',[...cli,'start','--workdir',root,'--exclude','studio,postgres-meta,logflare,vector,edge-runtime,supavisor,imgproxy'],{maxBuffer:16*1024*1024});
+const {stdout}=await exec('npx',[...cli,'status','--workdir',root,'--output','env']);
+const values=Object.fromEntries(stdout.trim().split('\n').filter(l=>l.includes('=')).map(l=>{const i=l.indexOf('=');return [l.slice(0,i),l.slice(i+1).replace(/^"|"$/g,'')]}));
+if(values.API_URL!=='http://127.0.0.1:58321'||!values.SECRET_KEY) throw Error('Unexpected local Supabase configuration');
+const env={NEXT_PUBLIC_SUPABASE_URL:values.API_URL,NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:values.PUBLISHABLE_KEY,SUPABASE_SECRET_KEY:values.SECRET_KEY,NEXT_PUBLIC_SITE_URL:'http://localhost:3001',DOCLING_ENABLED:'1'};
+await writeFile('.env.docling.local',Object.entries(env).map(([k,v])=>`${k}=${v}`).join('\n')+'\n',{mode:0o600});
+console.log('Local configuration saved. Run npm run dev:docling and create a local account.');
