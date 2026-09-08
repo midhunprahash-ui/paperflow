@@ -19,13 +19,13 @@ export function PaperReader({ paper, backHref = "/library", originalUrl }: { pap
   const headings = buildHeadingOutline(paper.sections.filter((node): node is HeadingNode => node.type === "heading"));
   const headingById = new Map(headings.map((heading) => [heading.id, heading]));
   return <main className="reader-page"><ReaderProgress />
-    <header className="reader-header"><Link href={backHref} className="reader-back" aria-label="Back to library"><ArrowLeft size={18} /><span>Library</span></Link><div className="reader-document-label"><span>{paper.metadata.title}</span></div><div className="reader-tools"><ReaderPreferences />{originalUrl && <a className="reader-tool" href={originalUrl} target="_blank" rel="noreferrer"><FileDown size={16} /><span>Original PDF</span></a>}</div></header>
+    <header className="reader-header"><Link href={backHref} prefetch={true} className="reader-back" aria-label="Back to library"><ArrowLeft size={18} /><span>Library</span></Link><div className="reader-document-label"><span>{paper.metadata.title}</span></div><div className="reader-tools"><ReaderPreferences />{originalUrl && <a className="reader-tool" href={originalUrl} target="_blank" rel="noreferrer"><FileDown size={16} /><span>Original PDF</span></a>}</div></header>
     <div className="reader-layout"><ReaderOutline headings={headings.map(({ id, label, sectionNumber, displayLevel }) => ({ id, label, sectionNumber, displayLevel }))} />
       <article className="paper-article"><header className="paper-title-block"><div className="paper-reading-meta"><span className="paper-type">Research paper</span><span>{paper.source.type.toUpperCase()}{paper.metadata.pageCount ? ` · ${paper.metadata.pageCount} pages` : ""}</span></div><h1>{paper.metadata.title}</h1>{paper.metadata.authors.length > 0 && <p className="paper-byline">{paper.metadata.authors.join(" · ")}</p>}{paper.metadata.publishedAt && <p className="paper-date">{paper.metadata.publishedAt}</p>}<div className="paper-title-rule" /></header>
         {paper.metadata.abstract && <section className="abstract-block"><h2>Abstract</h2><p>{paper.metadata.abstract}</p></section>}
         <div className="paper-content">{paper.sections.map(node => <div key={node.id} id={node.type === "heading" ? undefined : node.id} data-source-id={node.sourceId} data-section-id={node.sectionId}><DocumentBlock node={node} assets={paper.assets ?? {}} heading={node.type === "heading" ? headingById.get(node.id) : undefined} /></div>)}</div>
         {paper.references.length > 0 && <section className="references" id="references"><h2>References</h2><ol>{paper.references.map((reference, index) => <li key={`${index}-${reference.slice(0, 20)}`}>{reference}</li>)}</ol></section>}
-        <footer className="paper-end"><span /><p>End of paper</p><Link href={backHref}>Return to your library</Link></footer>
+        <footer className="paper-end"><span /><p>End of paper</p><Link href={backHref} prefetch={true}>Return to your library</Link></footer>
       </article>
     </div>
   </main>;

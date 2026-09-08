@@ -20,7 +20,7 @@ export async function requireDocling() {
 
 export async function runDocling(input: string, args: string[], timeout: number, signal?: AbortSignal) {
   // Never pass API credentials to the PDF/model process or invoke a shell.
-  const env = Object.fromEntries(["PATH", "HOME", "TMPDIR", "HF_HOME", "HF_HUB_CACHE"].flatMap(key => process.env[key] ? [[key, process.env[key]!]] : []));
+  const env = Object.fromEntries(["PATH", "HOME", "TMPDIR", "HF_HOME", "HF_HUB_CACHE", "DOCLING_ARTIFACTS_PATH"].flatMap(key => process.env[key] ? [[key, process.env[key]!]] : []));
   return execute(python(), [process.env.DOCLING_SCRIPT!, input, ...args], {
     timeout, signal, killSignal: "SIGKILL", maxBuffer: 2 * 1024 * 1024,
     env: { ...env, NODE_ENV: process.env.NODE_ENV, OMP_NUM_THREADS: "2", TOKENIZERS_PARALLELISM: "false", ORT_DISABLE_TELEMETRY: "1" },

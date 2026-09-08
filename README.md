@@ -1,8 +1,13 @@
 # paperflow
 
-paperflow parses research PDFs with local Docling and presents the paper's ordered
+paperflow parses research PDFs with Azure Document Intelligence in the hosted app
+(and local Docling for development), and presents the paper's ordered
 content and section hierarchy in the reader. Uploads accept **1–16 pages, up to
 25 MB**. The original PDF remains available.
+
+The hosted app uses a durable Azure queue and a lightweight worker.
+See [Azure deployment](docs/AZURE_DEPLOYMENT.md) and the
+[parser comparison](docs/CLOUD_OCR_BENCHMARK.md). Existing document versions remain readable.
 
 ## Run the integrated local app
 
@@ -48,7 +53,7 @@ and `npm run dev:docling -- --isolated`. That mode reads `.env.docling.local` an
 uses the dedicated `rpaper-docling-local` stack. The upload regression script
 below deliberately targets only this isolated test environment.
 
-## Upload → parser → reader
+## Local Docling upload → parser → reader
 
 1. An authenticated preflight validates the PDF and page count before creating an
    upload record. The processing worker repeats validation before model loading.
@@ -74,7 +79,8 @@ The original source, raw Docling JSON, corrected JSON, structure, quality report
 inline/paragraph/table evidence and Markdown are retained. Markdown is stored in
 `paper-markdown.json` so the existing bucket's JSON content-type policy remains
 valid. Version-1 papers continue to render. Old Cloudflare helpers and migrations
-remain as history; new dispatches use Docling.
+remain as history; local dispatches use Docling. Hosted dispatches use Azure Layout
+and save its raw JSON, quality report, v2 manifest, and original-source image crops.
 
 ## Fidelity and testing
 
@@ -99,5 +105,8 @@ the lab corpus to exist. Its session file and screenshots stay under ignored
 `tmp/docling-local`. It deliberately refuses a hosted Supabase URL.
 
 See [the integration verification report](docling-lab/APP_INTEGRATION.md) for the
-current checks. Deployment to Azure or any production host remains a separate
-step after local reader evaluation.
+local checks. The Azure deployment guide records hosted verification separately.
+
+[Azure deployment](docs/AZURE_DEPLOYMENT.md) documents the separate web/worker
+images, managed-identity queue configuration, and release checks. Local mode
+remains the default; the Azure web image enables durable queue dispatch.

@@ -1,0 +1,35 @@
+# Allow only application sources and build inputs into cloud build contexts.
+**
+!package.json
+!package-lock.json
+!next.config.ts
+!next-env.d.ts
+!tsconfig.json
+!vitest.setup.ts
+!postcss.config.mjs
+!src/
+!src/**
+!public/
+!public/**
+!scripts/
+scripts/**
+!scripts/build-azure-worker.mjs
+!scripts/azure-worker.ts
+!docling-lab/
+docling-lab/**
+!docling-lab/*.py
+!docling-lab/requirements.txt
+!deploy/
+deploy/**
+!deploy/azure/
+deploy/azure/**
+!deploy/azure/Dockerfile
+!deploy/azure/download_models.py
+# Never include local environments, credentials, corpora, or generated outputs.
+**/node_modules
+**/.venv
+**/__pycache__
+**/.env*
+**/.git
+docling-lab/inputs
+docling-lab/outputs

@@ -20,3 +20,4 @@ __pycache__/
 tmp/
 
 .next-docling/
+dist/

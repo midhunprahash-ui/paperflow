@@ -10,7 +10,7 @@ export default async function ReadPage({ params }: Props) {
   const { documentRef } = await params;
   const supabase = await createClient();
   if (!supabase) notFound();
-  const { data: document } = await supabase.from("documents").select("id,document_ref,source_path,active_version_id,published_version_id").eq("document_ref", documentRef).single();
+  const { data: document } = await supabase.from("documents").select("id,document_ref,source_path,active_version_id,published_version_id").eq("document_ref", documentRef).is("deleted_at", null).single();
   if (!document) notFound();
   const result = await loadPaper(supabase, document);
   if (!result) notFound();

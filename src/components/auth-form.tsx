@@ -1,5 +1,6 @@
 "use client";
 
+import { toast } from "sonner";
 import { ArrowRight, Eye, EyeOff, LoaderCircle } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -14,7 +15,9 @@ export function AuthForm({ mode }: { mode: Mode }) {
   const searchParams = useSearchParams();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState<"google" | "email" | null>(null);
-  const [message, setMessage] = useState<string | null>(null);
+  const [message, setMessage] = useState<string | null>(searchParams.get("error") === "oauth_callback_failed"
+    ? "We couldn’t complete sign-in. Please try again in this browser."
+    : null);
   const isSignIn = mode === "sign-in";
 
   async function signInWithGoogle() {
@@ -28,6 +31,7 @@ export function AuthForm({ mode }: { mode: Mode }) {
     const { error } = await supabase.auth.signInWithOAuth({ provider: "google", options: { redirectTo } });
     if (error) {
       setMessage(error.message);
+      toast.error(error.message);
       setLoading(null);
     }
   }
@@ -37,6 +41,12 @@ export function AuthForm({ mode }: { mode: Mode }) {
     const form = new FormData(event.currentTarget);
     const email = String(form.get("email") ?? "").trim();
     const password = String(form.get("password") ?? "");
+    const firstName = String(form.get("firstName") ?? "").trim();
+    const lastName = String(form.get("lastName") ?? "").trim();
+    if (!isSignIn && (!firstName || !lastName)) {
+      setMessage("Please enter your first and last name.");
+      return;
+    }
     const supabase = createClient();
 
     if (!supabase) {
@@ -50,9 +60,11 @@ export function AuthForm({ mode }: { mode: Mode }) {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) {
         setMessage(error.message);
+      toast.error(error.message);
         setLoading(null);
         return;
       }
+      toast.success("Signed in");
       router.push(searchParams.get("next") || "/library");
       router.refresh();
       return;
@@ -61,9 +73,13 @@ export function AuthForm({ mode }: { mode: Mode }) {
     const { error } = await supabase.auth.signUp({
       email,
       password,
-      options: { emailRedirectTo: `${window.location.origin}/auth/callback?next=/library` },
+      options: {
+        emailRedirectTo: `${window.location.origin}/auth/callback?next=/library`,
+        data: { first_name: firstName, last_name: lastName, full_name: `${firstName} ${lastName}` },
+      },
     });
     setLoading(null);
+    if (error) toast.error(error.message); else toast.success("Account created", { description: "Check your email to verify your account." });
     setMessage(error ? error.message : "Check your email to verify your account, then return to sign in.");
   }
 
@@ -85,6 +101,10 @@ export function AuthForm({ mode }: { mode: Mode }) {
       <div className="divider"><span>or continue with email</span></div>
 
       <form className="auth-form" onSubmit={submitEmail}>
+        {!isSignIn && <div className="auth-name-fields">
+          <label><span>First name</span><input name="firstName" autoComplete="given-name" maxLength={80} required /></label>
+          <label><span>Last name</span><input name="lastName" autoComplete="family-name" maxLength={80} required /></label>
+        </div>}
         <label>
           <span>Email address</span>
           <input name="email" type="email" autoComplete="email" placeholder="you@university.edu" required />

@@ -27,5 +27,5 @@ export default async function LibraryPage({ searchParams }: { searchParams: Prom
     if (error) throw new Error("Your library could not be loaded. Please try again.");
     documents = (data ?? []) as LibraryDocument[];
   }
-  return <main className="library-page"><LibraryHeader email={email} fullName={fullName} /><div className="workspace-main"><header className="workspace-topbar"><span>Workspace <span>/</span> <strong>Library</strong></span><span className="workspace-private">Your personal collection</span></header><div className="library-content"><div className="library-title-row"><div><span className="eyebrow">A little less noise. A little more focus.</span><h1>Your library<span>.</span></h1><p>All your papers. Room to think.</p></div><UploadDialog /></div><LibraryExplorer documents={documents} initialQuery={q.trim().slice(0, 80)} /></div></div></main>;
+  return <main className="library-page"><LibraryHeader email={email} fullName={fullName} /><div className="workspace-main"><div className="library-content"><div className="library-title-row"><div><span className="eyebrow">A little less noise. A little more focus.</span><h1>Your library<span>.</span></h1><p>All your papers. Room to think.</p></div><UploadDialog /></div><LibraryExplorer documents={documents} initialQuery={q.trim().slice(0, 80)} /></div></div></main>;
 }

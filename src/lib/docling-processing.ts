@@ -7,6 +7,9 @@ import path from "node:path";
 import type { PaperDocument } from "./types/document";
 import { DoclingError, runDocling, validatePdf, readLocalAsset } from "./docling-runtime";
 
+import { azureLayoutEnabled, runAzureLayout } from "./azure-layout-runtime";
+import { ensurePdfThumbnail } from "./pdf-thumbnail";
+
 const BUCKET = "research-documents";
 export type DoclingRun = { documentId: number; jobId: number; ownerId: string; runId: string };
 export const runParameters = (run: DoclingRun) => ({
@@ -20,6 +23,7 @@ export async function processDoclingDocument(admin: SupabaseClient, run: Docling
   let completed = false;
   let directory: string | undefined;
   let heartbeat: ReturnType<typeof setInterval> | undefined;
+  let preview: Promise<void> | undefined;
   const controller = new AbortController();
   try {
     const { data: document, error } = await admin.from("documents")
@@ -49,7 +53,13 @@ export async function processDoclingDocument(admin: SupabaseClient, run: Docling
     const input = path.join(directory, "source.pdf");
     const output = path.join(directory, "output");
     await writeFile(input, bytes, { mode: 0o600 });
-    await runDocling(input, ["--output", output], 15 * 60_000, controller.signal);
+    // Reuse the downloaded PDF while cloud OCR runs. Preview failures never
+    // fail parsing, and library requests never invoke a renderer.
+    preview = ensurePdfThumbnail(admin, input, prefix).catch(() => {
+      console.error("PDF preview unavailable", { jobId: run.jobId });
+    });
+    if (azureLayoutEnabled()) await runAzureLayout(input, output, controller.signal);
+    else await runDocling(input, ["--output", output], 15 * 60_000, controller.signal);
     clearInterval(heartbeat); heartbeat = undefined;
     const paper = JSON.parse(await readFile(path.join(output, "app-manifest.json"), "utf8")) as PaperDocument;
     if (paper.schemaVersion !== 2 || !paper.sections.length || paper.source.checksum !== createHash("sha256").update(bytes).digest("hex")) {
@@ -59,16 +69,11 @@ export async function processDoclingDocument(admin: SupabaseClient, run: Docling
     await progress(admin, run, "assembling", 75);
     const outputRoot = `${prefix}runs/${run.runId}`;
     const assetEntries = Object.values(paper.assets ?? {});
-    for (const asset of assetEntries) {
-      const data = await readLocalAsset(output, asset.path);
-      if (createHash("sha256").update(data).digest("hex") !== asset.sha256) throw new ProcessingError("An extracted image failed verification.");
-      asset.path = `${outputRoot}/${asset.path}`;
-      const { error: assetError } = await admin.storage.from(BUCKET).upload(asset.path, data, { contentType: "image/png", upsert: false });
-      if (assetError) throw new ProcessingError("An extracted image could not be saved. Please retry.");
-      uploaded.push(asset.path);
+    for (let offset = 0; offset < assetEntries.length; offset += 4) {
+      await uploadAssetBatch(admin, assetEntries.slice(offset, offset + 4), output, outputRoot, uploaded);
       await progress(admin, run, "assets", 80);
     }
-    for (const name of ["raw.json", "document.json", "structure.json", "inline-content.json", "source-fragments.json", "table-content.json", "quality.json", "ocr-lines.json", "formula-candidates.json", "paper-markdown.json", "manifest.json"]) {
+    for (const name of (azureLayoutEnabled() ? ["raw.json", "quality.json", "manifest.json"] : ["raw.json", "document.json", "structure.json", "inline-content.json", "source-fragments.json", "table-content.json", "quality.json", "ocr-lines.json", "formula-candidates.json", "paper-markdown.json", "manifest.json"])) {
       const content = name === "manifest.json" ? JSON.stringify(paper) : name === "paper-markdown.json" ? JSON.stringify({ markdown: await readFile(path.join(output, "paper.md"), "utf8") }) : await readFile(path.join(output, name));
       const storagePath = `${outputRoot}/${name}`;
       const { error: uploadError } = await admin.storage.from(BUCKET).upload(storagePath, content, {
@@ -82,7 +87,7 @@ export async function processDoclingDocument(admin: SupabaseClient, run: Docling
       ...runParameters(run), p_manifest_path: `${outputRoot}/manifest.json`,
       p_page_count: paper.metadata.pageCount, p_block_count: paper.sections.length,
       p_title: paper.metadata.title, p_assets: assetEntries,
-      p_quality: { parser: "docling", schema_version: 2, review_required: true, section_count: paper.hierarchy?.length },
+      p_quality: { parser: paper.parser?.name ?? "docling", schema_version: 2, review_required: true, section_count: paper.hierarchy?.length },
     });
     if (finishError) {
       // A lost HTTP response may follow a committed transaction. Verify before cleanup.
@@ -92,6 +97,16 @@ export async function processDoclingDocument(admin: SupabaseClient, run: Docling
       if (!version) throw new ProcessingError("The reading copy could not be finalized. Please retry.");
     }
     completed = true;
+    if (azureLayoutEnabled()) {
+      // The existing finalization RPC keeps its historical compatibility label.
+      // Correct only the version owned by this run; the manifest and quality
+      // already record the provider atomically with publication.
+      const { error: labelError } = await admin.from("document_versions")
+        .update({ parser_version: "azure-layout-2024-11-30-v2" })
+        .eq("document_id", run.documentId).eq("owner_id", run.ownerId)
+        .eq("manifest_path", `${outputRoot}/manifest.json`);
+      if (labelError) console.error("Could not update parser version label", { jobId: run.jobId });
+    }
   } catch (error) {
     // Never store provider error bodies, credentials, or source content in job errors.
     const message = error instanceof DoclingError ? error.message : "Document processing was interrupted. Please retry.";
@@ -109,6 +124,7 @@ export async function processDoclingDocument(admin: SupabaseClient, run: Docling
     }
   } finally {
     if (heartbeat) clearInterval(heartbeat);
+    await preview;
     if (directory) await rm(directory, { recursive: true, force: true });
   }
 }
@@ -119,4 +135,19 @@ async function progress(admin: SupabaseClient, run: DoclingRun, stage: string, p
     .eq("id", run.jobId).eq("document_id", run.documentId).eq("owner_id", run.ownerId)
     .eq("worker_job_id", run.runId).eq("status", "processing").select("id").maybeSingle();
   if (error || !data) throw new ProcessingError("This processing attempt is no longer active.");
+}
+
+// Wait for every in-flight upload before reporting failure so cleanup never races
+// a successful late upload. Keep concurrency bounded for Storage and memory.
+export async function uploadAssetBatch(admin: SupabaseClient, assets: NonNullable<PaperDocument["assets"]>[string][], output: string, outputRoot: string, uploaded: string[]) {
+  const results = await Promise.allSettled(assets.map(async asset => {
+    const data = await readLocalAsset(output, asset.path);
+    if (createHash("sha256").update(data).digest("hex") !== asset.sha256) throw new ProcessingError("An extracted image failed verification.");
+    asset.path = `${outputRoot}/${asset.path}`;
+    const { error } = await admin.storage.from(BUCKET).upload(asset.path, data, { contentType: "image/png", upsert: false });
+    if (error) throw new ProcessingError("An extracted image could not be saved. Please retry.");
+    uploaded.push(asset.path);
+  }));
+  const failure = results.find(result => result.status === "rejected");
+  if (failure?.status === "rejected") throw failure.reason;
 }

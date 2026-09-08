@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { FeedbackWidget } from "@/components/feedback-widget";
+import { Notifications } from "@/components/notifications";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { SessionCacheBoundary } from "@/components/session-cache-boundary";
 import { Inter, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import "./workspace.css";
@@ -28,7 +31,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         )}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className={`${inter.variable} ${sourceSerif.variable}`}>{children}<div className="global-theme-control"><ThemeToggle /></div></body>
+      <body className={`${inter.variable} ${sourceSerif.variable}`}><SessionCacheBoundary /><Notifications /><FeedbackWidget />{children}<div className="global-theme-control"><ThemeToggle /></div></body>
     </html>
   );
 }

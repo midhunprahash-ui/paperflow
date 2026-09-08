@@ -1,6 +1,7 @@
 "use client";
 
 import { FileText, LoaderCircle, Plus, UploadCloud, X } from "lucide-react";
+import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useRef, useState, type ChangeEvent, type DragEvent } from "react";
 import { createClient } from "@/lib/supabase/client";
@@ -26,83 +27,56 @@ export function UploadDialog() {
     const extensionOk = candidate.name.toLowerCase().endsWith(".pdf");
     if (!extensionOk || !acceptedTypes.includes(candidate.type)) {
       setError("Choose a PDF research paper. Export Word documents as PDF first.");
+      toast.error("Choose a PDF research paper");
       return;
     }
     if (candidate.size > MAX_FILE_BYTES) {
       setError("This file is larger than the 25 MB prototype limit.");
+      toast.error("This file exceeds the 25 MB limit");
       return;
     }
     setFile(candidate);
   }
 
   async function upload() {
-    if (!file) return;
-    setBusy(true);
-    setError(null);
-
-    if (!isSupabaseConfigured) {
-      await new Promise((resolve) => window.setTimeout(resolve, 800));
-      router.push("/documents/doc_000000000002/processing?demo=1");
-      return;
-    }
-
-    const supabase = createClient();
-    if (!supabase) return;
+    if (!file || busy) return;
+    setBusy(true); setError(null);
+    const notification = toast.loading("Adding your paper…");
     try {
+      if (!isSupabaseConfigured) {
+        toast.success("Paper added", { id: notification });
+        router.push("/documents/doc_000000000002/processing?demo=1");
+        return;
+      }
+      const supabase = createClient();
+      if (!supabase) throw new Error("Sign in to add a paper.");
       const form = new FormData(); form.set("file", file);
       const validation = await fetch("/api/documents/validate", { method: "POST", body: form });
       if (!validation.ok) {
         const result = await validation.json();
-        setError(result.error || "Choose an unlocked PDF with at most 16 pages."); setBusy(false); return;
+        throw new Error(result.error || "Choose an unlocked PDF with at most 16 pages.");
       }
-    } catch { setError("Could not check the PDF. Please retry."); setBusy(false); return; }
-    const mediaType = "pdf";
-    const { data, error: createError } = await supabase.rpc("create_document_upload", {
-      p_filename: file.name,
-      p_media_type: mediaType,
-      p_byte_size: file.size,
-      p_checksum: null,
-    });
-    if (createError || !data) {
-      setError(createError?.message ?? "Could not prepare the upload.");
-      setBusy(false);
-      return;
-    }
-
-    const contract = data as UploadContract;
-    const { error: uploadError } = await supabase.storage.from("research-documents").upload(contract.storage_path, file, {
-      contentType: "application/pdf",
-      cacheControl: "3600",
-      upsert: false,
-    });
-    if (uploadError) {
-      setError(uploadError.message);
-      setBusy(false);
-      return;
-    }
-
-    const { data: jobData, error: jobError } = await supabase.rpc("enqueue_document_processing", {
-      p_document_id: contract.document_id,
-    });
-    if (jobError || !jobData) {
-      setError(jobError?.message ?? "The file uploaded, but processing could not start.");
-      setBusy(false);
-      return;
-    }
-
-    const job = jobData as { job_id: number };
-    const response = await fetch(`/api/documents/${contract.document_id}/dispatch`, {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ jobId: job.job_id }),
-    });
-    if (!response.ok) {
-      setError("The document is queued, but the parser is temporarily unavailable.");
-      setBusy(false);
-      return;
-    }
-    router.push(`/documents/${contract.document_ref}/processing`);
-    router.refresh();
+      const { data, error: createError } = await supabase.rpc("create_document_upload", {
+        p_filename: file.name, p_media_type: "pdf", p_byte_size: file.size, p_checksum: null,
+      });
+      if (createError || !data) throw new Error(createError?.message ?? "Could not prepare the upload.");
+      const contract = data as UploadContract;
+      const { error: uploadError } = await supabase.storage.from("research-documents").upload(contract.storage_path, file, {
+        contentType: "application/pdf", cacheControl: "3600", upsert: false,
+      });
+      if (uploadError) throw new Error(uploadError.message);
+      const { data: job, error: jobError } = await supabase.rpc("enqueue_document_processing", { p_document_id: contract.document_id });
+      if (jobError || !job) throw new Error("The file was added, but processing could not start. Retry from your library.");
+      const response = await fetch(`/api/documents/${contract.document_id}/dispatch`, {
+        method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ jobId: job.job_id }),
+      }).catch(() => null);
+      if (response?.ok) toast.success("Paper added", { id: notification, description: "Your reading copy is being prepared." });
+      else toast.warning("Paper added; processing will retry shortly", { id: notification });
+      router.push(`/documents/${contract.document_ref}/processing`); router.refresh();
+    } catch (cause) {
+      const message = cause instanceof Error ? cause.message : "Could not add the paper. Please try again.";
+      setError(message); toast.error(message, { id: notification });
+    } finally { setBusy(false); }
   }
 
   function handleDrop(event: DragEvent<HTMLDivElement>) {
