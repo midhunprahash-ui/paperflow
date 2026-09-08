@@ -700,3 +700,138 @@ Cloudflare (1.1.1.1) and Google (8.8.8.8) recursive A queries resolve through th
 CNAME to `4.188.92.247`. Normal HTTPS, without a resolver override, returns HTTP
 200 with valid TLS and the Paperflow page title. HTTP redirects to HTTPS (301).
 The apex A record remains `4.188.92.247`, and `asuid.paperflow` is retained.
+
+### Queue-based parser scaling — 2026-09-09
+
+The parser now keeps one warm replica and scales up to three total replicas on
+queue demand. Each replica retains 1 vCPU / 2 GiB and processes one document at
+a time. Revision `rpaper-parser--0000002` uses the existing
+`pdf-preview-20260908-2` worker image; the website, OCR adapter, database schema,
+managed identities, secret references, and 600-second shutdown grace are unchanged.
+The fallback `rpaper-docling` job remains Manual.
+
+The `docling-queue` custom rule uses `azure-queue`, the worker's existing managed
+identity, `queueLength=1`, and `queueLengthStrategy=all`. Counting invisible
+messages includes work currently being processed. The polling interval is ten
+seconds; the minimum is one and maximum is three. Azure's scale-down stabilization
+window is approximately five minutes, so extra idle replicas are not removed
+immediately. Maximum replicas bounds steady-state worker count, not total costs
+or temporary platform-maintenance overlap. Sources:
+[Azure scaling](https://learn.microsoft.com/en-us/azure/container-apps/scale-app),
+[KEDA queue metric](https://keda.sh/docs/2.18/scalers/azure-storage-queue/).
+
+`scripts/prepare-azure-config.mjs` now preserves this scaling policy in generated
+warm-worker deployments. The live update patched only the existing parser
+template, retaining its container configuration. Do not apply the generated web
+artifact to the deployed website: its original starter sizing is different.
+To stop burst scaling while retaining the warm parser:
+
+```sh
+az containerapp update -g rpaper-staging -n rpaper-parser --min-replicas 1 --max-replicas 1
+```
+
+A bounded live test submitted nine copies of the public six-page scikit-learn
+PDF concurrently through the normal authenticated validation, Storage upload,
+enqueue and HTTP dispatch flow, using three temporary accounts. All nine uploads
+were accepted in 4.553–5.713 seconds each. Azure grew from one to three replicas;
+database job timestamps independently showed three concurrent processing jobs.
+The last paper completed 72.844 seconds after the upload burst began. All nine
+jobs were ready, each had exactly one committed version, and all nine authenticated
+reader requests returned 200. This is a single small burst, not a sustained
+throughput limit, p95 result, or guarantee for other PDF types. Targeted worker,
+dispatch and shutdown tests passed (20 tests), as did the config script's lint.
+Local test evidence and before/after configuration snapshots are under ignored
+`tmp/azure-autoscale/`.
+
+Scale-down was independently verified: the queue was empty, one worker was
+Running, and the other two were NotRunning with exit code 0. The initial test
+monitor counted all replica records, including stopped replicas retained in
+Azure's response, and therefore reported a scale-down timeout. The test helper
+now filters Running replicas; the original report retains that timeout alongside
+the independent verification. All three temporary accounts and their nine
+documents were removed, along with 117 test Storage objects; account absence
+and zero remaining test documents were verified.
+
+The owner's Azure portal screenshot showed **$199.92 remaining, expiring in 16
+days** on 2026-09-09. This is a screenshot observation, not a live billing API
+balance: the attempted Consumption balances endpoint was unavailable for this
+subscription. The subscription API independently confirmed FreeTrial status and
+spending limit On. No billing upgrade or spending-limit change was made.
+The test analyzed 54 pages; at the previously checked $0.016/page estimate this
+is about $0.864 in OCR usage, plus compute and storage. Actual billed usage may
+appear later and can differ. Extra replicas consume allowance/credits while
+active and while waiting to scale down.
+
+### OrbKit parsing animation — 2026-09-09
+
+The processing screen uses OrbKit's Hydrogen (SHDR-11) inside the existing
+authoritative circular progress meter. Waiting, extraction and assembly map to
+the orb's idle, thinking and speaking presets with subdued motion. Completion
+and failure unmount the WebGL canvas and retain the existing success/retry UI.
+The animation does not drive progress or change document processing.
+
+The MIT-licensed runtime and Hydrogen shader are vendored from
+`zzzzshawn/orbkit` commit `35e42484560fd35e8502703ba58fa99541d8c686`;
+their license is included beside the source and at `/licenses/orbkit.txt`.
+No restricted shader variants or new npm dependencies are included.
+
+A client-only dynamic import isolates the orb from library/reader bundles.
+The shader draw ceiling is 30 fps with DPR capped at one, and the upstream
+adaptive resolution accounts for that ceiling. Hidden tabs and reduced-motion
+preferences pause drawing; offscreen rendering is paused by the runtime. A
+static gradient remains when WebGL is unavailable, and an error boundary keeps
+the progress UI working if the optional orb chunk fails to load.
+
+Local browser verification covered both themes, mobile overflow, hidden tabs,
+live reduced-motion changes and resumption, unchanged canvas identity on progress
+updates, disposal on completion, absent WebGL, and a blocked orb chunk. The test
+observed 26 shader draws in one second under software rendering; that is a bounded
+test observation, not a hardware-wide performance guarantee. Lint, type checking,
+84 app tests and the production build passed. Local preview evidence is under
+ignored `tmp/orbkit-preview/`.
+
+Deployed web image `orbkit-20260909-1`, digest
+`sha256:acd6ef2de40a304c3d0696fb693d197b6277b53161e5024f17da71ede87604c6`,
+as healthy revision `rpaper-staging--0000011`. Live browser checks at
+`paperflow.randomwebsite.website` confirmed that the library does not load the
+orb chunk, the processing demo draws it in both themes without mobile overflow,
+and completion disposes the canvas. No browser page errors occurred. The
+isolated temporary demo account/document/job was deleted and absence verified;
+this verification sent no messages to the OCR queue. The deployed MIT notice
+matched the source. The web app's other configuration and the entire parser
+template were independently compared against pre-deployment snapshots.
+The temporary builder's ACR push role was revoked and its VM, disk and networking
+resources were removed; the build resource-group inventory was verified empty
+after requesting deletion. The temporary local preview server was stopped.
+
+## Nimbus parsing visual — 2026-09-09
+
+- Installed OrbKit Nimbus (SHDR-21) with the requested
+  `bunx shadcn@latest add zzzzshawn/orbkit/shdr-21` command in a temporary
+  staging directory, then integrated it with the existing MIT runtime and its
+  frame limiter. No global shadcn styling or package changes were introduced.
+- The parsing visual now has a larger orb and a single thin progress ring.
+  Percentages and phase captions remain available through the progress bar's
+  accessible name/value, with no visible text inside the ring.
+- Status copy below uses a staggered 650 ms opacity/translateY entrance when
+  its message changes. Routine percentage updates do not restart the text or
+  recreate the canvas. The live region remains mounted for announcements.
+- Preserved lazy loading, 30 fps ceiling, DPR <= 1, hidden/offscreen pause,
+  reduced-motion handling, static fallback, and terminal-state canvas disposal.
+- Web image: `rpaperstagefbea2d.azurecr.io/rpaper-web:nimbus-20260909-1`.
+- Image digest: `sha256:abef81beab832d56ce8bd3c0fe48f5ab565cd7d05cd4fbd6aa55a59ee9ad26ce`.
+- Revision: `rpaper-staging--0000012`, healthy and serving 100% traffic.
+  Before/after comparison confirms only the web image changed; web settings,
+  identity, and parser template/configuration were preserved.
+- Validation: lint, TypeScript, local production build and Azure container build
+  passed. Local WebGL browser checks verified the frame ceiling, visibility,
+  reduced-motion toggling, canvas continuity/disposal and fallback. The live
+  processing demo passed in desktop light and mobile dark themes, with no
+  overflow or browser errors. Live CSS keyframes and reduced-motion disabling
+  were checked; the Nimbus chunk was absent from the library's initial load.
+- Live verification used a private, confirmed test account and a demo-only
+  document/job, without uploading a PDF or dispatching an OCR queue message.
+  The session was signed out and the account/document were deleted and checked.
+- Cleanup verified: the temporary builder's registry push role was removed,
+  its resource inventory is empty, and `az group exists` returns `false` for
+  `rpaper-build-nimbus-20260909`.

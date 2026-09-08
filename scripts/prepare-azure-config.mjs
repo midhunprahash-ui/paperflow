@@ -84,8 +84,8 @@ const worker = {
     }] },
   },
 };
-// Continuous Azure Layout worker: no HTTP endpoint, one warm replica. Keep the
-// event-job artifact for rollback; do not run both consumers as the steady state.
+// Continuous Azure Layout worker: one warm replica, up to three on queue demand.
+// Keep the event job for rollback; do not run both consumers as the steady state.
 const warmWorker = {
   location: deployment.region,
   identity: identity(deployment.workerIdentity),
@@ -102,7 +102,17 @@ const warmWorker = {
         ...container,
         env: [...container.env, { name: "AZURE_WORKER_MODE", value: "continuous" }],
       })),
-      scale: { minReplicas: 1, maxReplicas: 1 },
+      scale: {
+        minReplicas: 1, maxReplicas: 3, pollingInterval: 10, cooldownPeriod: 300,
+        rules: [{
+          name: "docling-queue",
+          custom: {
+            type: "azure-queue", identity: deployment.workerIdentity,
+            // Count in-flight messages too so busy workers remain represented.
+            metadata: { accountName: deployment.storageAccount, queueName: "docling", queueLength: "1", queueLengthStrategy: "all" },
+          },
+        }],
+      },
     },
   },
 };
