@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import { PaperMarkdown } from "./paper-markdown";
+import { ExtractedEquation, equationSourceUrl } from "./extracted-equation";
 import type { DocumentNode, InlinePart, PaperAsset } from "@/lib/types/document";
 
 type Assets = Record<string, PaperAsset>;
@@ -7,8 +9,8 @@ const bounded = (value: number | null | undefined, fallback: number, max: number
 export function SourceImage({ asset, assets, alt = "Original source content", inline, widthEm, descentEm }: {
   asset: string; assets: Assets; alt?: string; inline?: boolean; widthEm?: number | null; descentEm?: number;
 }) {
-  const url = assets[asset]?.url;
-  if (!url || !(url.startsWith("https://") || /^http:\/\/(localhost|127\.0\.0\.1):\d+\//.test(url) || url.startsWith("/api/"))) {
+  const url = equationSourceUrl(assets[asset]?.url);
+  if (!url) {
     return <span className="source-unavailable">Source image unavailable — reopen the paper to refresh it.</span>;
   }
   return <img loading={inline ? "eager" : "lazy"} decoding="async" src={url} alt={alt} className={inline ? "paper-inline-source" : "paper-source-image"}
@@ -17,8 +19,8 @@ export function SourceImage({ asset, assets, alt = "Original source content", in
 
 export function InlineContent({ parts, assets }: { parts: InlinePart[]; assets: Assets }) {
   return <>{parts.map((part, index) => {
-    if (part.type === "image") return <SourceImage key={index} {...part} assets={assets} inline />;
-    let content: React.ReactNode = part.text;
+    if (part.type === "image") return <ExtractedEquation key={index} latex={part.candidateLatex} inline sourceUrl={assets[part.asset]?.url}><SourceImage {...part} assets={assets} inline /></ExtractedEquation>;
+    let content: React.ReactNode = <PaperMarkdown text={part.text} inline />;
     if (part.bold) content = <strong>{content}</strong>;
     if (part.italic) content = <em>{content}</em>;
     if (part.script === "sub") content = <sub>{content}</sub>;
@@ -35,14 +37,14 @@ export function StructuredTable({ node, assets }: { node: Extract<DocumentNode, 
       for (let c = cell.col; c < cell.col + cell.colSpan; c++) occupied.add(`${r}:${c}`);
     }
   }
-  return <figure className="paper-table"><div className="table-scroll"><table><tbody>
+  return <figure className="paper-table"><div className="table-scroll" role="region" aria-label="Paper table" tabIndex={0}><table><tbody>
     {Array.from({ length: node.rowCount ?? 0 }, (_, row) => <tr key={row}>{Array.from({ length: node.colCount ?? 0 }, (_, col) => {
       const cell = starts.get(`${row}:${col}`);
       if (!cell) return occupied.has(`${row}:${col}`) ? null : <td key={col} data-unassigned-cell="true" />;
       const Tag = cell.header ? "th" : "td";
       return <Tag key={cell.col} rowSpan={cell.rowSpan} colSpan={cell.colSpan}>
-        {cell.sourceAsset ? <SourceImage asset={cell.sourceAsset} assets={assets} alt={`Original table cell; unverified text: ${cell.text}`} /> : cell.text}
+        {cell.inline ? <InlineContent parts={cell.inline} assets={assets} /> : cell.sourceAsset ? <SourceImage asset={cell.sourceAsset} assets={assets} alt={`Original table cell; unverified text: ${cell.text}`} /> : <PaperMarkdown text={cell.text} inline />}
       </Tag>;
     })}</tr>)}
-  </tbody></table></div>{node.caption && <figcaption>{node.caption}</figcaption>}</figure>;
+  </tbody></table></div>{node.caption && <figcaption><PaperMarkdown text={node.caption} inline /></figcaption>}</figure>;
 }

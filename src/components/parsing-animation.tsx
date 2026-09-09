@@ -17,9 +17,7 @@ class OrbBoundary extends Component<{ children: ReactNode }, { failed: boolean }
 
 export function ParsingAnimation({ stage, progress, ready, failed }: { stage: ProcessingStage; progress: number; ready: boolean; failed: boolean }) {
   const root = useRef<HTMLDivElement>(null);
-  const ring = useRef<SVGCircleElement>(null);
   const percentage = Math.max(0, Math.min(100, Number.isFinite(progress) ? progress : 0));
-  const previous = useRef(percentage);
   const phase = failed ? "paused" : ready ? "ready" : stage === "queued" ? "queued"
     : ["assembling", "assets", "quality_check"].includes(stage) ? "compose" : "scan";
   const label = phase === "ready" ? "COMPLETE" : phase === "paused" ? "PAUSED" : phase === "queued" ? "WAITING TO START"
@@ -28,20 +26,12 @@ export function ParsingAnimation({ stage, progress, ready, failed }: { stage: Pr
   useEffect(() => {
     let disposed = false;
     let cleanup: (() => void) | undefined;
-    const offset = circumference * (1 - percentage / 100);
-    const from = circumference * (1 - previous.current / 100);
-    previous.current = percentage;
-    // Restore the authoritative value before loading the optional animation.
-    // It also remains correct with reduced motion or a failed chunk request.
-    ring.current?.setAttribute("stroke-dashoffset", String(offset));
+    if (phase !== "ready") return;
     void import("gsap").then(({ gsap }) => {
       if (disposed || !root.current) return;
       const media = gsap.matchMedia();
       media.add("(prefers-reduced-motion: no-preference)", () => {
         const scene = gsap.timeline({ defaults: { ease: "power2.out" } });
-        scene.fromTo(".parse-ring-value", { attr: { "stroke-dashoffset": from } }, {
-          attr: { "stroke-dashoffset": offset }, duration: .9,
-        }, 0);
         if (phase === "ready") {
           scene.fromTo(".parse-success", { scale: .85, opacity: 0 }, { scale: 1, opacity: 1, duration: .5 }, .1)
             .fromTo(".parse-check", { strokeDashoffset: 40 }, { strokeDashoffset: 0, duration: .5 }, .3);
@@ -54,19 +44,19 @@ export function ParsingAnimation({ stage, progress, ready, failed }: { stage: Pr
       cleanup = () => media.revert();
     }).catch(() => { /* Keep the static, accurate progress ring available. */ });
     return () => { disposed = true; cleanup?.(); };
-  }, [phase, percentage]);
+  }, [phase]);
 
   return <div ref={root} className="parsing-meter" data-phase={phase} role="progressbar"
     aria-label="Document processing" aria-valuemin={0} aria-valuemax={100} aria-valuenow={percentage} aria-valuetext={`${percentage}% — ${label.toLowerCase()}`}>
     <svg className="parse-rings" viewBox="0 0 300 300" fill="none" aria-hidden="true">
       <circle className="parse-ring-track" cx="150" cy="150" r="124" />
-      <circle ref={ring} className="parse-ring-value" cx="150" cy="150" r="124" transform="rotate(-90 150 150)"
+      <circle className="parse-ring-value" cx="150" cy="150" r="124" transform="rotate(-90 150 150)"
         strokeDasharray={circumference} strokeDashoffset={circumference * (1 - percentage / 100)} opacity={percentage === 0 ? 0 : 1} />
 
     </svg>
     <div className="parse-meter-center" aria-hidden="true">
       <div className="parse-diagram">
-        {phase !== "ready" && phase !== "paused" && <div className="parse-orb-surface"><OrbBoundary><ParsingOrb phase={phase} /></OrbBoundary></div>}
+        {phase !== "ready" && phase !== "paused" && <div className="parse-orb-surface"><OrbBoundary><ParsingOrb phase={phase} progress={percentage} /></OrbBoundary></div>}
         <svg className="parse-success" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="25" /><path className="parse-check" d="m17 30 9 9 18-18" /></svg>
         {failed && <div className="parse-pause"><span /><span /></div>}
       </div>

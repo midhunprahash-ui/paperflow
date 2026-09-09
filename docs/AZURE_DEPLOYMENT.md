@@ -279,9 +279,21 @@ compatible. Previously parsed versions remain readable.
 The worker submits PDF bytes to Azure and polls its same-origin result endpoint
 under a bounded deadline. `azure_export.py` converts paragraphs, headings, tables,
 figures, and source provenance into the reader manifest. Formula text is retained
-as an unverified candidate; inline formulas and mathematical table cells display
-crops from the original PDF. Ambiguous placeholder mapping falls back to a source
-paragraph image. Azure HTML is not injected into the reader.
+as an unverified candidate. The reader typesets supported candidates with KaTeX
+on the server and retains original crops for comparison and rendering failures.
+This includes inline math, numbered display equations and mathematical table cells.
+Ambiguous placeholder mapping falls back to a source paragraph or cell image.
+Typesetting success does not verify OCR accuracy. Azure HTML is not injected into
+the reader; KaTeX uses restricted rendering settings. Older inline image-only
+manifests require reprocessing to gain candidates.
+
+Standalone formula predictions are checked against native PDF text and a shared
+heading vocabulary before becoming equation blocks. Recovered headings retain
+the original provider role, candidate and crop as classification evidence and
+participate in the section hierarchy. The reader also repairs known text-only
+heading candidates in older Azure manifests; spelling repair additionally requires
+a matching section-number sequence. Expressions with operators, scripts or math
+commands remain equations. These checks do not guarantee that all OCR is correct.
 
 The existing SQL RPC writes a historical parser label for compatibility. The
 manifest and quality summary atomically record the actual Azure parser; after
@@ -835,3 +847,78 @@ after requesting deletion. The temporary local preview server was stopped.
 - Cleanup verified: the temporary builder's registry push role was removed,
   its resource inventory is empty, and `az group exists` returns `false` for
   `rpaper-build-nimbus-20260909`.
+
+
+## UI refinements and refresh logo fix (2026-09-09)
+
+- The library loading state shares the finished header's position and explicit
+  logo colors, preventing the green wordmark flash and movement during refresh.
+- Parsing activity follows progress smoothly, with a stable orb position as
+  status copy changes. Removed the processing header's private-workspace label.
+- Profile details open beside the trigger; feedback closes on an outside click
+  while retaining its draft. Shared corners use a 12px token, and first visits
+  default to light mode while preserving an explicitly saved theme.
+- React Grab remains development-only and is absent from the deployed page.
+- Web image: `rpaperstagefbea2d.azurecr.io/rpaper-web:ui-20260909-1`.
+- Image digest: `sha256:89411cf3657a85db7703a64ad9c660db16dfe509cf0c3bd2f7fe48e13cad5ee3`.
+- Revision: `rpaper-staging--0000013`, healthy and serving 100% traffic.
+  Before/after snapshots confirm only the web image changed; parser, identity,
+  scaling, compute and app configuration were preserved.
+- Validation: lint, TypeScript and the Azure production build passed. Browser
+  checks verified matching loading/loaded logo bounds and colors at desktop,
+  390px and 320px widths in both themes. Live refresh retained identical logo
+  position and colors across 60 sampled frames. Live checks also passed for
+  profile anchoring, feedback dismissal, light default, shared corners, orb
+  positioning, lazy loading, completion cleanup and reduced motion, with no
+  browser errors or mobile overflow.
+- Verification used a private test account and demo document without submitting
+  feedback, uploading a PDF or dispatching an OCR job. The session, account and
+  document were removed and cleanup verified.
+- Cleanup verified: the temporary registry push role was removed, the resource
+  inventory became empty, and Azure returned `ResourceGroupNotFound` for
+  `rpaper-build-ui-20260909` after deletion.
+
+
+## Reader formatting and Azure formula classification (2026-09-09)
+
+Deployed the current local UI and reader changes to
+`https://paperflow.randomwebsite.website`. The reader now uses the structured
+Markdown presentation, consistent reference continuation layout and KaTeX
+rendering with original equation evidence. Azure extraction checks source PDF
+text and conservative heading rules before accepting a standalone formula, so
+the sample paper's acknowledgement becomes a section heading. Existing Azure
+manifests also receive conservative presentation-time heading repair.
+
+- Web: `rpaperstagefbea2d.azurecr.io/rpaper-web:reader-20260909-1`, digest
+  `sha256:71f63232a9801dbf0299af7c2b23523bcce502b15c85bc7ce27d0404930a7398`.
+  Revision `rpaper-staging--0000014` is healthy and serves 100% of traffic.
+- Parser and manual fallback: `rpaperstagefbea2d.azurecr.io/rpaper-worker:reader-20260909-1`,
+  digest `sha256:fa98d8a99d705c3c08a332f7820dcd3463caa502c8603d93b5a23a1f1224877a`.
+  Ready parser revision `rpaper-parser--0000003`; `rpaper-docling` remains Manual.
+- Both images were built locally for `linux/amd64` with Docker and pushed to
+  the existing registry. No temporary Azure builder resources were created.
+  Deployed images use immutable digests. Existing configuration, identities,
+  compute, scaling and custom domains were compared before and after rollout.
+  Azure serialized an empty `value` beside an existing secret reference; the
+  comparison normalizes that representation while retaining the reference.
+- The Linux Node 22 build exposed two missing lockfile entries for
+  `@emnapi/core` and `@emnapi/runtime` 1.11.3. Regenerating the lockfile in an
+  isolated Linux container added only those entries; no existing dependency
+  versions changed.
+- Validation: lint, TypeScript, 135 app tests, 19 Python exporter tests, the
+  worker bundle and both production container builds passed. Production HTTP
+  returned 200. Two isolated live uploads of the six-page sample paper completed
+  through Azure Document Intelligence. Both verified native PDF acknowledgement
+  recovery, seven numbered KaTeX equations, 22 references, reference [7]'s
+  continuation and working original-equation source images. Reader checks passed
+  at 1440px, 390px and 320px in both themes without horizontal overflow; desktop
+  dark and mobile light screenshots were visually inspected.
+- The browser scripts stopped at an extra library-thumbnail visibility
+  assertion after completing the reader checks. That assertion does not match
+  the current UI: list view uses a table and grid view intentionally hides the
+  thumbnail. No product change was made for this test assumption; later profile
+  and reader-reopen assertions were not reached and are not claimed here.
+- Both temporary users, documents and owner-scoped Storage objects were deleted;
+  absence was independently checked. No real user documents were changed.
+  Private snapshots and reports are in ignored `tmp/release-reader-20260909/`.
+  This deployment did not create a Git commit or push.

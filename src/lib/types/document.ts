@@ -26,7 +26,7 @@ type BaseNode = {
 };
 
 export type InlinePart = { type: "text"; text: string; bold?: boolean; italic?: boolean; script?: "sub" | "sup" | null }
-  | { type: "image"; asset: string; alt: string; widthEm?: number | null; descentEm?: number };
+  | { type: "image"; asset: string; alt: string; widthEm?: number | null; descentEm?: number; candidateLatex?: string };
 export type PaperAsset = { path: string; sha256: string; mediaType: string; url?: string };
 
 export type HeadingNode = BaseNode & {
@@ -62,7 +62,7 @@ export type TableNode = BaseNode & {
   rows: string[][];
   rowCount?: number;
   colCount?: number;
-  cells?: { row: number; col: number; rowSpan: number; colSpan: number; header: boolean; text: string; sourceAsset?: string }[];
+  cells?: { row: number; col: number; rowSpan: number; colSpan: number; header: boolean; text: string; sourceAsset?: string; inline?: InlinePart[] }[];
 };
 
 export type FigureNode = BaseNode & {

@@ -12,5 +12,5 @@ export function Notifications() {
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
     return () => observer.disconnect();
   }, []);
-  return <Toaster position="bottom-right" theme={theme} richColors closeButton duration={4500} offset={24} mobileOffset={{ bottom: 84, right: 14, left: 14 }} toastOptions={{ style: { fontFamily: "var(--font-ui)" } }} />;
+  return <Toaster className="app-toaster" position="bottom-right" theme={theme} richColors closeButton duration={4500} offset={24} mobileOffset={{ bottom: 84, right: 14, left: 14 }} toastOptions={{ style: { fontFamily: "var(--font-ui)", borderRadius: "var(--radius)" }, actionButtonStyle: { borderRadius: "var(--radius)" }, cancelButtonStyle: { borderRadius: "var(--radius)" } }} />;
 }

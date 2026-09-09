@@ -45,8 +45,10 @@ Formula recognition is an explicit experiment:
 
 For a full formula comparison, use `run_suite.py --run my-formula-run --formulas`,
 then `evaluate.py my-formula-run`. Formula candidates are **unverified**: the
-reader uses source equation images by default in both modes. This avoids showing
-incorrect LaTeX as if it were the paper's equation. Inline formatting now uses
+Docling comparison exports retain source equation images in both modes. Azure
+exports additionally retain LaTeX candidates for server-side KaTeX rendering,
+with source comparison and image fallbacks. Rendering does not verify the OCR.
+Inline formatting now uses
 native font/baseline evidence in eligible paragraphs, with source crops for drawn
 marks and uncertain glyphs. Split native math lines are reconstructed using their
 baselines; embedded Type1 glyph bounds keep source crops clear of adjacent text.

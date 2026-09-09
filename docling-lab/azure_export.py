@@ -1,4 +1,4 @@
-"""Normalize Azure Layout into Rpaper v2, retaining source crops for unverified math."""
+"""Normalize Azure Layout into Rpaper v2 with LaTeX candidates and source fallbacks."""
 import argparse
 import hashlib
 import json
@@ -6,6 +6,7 @@ import math
 from pathlib import Path
 import re
 import pymupdf
+from azure_presentation import NativeEmphasis, heading_level, known_heading
 
 
 def export_azure(source, response, output):
@@ -17,6 +18,7 @@ def export_azure(source, response, output):
     if set(pages) != set(range(1, len(pdf)+1)) or not 1 <= len(pdf) <= 16:
         raise ValueError('Azure output page coverage does not match the PDF')
     output.mkdir(parents=True, exist_ok=True)
+    emphasis = NativeEmphasis(pdf, pages)
     assets = {}; nodes = []; counter = 0
     def spans(item):
         return [(s['offset'], s['offset']+s['length']) for s in item.get('spans', [])]
@@ -62,7 +64,7 @@ def export_azure(source, response, output):
             if t: parts.append(dict(type='text',text=t))
             if i<len(fs):
                 f=fs[i]; asset,width=crop(dict(pageNumber=f['pageNumber'],polygon=f['polygon']))
-                parts.append(dict(type='image',asset=asset,alt='Original equation',widthEm=width))
+                parts.append(dict(type='image',asset=asset,alt='Original equation',widthEm=width,candidateLatex=f.get('value','')))
         return parts
     occupied=[]; excluded=set()
     for kind,collection in [('table',result.get('tables',[])),('figure',result.get('figures',[]))]:
@@ -93,6 +95,8 @@ def export_azure(source, response, output):
                     if ':formula:' in c.get('content',''):
                         if len(regions(c))!=1: raise ValueError('Math cell lacks an unambiguous source crop')
                         cell['sourceAsset']=crop(regions(c)[0])[0]
+                        parts=inline(c)
+                        if parts is not None:cell['inline']=parts
                     cells.append(cell)
                 nodes.append((offset(item),dict(**n,type='table',rowCount=rows,colCount=cols,headers=[],rows=grid,cells=cells,caption=readable(caption) if caption else None)))
     title=source.stem
@@ -102,13 +106,34 @@ def export_azure(source, response, output):
         role=p.get('role','paragraph')
         if role in ('pageHeader','pageFooter','pageNumber'): continue
         identifier=f'azure-paragraph-{i}'; n=base(p,identifier); text=readable(p)
+        if p.get('content','').strip()==':formula:' and len(item_formulas(p))==1 and regions(p):
+            # A provider formula label is a prediction, not structural truth.
+            # Native text recovers small-caps headings that formula OCR mangles.
+            native_heading=known_heading(emphasis.text(p))
+            heading=native_heading or known_heading(text)
+            if heading:
+                n.update(type='heading',text=heading,level=1,explicitHierarchy=False,
+                    classificationEvidence=dict(originalRole=role,candidateLatex=text,sourceAsset=crop(regions(p)[0])[0],method='native-pdf-heading' if native_heading else 'heading-vocabulary'))
+                nodes.append((offset(p),n));continue
+        # Azure often stores display equations and their numbers as paragraphs,
+        # including two equations followed by two labels in the same block.
+        # Promote only formula-only blocks with an unambiguous label count.
+        content=p.get('content',''); fs=item_formulas(p)
+        labels=re.findall(r'\(\s*\d+[a-z]?\s*\)',content)
+        remainder=re.sub(r':formula:|\(\s*\d+[a-z]?\s*\)|\s+','',content)
+        if role in ('paragraph','formulaBlock') and fs and all(f.get('kind')=='display' for f in fs) and not remainder and content.count(':formula:')==len(fs) and len(labels) in (0,len(fs)):
+            for j,f in enumerate(fs):
+                region=dict(pageNumber=f['pageNumber'],polygon=f['polygon'])
+                equation={**n,'id':identifier if j==0 else f'{identifier}-equation-{j+1}'}
+                equation.update(type='formula',latex='',candidateLatex=f.get('value',''),verified=False,sourceAsset=crop(region)[0],page=f['pageNumber'])
+                if labels:equation['label']=labels[j]
+                nodes.append((offset(p)+j*.001,equation))
+            continue
         if role=='title':
             if title==source.stem:title=text
             n.update(type='heading',level=1,text=text,role='title')
         elif role=='sectionHeading':
-            number=re.match(r'^(\d+(?:\.\d+)*)[.\s]',text)
-            level=min(6,len(number[1].split('.'))) if number else 1 if re.match(r'^[IVXLCDM]+[.)]\s',text) else 2 if re.match(r'^[A-Z][.)]\s',text) else 1
-            n.update(type='heading',level=level,text=text,explicitHierarchy=True)
+            n.update(type='heading',level=1,text=text,explicitHierarchy=False)
         elif p.get('content','').strip()==':formula:' and regions(p):
             n.update(type='formula',latex='',candidateLatex=text,verified=False,sourceAsset=crop(regions(p)[0])[0])
         else:
@@ -119,13 +144,17 @@ def export_azure(source, response, output):
                 else:
                     if not regions(p):raise ValueError('Math paragraph has no source geometry')
                     n['sourceFragments']=[dict(asset=(v:=crop(r))[0],page=r['pageNumber'],widthEm=v[1]) for r in regions(p)]
+            else:
+                parts=emphasis.inline(p)
+                if parts is not None:n['inline']=parts
         nodes.append((offset(p),n))
     ordered=[n for _,n in sorted(nodes,key=lambda pair:pair[0])]
     if not ordered:raise ValueError('Azure returned no readable blocks')
-    hierarchy=[]; stack=[]
+    hierarchy=[]; stack=[]; inside_lettered_section=False
     for order,n in enumerate(ordered):
         n['order']=order
         if n['type']=='heading' and n.get('role')!='title':
+            n['level'],inside_lettered_section=heading_level(n['text'],inside_lettered_section)
             while stack and stack[-1]['level']>=n['level']:stack.pop()
             h=dict(id=n['id'],title=n['text'],level=n['level'],parent=stack[-1]['id'] if stack else None,children=[],blocks=[])
             if stack:stack[-1]['children'].append(h['id'])
@@ -133,7 +162,7 @@ def export_azure(source, response, output):
         n['sectionId']=stack[-1]['id'] if stack else None;n['sectionPath']=[h['id'] for h in stack]
         if stack:stack[-1]['blocks'].append(n['id'])
     paper=dict(schemaVersion=2,metadata=dict(title=title,authors=[],pageCount=len(pdf)),sections=ordered,references=[],assets=assets,hierarchy=hierarchy,
-        parser=dict(name='azure-document-intelligence',version=result.get('apiVersion','2024-11-30'),reviewRequired=True,limits='Layout and text are machine-extracted. Mathematical content uses original source crops; table text and inferred headings remain unverified.'),
+        parser=dict(name='azure-document-intelligence',version=result.get('apiVersion','2024-11-30'),reviewRequired=True,limits='Layout, text and LaTeX are machine-extracted and unverified. Supported LaTeX is typeset with original equation crops retained for comparison and fallback; table text and inferred headings remain unverified.'),
         source=dict(type='pdf',filename=source.name,checksum=hashlib.sha256(source.read_bytes()).hexdigest()))
     (output/'app-manifest.json').write_text(json.dumps(paper,ensure_ascii=False))
     (output/'quality.json').write_text(json.dumps(dict(parser=paper['parser'],page_count=len(pdf),block_count=len(ordered),asset_count=len(assets))))

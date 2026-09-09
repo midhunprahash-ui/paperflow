@@ -9,7 +9,7 @@ Object.assign(env, parseEnv(readFileSync(isolated ? '.env.docling.local' : '.env
 env.DOCLING_ENABLED = '1';
 env.DOCLING_PYTHON ||= path.join(process.cwd(), 'docling-lab/.venv/bin/python');
 env.DOCLING_SCRIPT ||= path.join(process.cwd(), 'docling-lab/app_parse.py');
-console.log(`Docling app using ${isolated ? 'isolated local' : 'configured'} Supabase: ${new URL(env.NEXT_PUBLIC_SUPABASE_URL).hostname}`);
+console.log(`PDF app using ${env.DOCUMENT_PARSER ?? 'docling'} with ${isolated ? 'isolated local' : 'configured'} Supabase: ${new URL(env.NEXT_PUBLIC_SUPABASE_URL).hostname}`);
 env.NODE_ENV = command === 'dev' ? 'development' : 'production';
 const args = ['node_modules/next/dist/bin/next', command];
 if (command !== 'build') args.push('-p', '3001');

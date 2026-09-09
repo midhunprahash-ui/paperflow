@@ -12,6 +12,7 @@ export function FeedbackWidget() {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [hint, setHint] = useState(false);
+  const widget = useRef<HTMLElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const interacted = useRef(false);
   const suppressFocus = useRef(false);
@@ -32,6 +33,18 @@ export function FeedbackWidget() {
     return () => { clearTimeout(first); clearTimeout(hide); clearInterval(repeat); };
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    const dismissOutside = (event: PointerEvent) => {
+      if (widget.current && !event.composedPath().includes(widget.current)) {
+        // Keep the draft mounted and let the clicked control receive focus.
+        setOpen(false);
+      }
+    };
+    document.addEventListener("pointerdown", dismissOutside, true);
+    return () => document.removeEventListener("pointerdown", dismissOutside, true);
+  }, [open]);
+
   function reveal() {
     interacted.current = true;
     try { sessionStorage.setItem(noticeKey, "used"); } catch {}
@@ -43,7 +56,7 @@ export function FeedbackWidget() {
     trigger.current?.focus();
     suppressFocus.current = false;
   }
-  return <aside className="feedback-widget" aria-label="Feedback" onKeyDown={event => { if (event.key === "Escape" && open) { event.preventDefault(); close(); } }}>
+  return <aside ref={widget} className="feedback-widget" aria-label="Feedback" onKeyDown={event => { if (event.key === "Escape" && open) { event.preventDefault(); close(); } }}>
     {mounted && <section id="feedback-panel" className="feedback-panel" hidden={!open} aria-label="Share feedback">
       <div className="feedback-heading"><div><strong>A little feedback?</strong><p>Help make paperflow better.</p></div><button type="button" className="icon-button" aria-label="Close feedback" onClick={close}><X size={17} /></button></div>
       <FeedbackForm onSent={close} />

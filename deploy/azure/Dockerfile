@@ -53,14 +53,15 @@ RUN pip install --no-cache-dir torch==2.13.0 torchvision==0.28.0 --index-url htt
 COPY deploy/azure/download_models.py /tmp/download_models.py
 RUN python /tmp/download_models.py
 ENV DOCLING_ARTIFACTS_PATH=/opt/docling-models
-COPY --chown=app:app docling-lab/*.py ./docling-lab/
+COPY --chown=app:app docling-lab/*.py src/lib/formula-heading-rules.json ./docling-lab/
 COPY --from=worker-build --chown=app:app /app/dist/azure-worker.cjs ./azure-worker.cjs
 USER app
 CMD ["node", "azure-worker.cjs"]
 
 # Hosted Azure inference: only PDF validation/cropping runs in this image.
 FROM web-runtime AS azure-worker
-COPY --chown=app:app docling-lab/azure_export.py ./docling-lab/
+COPY --chown=app:app docling-lab/azure_export.py docling-lab/azure_presentation.py docling-lab/native_pdf.py docling-lab/inline.py ./docling-lab/
+COPY --chown=app:app src/lib/formula-heading-rules.json ./docling-lab/
 COPY --from=worker-build --chown=app:app /app/dist/azure-worker.cjs ./azure-worker.cjs
 ENV DOCUMENT_PARSER=azure-layout AZURE_LAYOUT_SCRIPT=/app/docling-lab/azure_export.py
 USER app

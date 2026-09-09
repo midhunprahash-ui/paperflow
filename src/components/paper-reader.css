@@ -1,0 +1,220 @@
+/* Article styles live here so route CSS ordering cannot change the reading scale. */
+.reader-page {
+  --reader-font-size: 17px;
+  --reader-leading: 1.75;
+  --reader-prose: var(--font-ui), Arial, sans-serif;
+  --reader-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+.reader-page[data-text-size="large"] { --reader-font-size: 20px; }
+.reader-page .reader-layout {
+  width: min(1080px, calc(100% - 64px));
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 216px minmax(0, 720px);
+  justify-content: center;
+  align-items: start;
+  gap: 64px;
+}
+.reader-page .paper-article {
+  width: 100%;
+  min-width: 0;
+  max-width: 720px;
+  padding: 48px 0 84px;
+  font-family: var(--reader-prose);
+  font-optical-sizing: auto;
+  font-kerning: normal;
+}
+.reader-page .paper-title-block { margin: 0 0 32px; }
+.reader-page .paper-reading-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.reader-page .paper-type { color: var(--accent); font-weight: 600; }
+.reader-page .paper-title-block h1 {
+  margin: 20px 0 16px;
+  font: 650 36px/1.2 var(--reader-prose);
+  letter-spacing: -.035em;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+}
+.reader-page .paper-byline { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.reader-page .paper-date { margin: 12px 0 0; color: var(--muted); font-size: 12px; }
+.reader-page .paper-title-rule { height: 1px; margin-top: 28px; background: var(--line-soft); }
+.reader-page .paper-content,
+.reader-page .abstract-block { font-size: var(--reader-font-size); line-height: var(--reader-leading); }
+.reader-page :is(.paper-prose, .paper-paragraph, .paper-list, .paper-source-list, .paper-source-list-item) {
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: normal;
+  overflow-wrap: break-word;
+}
+.reader-page .paper-prose p,
+.reader-page .paper-paragraph { margin: 0 0 1.25em; font-size: inherit; line-height: inherit; }
+.reader-page .abstract-block {
+  scroll-margin-top: 112px;
+  margin: 0 0 40px;
+  padding: 22px 24px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+.reader-page .paper-article .abstract-block > h2 { margin: 0 0 12px; font: 600 16px/1.5 var(--reader-prose); letter-spacing: normal; color: var(--ink); }
+.reader-page .abstract-block .paper-prose > :last-child,
+.reader-page .abstract-block > .paper-paragraph:last-child { margin-bottom: 0; }
+.reader-page .paper-content :is(h2, h3, h4, h5, h6),
+.reader-page .references h2 {
+  font-family: var(--reader-prose);
+  font-weight: 600;
+  letter-spacing: -.025em;
+  line-height: 1.35;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+  scroll-margin-top: 112px;
+}
+.reader-page .paper-content h2 { font-size: 28px; margin: 48px 0 20px; }
+.reader-page .paper-content h3 { font-size: 23px; margin: 36px 0 16px; }
+.reader-page .paper-content h4 { font-size: 20px; margin: 32px 0 12px; }
+.reader-page .paper-content h5 { font-size: 18px; margin: 28px 0 12px; }
+.reader-page .paper-content h6 { font-size: 17px; margin: 24px 0 12px; }
+.reader-page .paper-heading:not([data-numbered]) { display: block; }
+.reader-page .paper-heading[data-numbered] {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: baseline;
+  gap: .6em;
+}
+.reader-page .paper-section-number { font-size: .85em; font-weight: 500; letter-spacing: 0; color: var(--muted); font-variant-numeric: tabular-nums lining-nums; }
+.reader-page .paper-article :is(strong, b) { font-weight: 650; }
+.reader-page .paper-article :is(em, i) { font-style: italic; }
+.reader-page :is(.paper-content, .abstract-block, .references) a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  text-underline-offset: .18em;
+  overflow-wrap: anywhere;
+}
+.reader-page :is(.paper-content, .abstract-block, .references) a:hover { text-decoration-color: currentColor; }
+.reader-page .paper-list,
+.reader-page .paper-prose :is(ol, ul) { margin: .5em 0 1.5em; padding-left: 1.75em; }
+.reader-page .paper-list li,
+.reader-page .paper-prose li { margin: .4em 0; padding-left: .3em; }
+.reader-page .paper-prose li :is(ol, ul) { margin: .4em 0 .6em; }
+.reader-page .paper-prose li > p { margin: .4em 0; }
+.reader-page .paper-list li::marker,
+.reader-page .paper-prose li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
+.reader-page .paper-prose .contains-task-list { list-style: none; padding-left: .25em; }
+.reader-page .paper-prose .task-list-item input { accent-color: var(--accent); margin-right: .6em; }
+.reader-page .paper-source-list { list-style: none; padding: 0; margin: .5em 0 1.5em; }
+.reader-page .paper-source-list > li,
+.reader-page .paper-source-list-item { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: .6em; align-items: baseline; margin: .4em 0; }
+.reader-page .paper-list-marker { min-width: 1.75em; color: var(--muted); font-variant-numeric: tabular-nums; }
+.reader-page .paper-prose blockquote { margin: 1.5em 0; padding: .2em 0 .2em 1.2em; border-left: 3px solid var(--line); color: var(--muted); }
+.reader-page .paper-prose blockquote > :last-child { margin-bottom: 0; }
+.reader-page .paper-prose hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
+.reader-page :is(.paper-prose, .paper-paragraph, .paper-list, .paper-source-list, .references) code {
+  font-family: var(--reader-mono);
+  font-size: .85em;
+  background: var(--bg);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  padding: .12em .35em;
+  overflow-wrap: anywhere;
+}
+.reader-page .paper-code {
+  margin: 24px 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--ink);
+  font: 13px/1.7 var(--reader-mono);
+  overflow-x: auto;
+  tab-size: 2;
+}
+.reader-page .paper-code code { padding: 0; background: none; border: 0; font: inherit; overflow-wrap: normal; white-space: pre; }
+.reader-page .paper-prose > img,
+.reader-page .paper-prose p > img { display: block; max-width: 100%; height: auto; margin: 1.5em auto; }
+.reader-page .paper-formula,
+.reader-page .paper-math-block { margin: 28px 0; padding: 20px; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--bg); }
+.reader-page .paper-formula { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 16px; text-align: center; }
+.reader-page .paper-formula > div { min-width: 0; max-width: 100%; overflow-x: auto; padding-block: 4px; }
+.reader-page .paper-formula figcaption { margin: 0; color: var(--muted); font: 13px/1.5 var(--reader-prose); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.reader-page .paper-math-block { overflow-x: auto; }
+.reader-page .katex-display { margin: .3em 0; }
+.reader-page .paper-math-inline { font-size: .95em; }
+.reader-page .paper-math-display { display: block; }
+.reader-page .paper-formula .katex-display,
+.reader-page .paper-math-display .katex-display { width: max-content; min-width: 100%; }
+.reader-page .formula-fallback code { color: var(--ink); white-space: pre-wrap; }
+.reader-page .paper-inline-source { display: inline; max-width: 100%; height: auto; background: white; }
+.reader-page .paper-extracted-inline { display: inline-flex; align-items: baseline; gap: 3px; max-width: 100%; vertical-align: baseline; }
+.reader-page .paper-extracted-math { display: inline-block; min-width: 0; max-width: 100%; overflow-x: auto; overflow-y: hidden; vertical-align: middle; padding-block: 2px; }
+.reader-page .paper-equation-original { flex: none; padding: 0 2px; color: var(--muted); font: 12px/1 var(--reader-prose); text-decoration: none; }
+.reader-page .paper-equation-original:hover { color: var(--ink); }
+.reader-page .paper-equation-original:focus-visible,
+.reader-page .paper-equation-source summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.reader-page .paper-extracted-display { max-width: 100%; overflow-x: auto; padding-block: 8px; }
+.reader-page .paper-equation-source { margin-top: 8px; text-align: left; }
+.reader-page .paper-equation-source summary { width: fit-content; cursor: pointer; color: var(--muted); font: 12px/1.5 var(--reader-prose); }
+.reader-page .paper-equation-source > div { margin-top: 8px; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.reader-page .paper-source-image { display: block; max-width: 100%; height: auto; margin: .4em auto; background: white; }
+.reader-page .paper-source-paragraph { margin: 1.3rem 0; }
+.reader-page .paper-table { max-width: 100%; }
+.reader-page .paper-table,
+.reader-page .paper-prose .table-scroll { margin: 28px 0; }
+.reader-page .table-scroll { max-width: 100%; overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); scrollbar-width: thin; }
+.reader-page .paper-table .table-scroll { margin: 0; }
+.reader-page :is(.paper-table, .paper-prose) table { width: 100%; min-width: 480px; border-collapse: collapse; table-layout: auto; background: var(--surface); font: 14px/1.6 var(--reader-prose); }
+.reader-page :is(.paper-table, .paper-prose) :is(th, td) { padding: 12px 16px; min-width: 80px; border-bottom: 1px solid var(--line-soft); color: var(--ink); text-align: left; vertical-align: top; white-space: normal; overflow-wrap: break-word; }
+.reader-page :is(.paper-table, .paper-prose) th { font-size: 13px; font-weight: 600; text-transform: none; letter-spacing: normal; background: var(--bg); }
+.reader-page :is(.paper-table, .paper-prose) tr:last-child td { border-bottom: 0; }
+.reader-page .paper-source-caption,
+.reader-page :is(.paper-figure, .paper-table) figcaption { font: 13px/1.65 var(--reader-prose); color: var(--muted); text-align: left; margin: 12px 0 0; }
+.reader-page .paper-source-caption { margin-bottom: 28px; }
+.reader-page .paper-figure { margin: 32px 0; }
+.reader-page .paper-figure a { display: block; position: relative; }
+.reader-page .paper-figure img { width: 100%; height: auto; max-height: 650px; object-fit: contain; border-radius: var(--radius); background: white; }
+.reader-page .paper-figure a > span { position: absolute; right: 10px; bottom: 10px; padding: 7px 9px; border-radius: var(--radius); display: flex; align-items: center; gap: 5px; color: white; background: rgb(0 0 0 / 68%); font: 11px var(--reader-prose); }
+.reader-page .paper-footnote { margin: 28px 0; padding: 14px 0 14px 18px; border-left: 1px solid var(--line); color: var(--muted); font-size: 14px; line-height: 1.7; }
+.reader-page .paper-footnote sup { margin-right: 8px; color: var(--accent); }
+.reader-page .references { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
+.reader-page .references h2 { margin: 0 0 20px; font-size: 28px; }
+.reader-page .paper-reference-list { list-style: none; padding: 0; margin: 0; }
+.reader-page .paper-reference-list li { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 14px; margin: 0 0 16px; padding: 0; color: var(--muted); font: 14px/1.75 var(--reader-prose); overflow-wrap: anywhere; }
+.reader-page .paper-reference-number { min-width: 2em; font-variant-numeric: tabular-nums; }
+.reader-page .paper-prose [data-footnotes] { border-top: 1px solid var(--line); margin-top: 2em; padding-top: 1em; font: 14px/1.7 var(--reader-prose); color: var(--muted); }
+.reader-page .paper-prose [data-footnotes] .sr-only { margin: -1px; }
+.reader-page .paper-end { margin-top: 64px; text-align: center; }
+.reader-page .paper-end > span { display: block; width: 34px; height: 1px; margin: auto; background: var(--line); }
+.reader-page .paper-end p { margin: 18px 0 8px; color: var(--muted); font-size: 12px; }
+.reader-page .paper-end a { color: var(--accent); font-size: 13px; font-weight: 600; }
+.reader-page .reader-toc nav a,
+.reader-page .mobile-outline nav a { margin-left: 0; font: 13px/1.6 var(--reader-prose); }
+.reader-page .toc-number { color: inherit; font-weight: 500; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+.reader-page .reader-toc nav .toc-level-5,
+.reader-page .mobile-outline nav .toc-level-5 { padding-left: 52px; }
+.reader-page .reader-toc nav .toc-level-6,
+.reader-page .mobile-outline nav .toc-level-6 { padding-left: 60px; }
+.reader-page .paper-article :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 1150px) {
+  .reader-page .reader-layout { grid-template-columns: 200px minmax(0, 720px); gap: 40px; }
+}
+@media (max-width: 900px) {
+  .reader-page .reader-layout { display: block; width: min(720px, calc(100% - 40px)); }
+  .reader-page .paper-article { padding-top: 32px; }
+}
+@media (max-width: 640px) {
+  .reader-page .reader-layout { width: calc(100% - 36px); }
+  .reader-page .paper-title-block h1 { font-size: 30px; }
+  .reader-page .abstract-block { padding: 18px; }
+  .reader-page .paper-formula,
+  .reader-page .paper-math-block { padding: 14px; }
+  .reader-page .paper-code { padding: 16px; }
+  .reader-page .paper-reference-list li { gap: 9px; }
+}
